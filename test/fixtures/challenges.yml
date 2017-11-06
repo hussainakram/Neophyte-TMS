@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  duration: MyString
+  points: 1
+  category: MyString
+  level: MyString
+  references: 
+
+two:
+  name: MyString
+  description: MyText
+  duration: MyString
+  points: 1
+  category: MyString
+  level: MyString
+  references: 
