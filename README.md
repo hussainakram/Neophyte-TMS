@@ -1,12 +1,11 @@
-Neophyte Lms
+Neophyte LMS
 ================
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
-provided by the [RailsApps Project](http://railsapps.github.io/).
-
-Rails Composer is supported by developers who purchase our RailsApps tutorials.
+Description
+-----------
+Neophyte LMS is a brand new solution to manage, evaluate and assess employees in a company with a lot of mixed functionalities and better perfomance. This app is developed in Rails 5.1.
 
 Problems? Issues?
 -----------
