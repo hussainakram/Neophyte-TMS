@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171106123617) do
+ActiveRecord::Schema.define(version: 20171107082731) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,10 +19,10 @@ ActiveRecord::Schema.define(version: 20171106123617) do
     t.string "title"
     t.text "description", default: ""
     t.string "status", default: ""
-    t.bigint "challenges_id"
+    t.bigint "challenge_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["challenges_id"], name: "index_bugs_on_challenges_id"
+    t.index ["challenge_id"], name: "index_bugs_on_challenge_id"
   end
 
   create_table "challenges", force: :cascade do |t|
@@ -32,10 +32,10 @@ ActiveRecord::Schema.define(version: 20171106123617) do
     t.integer "points", default: 0
     t.string "category", default: ""
     t.string "level", default: ""
-    t.bigint "projects_id"
+    t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["projects_id"], name: "index_challenges_on_projects_id"
+    t.index ["project_id"], name: "index_challenges_on_project_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -53,10 +53,10 @@ ActiveRecord::Schema.define(version: 20171106123617) do
   create_table "departments", force: :cascade do |t|
     t.string "name"
     t.text "description", default: ""
-    t.bigint "companies_id"
+    t.bigint "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["companies_id"], name: "index_departments_on_companies_id"
+    t.index ["company_id"], name: "index_departments_on_company_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -65,10 +65,10 @@ ActiveRecord::Schema.define(version: 20171106123617) do
     t.string "category", default: ""
     t.datetime "start_date"
     t.datetime "end_data"
-    t.bigint "departments_id"
+    t.bigint "department_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["departments_id"], name: "index_projects_on_departments_id"
+    t.index ["department_id"], name: "index_projects_on_department_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -78,10 +78,24 @@ ActiveRecord::Schema.define(version: 20171106123617) do
     t.string "option3"
     t.string "option4"
     t.string "correct_option"
-    t.bigint "quizzes_id"
+    t.bigint "quiz_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["quizzes_id"], name: "index_questions_on_quizzes_id"
+    t.index ["quiz_id"], name: "index_questions_on_quiz_id"
+  end
+
+  create_table "quiz_attempts", force: :cascade do |t|
+    t.integer "earned_marks"
+    t.string "status"
+    t.integer "attempted_questions"
+    t.integer "correct_answers"
+    t.string "time_taken", default: "--:--"
+    t.bigint "user_id"
+    t.bigint "quiz_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["quiz_id"], name: "index_quiz_attempts_on_quiz_id"
+    t.index ["user_id"], name: "index_quiz_attempts_on_user_id"
   end
 
   create_table "quizzes", force: :cascade do |t|
@@ -89,19 +103,21 @@ ActiveRecord::Schema.define(version: 20171106123617) do
     t.string "time_allowed", default: "--:--"
     t.integer "no_of_questions", default: 0
     t.integer "pass_score", default: 0
-    t.bigint "projects_id"
+    t.bigint "project_id"
+    t.bigint "quiz_attempt_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["projects_id"], name: "index_quizzes_on_projects_id"
+    t.index ["project_id"], name: "index_quizzes_on_project_id"
+    t.index ["quiz_attempt_id"], name: "index_quizzes_on_quiz_attempt_id"
   end
 
   create_table "solutions", force: :cascade do |t|
     t.text "description", default: ""
     t.string "link", default: ""
-    t.bigint "bugs_id"
+    t.bigint "bug_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["bugs_id"], name: "index_solutions_on_bugs_id"
+    t.index ["bug_id"], name: "index_solutions_on_bug_id"
   end
 
   create_table "users", force: :cascade do |t|

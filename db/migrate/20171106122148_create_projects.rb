@@ -6,7 +6,7 @@ class CreateProjects < ActiveRecord::Migration[5.1]
       t.string :category, default: ""
       t.timestamp :start_date
       t.timestamp :end_data
-      t.references :departments
+      t.references :department
 
       t.timestamps
     end

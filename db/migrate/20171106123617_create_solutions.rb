@@ -3,7 +3,7 @@ class CreateSolutions < ActiveRecord::Migration[5.1]
     create_table :solutions do |t|
       t.text :description, default: ""
       t.string :link, default: ""
-      t.references :bugs
+      t.references :bug
 
       t.timestamps
     end

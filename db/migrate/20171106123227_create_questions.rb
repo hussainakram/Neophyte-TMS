@@ -7,7 +7,7 @@ class CreateQuestions < ActiveRecord::Migration[5.1]
       t.string :option3
       t.string :option4
       t.string :correct_option
-      t.references :quizzes
+      t.references :quiz
 
       t.timestamps
     end

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  earned_marks: 1
+  status: MyString
+  attempted_questions: 1
+  correct_answers: 1
+  time_taken: MyString
+
+two:
+  earned_marks: 1
+  status: MyString
+  attempted_questions: 1
+  correct_answers: 1
+  time_taken: MyString

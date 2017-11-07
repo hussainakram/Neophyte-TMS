@@ -5,7 +5,8 @@ class CreateQuizzes < ActiveRecord::Migration[5.1]
       t.string :time_allowed, default: "--:--"
       t.integer :no_of_questions, default: 0
       t.integer :pass_score, default: 0
-      t.references :projects
+      t.references :project
+      t.references :quiz_attempt
 
       t.timestamps
     end

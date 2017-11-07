@@ -7,7 +7,7 @@ class CreateChallenges < ActiveRecord::Migration[5.1]
       t.integer :points, default: 0
       t.string :category, default: ""
       t.string :level, default: ""
-      t.references :projects
+      t.references :project
 
       t.timestamps
     end

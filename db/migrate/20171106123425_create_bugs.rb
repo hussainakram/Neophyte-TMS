@@ -4,7 +4,7 @@ class CreateBugs < ActiveRecord::Migration[5.1]
       t.string :title
       t.text :description, default: ""
       t.string :status, default: ""
-      t.references :challenges
+      t.references :challenge
 
       t.timestamps
     end
