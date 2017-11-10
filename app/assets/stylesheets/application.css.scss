@@ -13,3 +13,6 @@
  *= require_tree .
  *= require_self
  */
+@import "bootswatch/_variables";
+@import "bootswatch/_bootswatch";
+@import 'home';

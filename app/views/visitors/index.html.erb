@@ -1,1 +1,17 @@
-<h3>Welcome</h3>
+
+<% if user_signed_in? %>
+  <div class="jumbotron">
+    <h1 class="display-3">Welcome Back!!!</h1>
+    <p class="lead">Neophyte LMS is the ultimate solution for your compnay or team in which you want newbies to be trained with automatic system. We have a full fledge system for training your team.</p>
+  </div>
+  <% else %>
+    <div class="jumbotron">
+      <h1 class="display-3">Welcome</h1>
+      <p class="lead">Neophyte LMS is the ultimate solution for your compnay or team in which you want newbies to be trained with automatic system. We have a full fledge system for training your team.</p>
+      <hr class="my-4">
+      <p class="text-center">Create your team by Signing up or Sign in to your team.</p>
+      <p class="lead text-center">
+        <%= render 'layouts/nav_links_for_auth' %>
+      </p>
+    </div>
+<% end  %>
