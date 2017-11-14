@@ -18,7 +18,10 @@
           <a class="nav-link" href="#">About</a>
         </li>
       </ul>
-      <%= render 'layouts/nav_links_for_auth' %>
+      <% if user_signed_in? %>
+        <%= link_to 'Edit account', edit_user_registration_path, class: "btn btn-default" %>
+        <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "btn btn-default" %>
+      <% end %>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
