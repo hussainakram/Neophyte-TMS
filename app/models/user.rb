@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :projects
   has_many :quizzes, through: :quiz_attempts
   has_many :quiz_attempts
+  has_many :company_users
   has_many :companies, through: :company_users
 
   def set_default_role
