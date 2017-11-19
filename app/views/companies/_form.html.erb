@@ -1,0 +1,58 @@
+<%= form_with(model: company, local: true, html: {class: "form-horizontal center"}) do |f| %>
+  <% if company.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+
+      <ul>
+      <% company.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :name, "Name:", class: "col-md-4 control-label" %>
+    <div class="col-md-5">
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :category, "Category:", class: "col-md-4 control-label" %>
+    <div class="col-md-5">
+      <%= f.text_field :category, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, "Description:", class: "col-md-4 control-label" %>
+    <div class="col-md-8">
+      <%= f.text_area :description, class: "form-control", size: "10x6" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :ceo, "CEO:", class: "col-md-4 control-label" %>
+    <div class="col-md-5">
+      <%= f.text_field :ceo, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :location, "Location:", class: "col-md-4 control-label" %>
+    <div class="col-md-5">
+      <%= f.text_field :location, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :email, "Email:", class: "col-md-4 control-label" %>
+    <div class="col-md-5">
+      <%= f.text_field :email, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :contact_no, "Contact:", class: "col-md-4 control-label" %>
+    <div class="col-md-5">
+      <%= f.text_field :contact_no, class: "form-control" %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit", class: "btn btn-outline-info my-2 my-sm-0 offset-md-3" %>
+  </div>
+<% end %>

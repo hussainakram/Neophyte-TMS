@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Companies</h1>
+
+<table class="table table-responsive table-hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Location</th>
+      <th>CEO</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @companies.each do |company| %>
+      <tr>
+        <td><%= company.id %></td>
+        <td><%= company.name %></td>
+        <td><%= company.location %></td>
+        <td><%= company.ceo %></td>
+        <td>
+          <%= link_to '', company, class: 'fa fa-eye fa-lg btn' %>
+          <%= link_to '', edit_company_path(company), class: 'fa fa-edit fa-lg btn' %>
+          <%= link_to '', company, method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-remove fa-lg btn' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to ' Create New Company', new_company_path, class: "fa fa-plus-circle btn btn-outline-primary my-2 my-sm-0 btn-lg" %>
