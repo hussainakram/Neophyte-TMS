@@ -30,6 +30,22 @@ Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.
 Getting Started
 ---------------
 
+First make sure you have [RVM](https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-on-ubuntu-14-04-using-rvm) intstalled on your machine and the specified version of Ruby.
+
+**Now to Clone run**
+```
+git clone git@github.com:hussainakram/neophyte-lms.git
+```
+Go to project's directory and run following commands:
+```
+rake db:create
+rake db:migrate
+rake db:seed
+bundle install
+```
+All set and now to start server run ```rails server```.
+
+
 Documentation and Support
 -------------------------
 
