@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to '', companies_path, class: 'fa fa-lg fa-arrow-left btn' %>
+<div class="card col-md-7 offset-md-2">
+  <div class="card-header">
+    <b><%= @company.name %></b>
+    <%= link_to '', edit_company_path(@company), class: 'fa fa-edit fa-lg btn pull-right' %>
+  </div>
+  <div class="card-block">
+    <h5>Description:</h5>
+    <p class="card-text"><%= @company.description %></p>
+    <h5>Category:</h5>
+    <p class="card-text"><%= @company.category %></p>
+    <h5>Location:</h5>
+    <p class="card-text"><%= @company.location %></p>
+    <h5>CEO:</h5>
+    <p class="card-text"><%= @company.ceo %></p>
+    <h5>Email:</h5>
+    <p class="card-text"><%= @company.email %></p>
+    <h5>Contact:</h5>
+    <p class="card-text"><%= @company.contact_no %></p>
+  </div>
+</div>
