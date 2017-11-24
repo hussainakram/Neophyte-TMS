@@ -8,8 +8,8 @@
 user = CreateAdminService.new.call
 puts 'CREATED ADMIN USER: ' << user.email
 # Environment variables (ENV['...']) can be set in the file .env file.
-Company.create!(name: "i2c", description: "One of the top software companies in Pakistan working on banking systems and problems regarding payments.", location: "04 Old FCC Ferozepur Rd, Lahore 54600", contact_no: "(042) 111 000 048", email: "connect@i2cinc.com", category: "Business", ceo: "Saleem ghori")
-Company.create!(name: "NetSol Technologies", description: "ONetSol Technologies provides software solutions for asset finance, automotive finance, leasing management, lending, contract origination and activation.", location: "Main Ghazi Road, Lahore 54792", contact_no: " 1114 48800", email: "info@netsoltech.com", category: "Business", ceo: "Andrew Nicol")
+User.last.where(name: "i2c", description: "One of the top software companies in Pakistan working on banking systems and problems regarding payments.", location: "04 Old FCC Ferozepur Rd, Lahore 54600", contact_no: "(042) 111 000 048", email: "connect@i2cinc.com", category: "Business", ceo: "Saleem ghori").first_or_create!
+User.last.where(name: "NetSol Technologies", description: "ONetSol Technologies provides software solutions for asset finance, automotive finance, leasing management, lending, contract origination and activation.", location: "Main Ghazi Road, Lahore 54792", contact_no: " 1114 48800", email: "info@netsoltech.com", category: "Business", ceo: "Andrew Nicol").first_or_create!
 Company.first.departments.where(name: 'Web Team', description: "The team that develops soft systems and solutions for business growth.").first_or_create!
 Company.last.departments.where(name: 'HR Team', description: "The team that is managing our employees, providing and facilitating them.").first_or_create!
 Department.first.projects.where(name: "e-banking system", description: "A solution to traditional banking system", category: "Banking System", start_date: DateTime.now).first_or_create!
