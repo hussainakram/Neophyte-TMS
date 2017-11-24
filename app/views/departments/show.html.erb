@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to '', departments_path, class: 'fa fa-lg fa-arrow-left btn' %>
+<div class="card col-md-7 offset-md-2">
+  <div class="card-header">
+    <b><%= @department.name %></b>
+    <%= link_to '', edit_department_path(@department), class: 'fa fa-edit fa-lg btn pull-right' %>
+  </div>
+  <div class="card-block">
+    <h5>Name:</h5>
+    <p class="card-text"><%= @department.name %></p>
+    <h5>Description:</h5>
+    <p class="card-text"><%= @department.description %></p>
+    
+  </div>
+</div>
