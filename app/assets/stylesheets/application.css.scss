@@ -19,7 +19,7 @@
 @import 'home';
 
 .home_page {
-  background: linear-gradient(rgba(20,20,20, 0.7),rgba(20,20,20, 0)), url(home.jpg);
+  background: linear-gradient(rgba(20,20,20, 0.7),rgba(20,20,20, 0)), image-url("home.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 600px;
