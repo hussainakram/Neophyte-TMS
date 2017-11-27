@@ -17,3 +17,57 @@
 @import "bootswatch/_variables";
 @import "bootswatch/_bootswatch";
 @import 'home';
+
+.home_page {
+  background: linear-gradient(rgba(20,20,20, 0.7),rgba(20,20,20, 0)), url(home.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 600px;
+  border-radius: 20px;
+}
+
+.nav-item .nav-link {
+  color: white !important;
+}
+
+.home_brain {
+  width: 300px;
+  height: 250px;
+  border-radius: 100px;
+}
+
+.jumbo-image {
+  color: white;
+  padding-top: 10px;
+}
+
+main {
+  margin-top: 0px !important;
+}
+.main-heading {
+  font-family: cursive;
+  color: white;
+}
+
+.sign-in-up-button {
+  border-radius: 8px !important;
+  margin-right: 5px;
+}
+
+.lead {
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: 195px;
+  margin-right: 210px;
+  color: white;
+  border:1px solid #f8b28e;
+  border-radius: 10px;
+}
+
+.three-steps {
+  font-family: monospace;
+}
+.quiz-image {
+  border-radius: 50px;
+  height: 250px;
+}
