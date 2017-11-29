@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :companies, through: :company_users
 
   def set_default_role
-    self.role ||= :admin
+    #self.role ||= :admin
   end
 
   # Include default devise modules. Others available are:

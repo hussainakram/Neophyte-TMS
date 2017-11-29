@@ -1,20 +1,35 @@
 
 <% if user_signed_in? %>
-  <div class="jumbotron">
-    <h1 class="display-3">Welcome Back!!!</h1>
-    <p class="lead">Neophyte LMS is the ultimate solution for your compnay or team in which you want newbies to be trained with automatic system. We have a full fledge system for training your team.</p>
-    <p>Let's get back to Work</p>
-    <%= link_to "Your Companies", companies_path, class: "btn btn-outline-info my-2 my-sm-0 offset-md-4" %>
-    <%= link_to "Create Company", new_company_path, class: "btn btn-outline-info my-2 my-sm-0 " %>
+  <div class="container home_page">
+    <h1 class="text-center main-heading" >Welcome Back!!!</h1>
+    <p class="lead">An ultimate solution for training and evaluating new employees in your company.</p>
+    <div class="company-btn">
+      <%= link_to "Your Companies", companies_path, class: "btn btn-success my-2 my-sm-0 offset-md-4" %>
+      <%= link_to "Create Company", new_company_path, class: "btn btn-info my-2 my-sm-0 " %>
+    </div>
   </div>
   <% else %>
-    <div class="jumbotron">
-      <h1 class="display-3">Welcome</h1>
-      <p class="lead">Neophyte LMS is the ultimate solution for your compnay or team in which you want newbies to be trained with automatic system. We have a full fledge system for training your team.</p>
-      <hr class="my-4">
-      <p class="text-center">Create your team by Signing up or Sign in to your team.</p>
-      <p class="lead text-center">
-        <%= render 'layouts/nav_links_for_auth' %>
-      </p>
+    <div class="container jumbo-image home_page">
+      <h3 class="text-center main-heading">A perfect and full-featured Training System</h3>
+      <p class="lead">An ultimate solution for training and evaluating new employees in your company.</p>
     </div>
 <% end  %>
+<hr>
+<div class="container three-steps">
+  <div class="row">
+    <div class="col-md-4">
+      <h3 class="offset-md-4">Train</h3>
+      <br>
+      <%= image_tag "brain.jpg", class: "home_brain" %>
+    </div>
+    <div class="col-md-4">
+      <h3 class="offset-md-3">Take test</h3>
+      <br>
+      <%= image_tag "quiz.jpg", class: 'quiz-image' %>
+    </div>
+    <div class="col-md-4">
+      <h3 class="offset-md-4">Evaluate</h3>
+      <%= image_tag "prgress.jpg", class: "home_brain" %>
+    </div>
+  </div>
+</div>
