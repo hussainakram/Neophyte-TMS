@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :companies
+  resources :companies, :departments
 
   root to: 'visitors#index'
   devise_for :users
