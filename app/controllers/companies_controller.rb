@@ -4,12 +4,12 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
-    @companies = current_user.companies.all 
+    @companies = current_user.companies.all
   end
 
   # GET /companies/1
   # GET /companies/1.json
-  def show 
+  def show
 
   end
 
@@ -27,12 +27,12 @@ class CompaniesController < ApplicationController
   def create
 
     @company = Company.new(company_params)
-    
+
     respond_to do |format|
       if @company.save
         format.html { redirect_to @company, notice: 'Company was successfully created.' }
         format.json { render :show, status: :created, location: @company }
-        @company.company_users.create(:user_id => current_user.id);
+        @company.company_users.create(user_id: current_user.id);
       else
         format.html { render :new }
         format.json { render json: @company.errors, status: :unprocessable_entity }
