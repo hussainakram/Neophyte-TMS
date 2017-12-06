@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to '', projects_path, class: 'fa fa-lg fa-arrow-left btn' %>
+<div class="card col-md-7 offset-md-2">
+  <div class="card-header">
+    <b><%= @project.name %></b>
+    <%= link_to '', edit_project_path(@project), class: 'fa fa-edit fa-lg btn pull-right' %>
+  </div>
+  <div class="card-block">
+    <h5>Description:</h5>
+    <p class="card-text"><%= @project.description %></p>
+    <h5>Category:</h5>
+    <p class="card-text"><%= @project.category %></p>
+    <h5>Start_Date:</h5>
+    <p class="card-text"><%= @project.start_date %></p>
+    <h5>End_Date:</h5>
+    <p class="card-text"><%= @project.end_date %></p>
+    <h5>Last_Updated_At:</h5>
+    <p class="card-text"><%= @project.updated_at %></p>
+  </div>
+</div>
