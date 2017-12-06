@@ -19,19 +19,16 @@
 @import 'home';
 
 .home_page {
-  background: linear-gradient(rgba(20,20,20, 0.7),rgba(20,20,20, 0)), url(home.jpg);
+  background: linear-gradient(rgba(20,20,20, 0.7),rgba(20,20,20, 0)), image-url("home.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 600px;
   border-radius: 20px;
 }
 
-.nav-item .nav-link {
-  color: white !important;
-}
 
 .home_brain {
-  width: 300px;
+  width: 330px;
   height: 250px;
   border-radius: 100px;
 }
@@ -71,3 +68,10 @@ main {
   border-radius: 50px;
   height: 250px;
 }
+body{
+  font-family: 'Metrophobic', sans-serif;
+  margin-top: 60px;
+
+}
+
+
