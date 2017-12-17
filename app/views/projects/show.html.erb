@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to '', projects_path, class: 'fa fa-lg fa-arrow-left btn' %>
+<%= link_to '', department_projects_path(@project.department_id), class: 'fa fa-lg fa-arrow-left btn' %>
 <div class="card col-md-7 offset-md-2">
   <div class="card-header">
     <b><%= @project.name %></b>

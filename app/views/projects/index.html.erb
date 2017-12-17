@@ -10,9 +10,9 @@
       <th>Category</th>
       <th>Start_Date</th>
       <th>End_Date</th>
-      <th>Last_Updated_At</th> 
+      <th>Last_Updated_At</th>
     </tr>
-    
+
   </thead>
 
   <tbody>
@@ -23,7 +23,7 @@
         <td><%= project.category %></td>
         <td><%= project.start_date %></td>
         <td><%= project.end_date %></td>
-        <td><%= project.updated_at %></td> 
+        <td><%= project.updated_at %></td>
         <td>
           <%= link_to '', project, class: 'fa fa-eye fa-lg btn' %>
           <%= link_to '', edit_project_path(project), class: 'fa fa-edit fa-lg btn' %>
@@ -35,4 +35,4 @@
 
 <br>
 
-<%= link_to ' Create New project', new_project_path, class: "fa fa-plus-circle btn btn-outline-primary my-2 my-sm-0 btn-lg btn btn-info" %>
+<%= link_to ' Create New project', new_department_project_path, class: "fa fa-plus-circle btn btn-outline-primary my-2 my-sm-0 btn-lg btn btn-info" %>

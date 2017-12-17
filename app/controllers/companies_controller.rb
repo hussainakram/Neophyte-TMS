@@ -30,7 +30,7 @@ class CompaniesController < ApplicationController
 
     respond_to do |format|
       if @company.save
-        format.html { redirect_to @company, notice: 'Company was successfully created.' }
+        format.html { redirect_to company_departments_path(@company.id), notice: 'Company was successfully created.' }
         format.json { render :show, status: :created, location: @company }
         @company.company_users.create(user_id: current_user.id);
       else
