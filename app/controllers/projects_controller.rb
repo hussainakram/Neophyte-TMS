@@ -4,7 +4,8 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @department = Department.find(params[:department_id])
+    @projects = @department.projects
   end
 
   # GET /projects/1
@@ -14,7 +15,8 @@ class ProjectsController < ApplicationController
 
   # GET /projects/new
   def new
-    @project = Project.new
+    @department = Department.find(params[:department_id])
+    @project = @department.projects.new
   end
 
   # GET /projects/1/edit
@@ -24,7 +26,8 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    @project = Project.new(project_params)
+    @department = Department.find(params[:department_id])
+    @project = @department.projects.build(project_params)
 
     respond_to do |format|
       if @project.save
@@ -56,7 +59,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project.destroy
     respond_to do |format|
-      format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
+      format.html { redirect_to department_projects_path(@project.department_id), notice: 'Project was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
