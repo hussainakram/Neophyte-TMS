@@ -4,7 +4,8 @@ class DepartmentsController < ApplicationController
   # GET /departments
   # GET /departments.json
   def index
-    @departments = Department.all
+    @current_company = Company.find(params[:company_id])
+    @departments = @current_company.departments
   end
 
   # GET /departments/1
@@ -14,7 +15,8 @@ class DepartmentsController < ApplicationController
 
   # GET /departments/new
   def new
-    @department = Department.new
+    @company = Company.find(params[:company_id])
+    @department = @company.departments.new
   end
 
   # GET /departments/1/edit
@@ -24,11 +26,11 @@ class DepartmentsController < ApplicationController
   # POST /departments
   # POST /departments.json
   def create
-    @department = Department.new(department_params)
-
+    @company = Company.find(params[:company_id])
+    @department = @company.departments.build(department_params)
     respond_to do |format|
       if @department.save
-        format.html { redirect_to @department, notice: 'Department was successfully created.' }
+        format.html { redirect_to department_projects_path(@department.id), notice: 'Department was successfully created.' }
         format.json { render :show, status: :created, location: @department }
       else
         format.html { render :new }
@@ -56,7 +58,7 @@ class DepartmentsController < ApplicationController
   def destroy
     @department.destroy
     respond_to do |format|
-      format.html { redirect_to departments_url, notice: 'Department was successfully destroyed.' }
+      format.html { redirect_to company_departments_path(@department.company_id), notice: 'Department was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

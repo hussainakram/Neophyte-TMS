@@ -1,4 +1,4 @@
-<%= form_with(model: project, local: true, html: {class: "form-horizontal center"}) do |f| %>
+<%= form_with(model: project, url: [@department, @project], local: true, html: {class: "form-horizontal center"}) do |f| %>
   <% if project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -28,7 +28,7 @@
       <%= f.text_area :description, class: "form-control", size: "10x6" %>
     </div>
   </div>
-  
+
   <div class="form-group">
     <%= f.label :start_date, "Start Date:", class: "col-md-4 control-label" %>
     <div class="col-md-5">
