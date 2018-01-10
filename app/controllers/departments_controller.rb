@@ -4,8 +4,8 @@ class DepartmentsController < ApplicationController
   # GET /departments
   # GET /departments.json
   def index
-    current_company = Company.find(params[:company_id])
-    @departments = current_company.departments
+    @current_company = Company.find(params[:company_id])
+    @departments = @current_company.departments
   end
 
   # GET /departments/1
