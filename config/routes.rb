@@ -3,7 +3,9 @@ Rails.application.routes.draw do
     resources :companies do
       resources :departments do
         resources :projects do
-          resources :challenges
+          resources :challenges do
+            resources :quizzes
+          end
         end
       end
     end

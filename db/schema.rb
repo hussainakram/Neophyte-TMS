@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205220711) do
+ActiveRecord::Schema.define(version: 20180112122732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.string "content", default: ""
+    t.boolean "correct"
+    t.bigint "question_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
+  end
 
   create_table "bugs", force: :cascade do |t|
     t.string "title"
@@ -82,11 +91,6 @@ ActiveRecord::Schema.define(version: 20171205220711) do
 
   create_table "questions", force: :cascade do |t|
     t.text "statement"
-    t.string "option1"
-    t.string "option2"
-    t.string "option3"
-    t.string "option4"
-    t.string "correct_option"
     t.bigint "quiz_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -116,7 +120,8 @@ ActiveRecord::Schema.define(version: 20171205220711) do
     t.bigint "quiz_attempt_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["project_id"], name: "index_quizzes_on_project_id"
+    t.bigint "challenge_id"
+    t.index ["challenge_id"], name: "index_quizzes_on_challenge_id"
     t.index ["quiz_attempt_id"], name: "index_quizzes_on_quiz_attempt_id"
   end
 
@@ -148,4 +153,5 @@ ActiveRecord::Schema.define(version: 20171205220711) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "answers", "questions"
 end
