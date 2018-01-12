@@ -1,0 +1,19 @@
+<hr class="faded">
+<div>
+  <%= f.label :statement, "Question:" %>
+  <div class="row">
+    <div class="offset-md-1"></div>
+    <%= f.text_field :statement, class: 'form-control col-md-8' %>
+    <%= link_to_remove_association " Remove", f, { wrapper_class: '.question-block', class: 'fa fa-close col-md-3' } %>
+  </div>
+
+  <br>
+
+  <div class="col-md-12 answers">
+    <%= f.fields_for :answers do |builder| %>
+      <%= render 'answer_fields', f: builder %>
+    <% end %>
+  </div>
+</div>
+<%= link_to_add_association ' Add Answer', f, :answers, 'data-association-insertion-traversal' => 'append', 'data-association-insertion-node' => '.answers', class: 'btn btn-sm btn-outline-success fa fa-plus btn-xs offset-md-3' %>
+<br>

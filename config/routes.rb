@@ -4,7 +4,10 @@ Rails.application.routes.draw do
       resources :departments do
         resources :projects do
           resources :challenges do
+
+            resources :quizzes
             resources :resources
+
           end
         end
       end

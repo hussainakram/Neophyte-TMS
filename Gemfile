@@ -12,11 +12,12 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem "font-awesome-rails"
+gem 'cocoon'
+gem 'formtastic', '~> 3.0'
 gem "paperclip", "~> 5.0.0.beta1"
 gem 'yt', '~> 0.13.7'
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.1.1.0'
-
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -32,7 +33,7 @@ group :development do
 
 end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'bootstrap', '~> 4.0.0.beta.2'
 gem 'devise'
 gem 'high_voltage'
 gem 'jquery-rails'
