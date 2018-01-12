@@ -1,25 +1,11 @@
-<p id="notice"><%= notice %></p>
 
+<hr>
 <h1>Resources</h1>
+<div class= "container">
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @resources.each do |resource| %>
-      <tr>
-        <td><%= link_to 'Show', resource %></td>
-        <td><%= link_to 'Edit', edit_resource_path(resource) %></td>
-        <td><%= link_to 'Destroy', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= image_tag("resource.png", class: " img-thumbnail img-fluid resource_share") %>
+</div>
 
 <br>
 
-<%= link_to 'New Resource', new_resource_path %>
+<%= link_to 'Add Resources', new_resource_path , class: "fa fa-plus-circle btn btn-outline-primary my-2 my-sm-0 btn-lg btn btn-info link_button" %>
