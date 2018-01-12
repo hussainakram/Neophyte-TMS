@@ -17,6 +17,9 @@
 @import "bootswatch/_variables";
 @import "bootswatch/_bootswatch";
 @import 'home';
+@import 'resource';
+@import 'SignUpForm';
+@import "bootstrap";
 
 .home_page {
   background: linear-gradient(rgba(20,20,20, 0.7),rgba(20,20,20, 0)), image-url("home.jpg");
@@ -75,5 +78,6 @@ body{
   margin-top: 60px;
 
 }
+
 
 
