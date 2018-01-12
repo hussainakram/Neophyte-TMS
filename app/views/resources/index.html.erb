@@ -3,46 +3,68 @@
 <h1>Available Resources</h1>
 
 
-<% # if (@resource.image != null) %>
+
 <h1> Images </h1>
 <div class="container ">
+ <div class="gallery">
 	<div class="well well-lg">
      <% @resources.each do |resource| %>
-     	<div class= "img-thumbnail resource_img">
+    	 <%  if (resource.image != nil) %>
+     	<div class= " resource_img">
+     		<figure>
+     			<img>
 			<%= image_tag resource.image.url %>
+		</img>
+			</figure>
 		</div>
+		<%  end %>
  	<% end %>
  </div>
 </div>
-<% # end %>
+</div>
+
 <br><br>
-<% # if @resource.document? %>
 <h1> Documents </h1>
 	<div class="container ">
 		<div class="well well-lg">
 			<% @resources.each do |resource| %>
-			<div class=" resource_doc">
-     			<%= link_to "My document", resource.document.url, target: "_blank", class: 'btn btn-lg offset-md-5 btn-outline-primary'%>
-     		</div>
+				<%  if resource.document != nil %>
+					<div class=" resource_doc">
+     				<%= link_to "My document", resource.document.url, target: "_blank", class: 'btn btn-lg offset-md-5 btn-outline-primary'%>
+     				</div>
+     			<% end %>
  			<% end %>
  		</div>
  	</div>
- <%# end %>
+ 
 <br><br>
-<% #if @resource.link? %>
+
 <h1> Youtube Videos </h1>
 	<div class="container ">
 		<div class="well well-lg">
 			<% @resources.each do |resource| %>
-			<div class="resource_links">
-     			<%= embed(resource.link) %>
-     		</div>
+				<% if resource.link != nil %>
+					<div class="resource_links">
+     					<%= embed(resource.link) %>
+     				</div>
+     			<% end %>
 			<% end %>
 		</div>
 	</div>
-<% #end %>
+
 
 
 <br>
 
 <%= link_to 'Add Resources', new_challenge_resource_path , class: "fa fa-plus-circle btn btn-outline-primary my-2 my-sm-0 btn-lg btn btn-info link_button" %>
+<br><br>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none;">
+  <symbol id="close" viewBox="0 0 18 18">
+    <path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M9,0.493C4.302,0.493,0.493,4.302,0.493,9S4.302,17.507,9,17.507
+			S17.507,13.698,17.507,9S13.698,0.493,9,0.493z M12.491,11.491c0.292,0.296,0.292,0.773,0,1.068c-0.293,0.295-0.767,0.295-1.059,0
+			l-2.435-2.457L6.564,12.56c-0.292,0.295-0.766,0.295-1.058,0c-0.292-0.295-0.292-0.772,0-1.068L7.94,9.035L5.435,6.507
+			c-0.292-0.295-0.292-0.773,0-1.068c0.293-0.295,0.766-0.295,1.059,0l2.504,2.528l2.505-2.528c0.292-0.295,0.767-0.295,1.059,0
+			s0.292,0.773,0,1.068l-2.505,2.528L12.491,11.491z"/>
+  </symbol>
+</svg>

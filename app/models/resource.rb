@@ -8,9 +8,9 @@ class Resource < ApplicationRecord
 
 	#YT_LINK_FORMAT = /^(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=)?([\w-]{10,})/
 
-  	validates :link, presence: true # , format: YT_LINK_FORMAT
+  	# validates :link  # , format: YT_LINK_FORMAT
 
-  	validates_format_of :link, :with => URI::regexp(%w(http https youtube))
+  	# validates_format_of :link, :with => URI::regexp(%w(http https youtube))
   
 
 
