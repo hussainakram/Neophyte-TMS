@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205220711) do
+ActiveRecord::Schema.define(version: 20180112064306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,7 +35,9 @@ ActiveRecord::Schema.define(version: 20171205220711) do
     t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "resource_id"
     t.index ["project_id"], name: "index_challenges_on_project_id"
+    t.index ["resource_id"], name: "index_challenges_on_resource_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -118,6 +120,18 @@ ActiveRecord::Schema.define(version: 20171205220711) do
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_quizzes_on_project_id"
     t.index ["quiz_attempt_id"], name: "index_quizzes_on_quiz_attempt_id"
+  end
+
+  create_table "resources", force: :cascade do |t|
+    t.string "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.bigint "challenge_id"
+    t.index ["challenge_id"], name: "index_resources_on_challenge_id"
   end
 
   create_table "solutions", force: :cascade do |t|
