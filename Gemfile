@@ -17,7 +17,6 @@ gem 'formtastic', '~> 3.0'
 gem "paperclip", "~> 5.0.0.beta1"
 gem 'yt', '~> 0.13.7'
 gem 'autoprefixer-rails'
-gem 'bootstrap-sass', '~> 3.1.1.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
