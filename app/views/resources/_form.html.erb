@@ -25,7 +25,14 @@
     <%= f.file_field :image, class: 'form-control'%>
     </div>
 
-    <%= f.submit 'Upload', class: 'btn btn-primary' %>
+    <%= f.submit 'Upload', class: 'fa fa-upload btn btn-primary' %>
+
+    <div class="form-group">
+    <%= f.label :document %>
+    <%= f.file_field :document, class: 'form-control'%>
+    </div>
+
+    <%= f.submit 'Upload', class: 'fa fa-upload btn btn-primary' %>
 
   </div>
 <% end %>
