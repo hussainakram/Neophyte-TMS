@@ -6,4 +6,12 @@ class Resource < ApplicationRecord
 	has_attached_file :document
 	validates_attachment :document, :content_type => [ :content_type => %w(application/pdf application/msword application/vnd.openxmlformats-officedocument.wordprocessingml.document) ]
 
+	#YT_LINK_FORMAT = /^(?:https?:\/\/)?(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=)?([\w-]{10,})/
+
+  	validates :link, presence: true # , format: YT_LINK_FORMAT
+
+  	validates_format_of :link, :with => URI::regexp(%w(http https youtube))
+  
+
+
 end
