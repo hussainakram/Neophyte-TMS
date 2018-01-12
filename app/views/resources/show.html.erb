@@ -1,45 +1,5 @@
 
-<h1>Available Resources</h1>
-
-
-<% if @resource.image %>
-<h1> Images </h1>
-<div class="container ">
-	<div class="well well-lg">
-     <% @resources.each do |resource| %>
-     	<div class= "img-thumbnail resource_img">
-			<%= image_tag @resource.image.url %>
-		</div>
- 	<% end %>
- </div>
-</div>
-<% end %>
-<br><br>
-<% if @resource.document %>
-<h1> Documents </h1>
-	<div class="container ">
-		<div class="well well-lg">
-			<% @resources.each do |resource| %>
-			<div class=" resource_doc">
-     			<%= link_to "My document", @resource.document.url, target: "_blank", class: 'btn btn-lg offset-md-5 btn-outline-primary'%>
-     		</div>
- 			<% end %>
- 		</div>
- 	</div>
- <% end %>
-<br><br>
-<% if @resource.link %>
-<h1> Youtube Videos </h1>
-	<div class="container ">
-		<div class="well well-lg">
-			<% @resources.each do |resource| %>
-			<div class="resource_links">
-     			<%= embed(@resource.link) %>
-     		</div>
-			<% end %>
-		</div>
-	</div>
-<% end %>
+<%= render 'index', resource: @resource %>
 
 
 

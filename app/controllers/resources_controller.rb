@@ -4,7 +4,8 @@ class ResourcesController < ApplicationController
   # GET /resources
   # GET /resources.json
   def index
-    @resources = Resource.all
+    @challenge = Challenge.find(params[:challenge_id])
+    @resources = @challenge.resources
   end
 
   # GET /resources/1
@@ -16,7 +17,8 @@ class ResourcesController < ApplicationController
 
   # GET /resources/new
   def new
-    @resource = Resource.new
+    @challenge = Challenge.find(params[:challenge_id])
+    @resource = @challenge.resources.new
   end
 
   # GET /resources/1/edit
@@ -26,10 +28,8 @@ class ResourcesController < ApplicationController
   # POST /resources
   # POST /resources.json
   def create
-    
-    @resource = Resource.new(resource_params)
-    
-
+    @challenge = Challenge.find(params[:challenge_id])
+    @resource = @challenge.resources.build(resource_params)
     respond_to do |format|
       if @resource.save
         format.html { redirect_to @resource, notice: 'Resource was successfully created.' }
@@ -60,7 +60,7 @@ class ResourcesController < ApplicationController
   def destroy
     @resource.destroy
     respond_to do |format|
-      format.html { redirect_to resources_url, notice: 'Resource was successfully destroyed.' }
+      format.html { redirect_to challenge_resources_url(@resource.challenge_id), notice: 'Resource was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

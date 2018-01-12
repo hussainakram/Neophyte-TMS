@@ -3,13 +3,13 @@ Rails.application.routes.draw do
     resources :companies do
       resources :departments do
         resources :projects do
-          resources :challenges 
+          resources :challenges do
+            resources :resources
+          end
         end
       end
     end
   end
-
-  resources :resources
 
   root to: 'visitors#index'
   devise_for :users

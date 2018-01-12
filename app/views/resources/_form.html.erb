@@ -12,14 +12,6 @@
   <% end %>
 
   <div class="actions">
-
-    <div class="form-group">
-    <%= f.label :challenge_id %>
-    <%= f.text_field :challenge_id, class: 'form-control'%>
-    </div>
-
-    
-
     <div class="form-group">
       <%= f.label :image %>
       <div class="row">
@@ -27,7 +19,7 @@
         <%= f.file_field :image, class: 'form-control'%>
       </div>
       <div class = "col-md-2 ">
-        <%= f.submit 'Upload', class: 'fa fa-upload btn btn-primary' %>
+        
       </div>
       </div>
     </div>
@@ -39,7 +31,7 @@
            <%= f.file_field :document, class: 'form-control'%>
         </div>
       <div class = "col-md-2 ">
-            <%= f.submit 'Upload', class: 'fa fa-upload btn btn-primary' %>
+            
       </div>
     </div>
 
@@ -48,13 +40,15 @@
     <div class="form-group">
       <%= f.label :Embed_Youtube_Link %>
         <div class="row">
-          <div class="col-md-10">
-            <%= f.text_field :link, class: 'form-control', required: true %>
+          <div class="col-md-12">
+            <%= f.text_field :link, class: 'form-control' %>
           </div>
-        <div class = "col-md-2 ">  
-         <%= f.submit 'Embed', class: 'btn btn-primary' %>
-        </div>
+    
       </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit 'Upload', class: 'fa fa-upload btn btn-primary' %>
     </div>
 
   </div>
