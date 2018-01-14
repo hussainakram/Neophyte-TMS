@@ -1,0 +1,44 @@
+<footer class="footer fixed-bottom">
+<div class="container">
+ <div class="row">
+
+    <div class="col-md-4 col-sm-6 col-xs-12">
+      <span class="logo"><%= image_tag "orange-logo.png" %></span>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12">
+      <ul class="menu">
+       <span>Menu</span>
+       <li>
+          <%= link_to "Home", root_path %>
+        </li>
+
+        <li>
+           <%= link_to "About", root_path %>
+        </li>
+
+        <li>
+          <%= link_to "Blog", root_path %>
+        </li>
+
+        <li>
+           <%= link_to "Gallery", root_path %>
+        </li>
+       </ul>
+    </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <ul class="adress">
+            <span>Contact</span>
+            <li>
+               <i class="fa fa-footer fa-phone" aria-hidden="true"></i> <a href="#">Phone</a>
+            </li>
+            <li>
+               <i class="fa fa-footer fa-map-marker" aria-hidden="true"></i> <a href="#">Adress</a>
+            </li>
+            <li>
+               <i class="fa fa-footer fa-envelope" aria-hidden="true"></i> <a href="#">Email</a>
+            </li>
+           </ul>
+       </div>
+     </div>
+  </div>
+</footer>

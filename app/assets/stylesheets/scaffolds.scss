@@ -48,6 +48,23 @@ div {
   display: table;
 }
 
+.model-header {
+  background-color: #e1f7e4;
+  margin-bottom: 15px;
+  border-left: 18px solid #19b793;
+  border-radius: 8px;
+  border-bottom: 1px dashed #ccc;
+
+}
+
+.card-header {
+  background-color: rgba(11, 103, 241, 0.12) !important;
+}
+
+.table-info {
+  background-color: #6c7ae0 !important;
+}
+
 .question-card {
   background-color: #fff;
   overflow: scroll;

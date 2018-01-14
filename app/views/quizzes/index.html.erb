@@ -1,10 +1,8 @@
-<hr>
-<%= link_to " Challenges", project_challenges_path(@challenge.project_id), class: 'btn btn-primary fa fa-arrow-left' %>
-<h1>Quizzes</h1>
-<hr>
+<%= link_to "", project_challenges_path(@challenge.project_id), class: 'btn fa fa-arrow-left' %>
+<h1 class="model-header">Quizzes</h1>
 <% if @quizzes.count > 0 %>
   <table class="table table-responsive">
-    <thead class="table-primary">
+    <thead class="table-info">
       <tr>
         <th>Quiz Name</th>
         <th>Actions</th>
@@ -16,9 +14,9 @@
         <tr>
           <td><%= quiz.name %></td>
           <td>
-            <%= link_to 'Show', quiz %>
-            <%= link_to 'Edit', edit_quiz_path(quiz) %>
-            <%= link_to 'Destroy', quiz, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to '', quiz, class: 'fa fa-eye fa-lg btn' %>
+            <%= link_to '', edit_quiz_path(quiz), class: 'fa fa-edit fa-lg btn' %>
+            <%= link_to '', quiz, method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-remove fa-lg btn' %>
           </td>
         </tr>
       <% end %>

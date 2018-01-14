@@ -1,6 +1,5 @@
 <%= link_to '', company_departments_path(@department.company_id), class: 'fa fa-lg fa-arrow-left btn' %>
-<hr>
-<div class="offset-md-4">
-  <h1>Editing Department</h1><br>
+<div>
+  <h1 class="model-header">Editing Department</h1><br>
   <%= render 'form', department: @department %>
 </div>
