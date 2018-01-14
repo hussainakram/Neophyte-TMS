@@ -76,6 +76,9 @@ main {
 .navbar {
   background-color: #33383c;
   border-radius: 7px;
+  .sign-in-up-button {
+    color: white !important;
+  }
   a {
     color: #c6c9ce;
   }
