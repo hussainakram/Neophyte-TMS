@@ -1,16 +1,32 @@
 
+<%= link_to '', challenge_resources_path(@resource.challenge_id), class: 'fa fa-arrow-left fa-lg' %>
+<hr>
+<h2>Resources</h2>
+
+<div class="row">
+  <div class="col-md-6 offset-md-2 question-card">
+    
+    <hr class="dotted">
+    <ol>
+    <% @resource.images.each do |img| %>
+      <li>
+        <%= image_tag img.image.url %>
+
+      </li>
+    <% end %>
+    </ol>
+  </div>
+</div>
+
+
+
+  
+
 <div class= "container">
 
 <%= image_tag("resource.png", class: " img-thumbnail img-fluid resource_share") %>
 </div>
 
 
-
-
-
-
-
-
-  
 
    

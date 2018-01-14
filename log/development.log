@@ -7939,3 +7939,1528 @@ Processing by ResourcesController#index as HTML
 Completed 200 OK in 840ms (Views: 817.5ms | ActiveRecord: 7.0ms)
 
 
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5606644201848270315)[0m
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateImages (20180114110029)
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (516.9ms)[0m  [1m[35mCREATE TABLE "images" ("id" bigserial primary key, "resource_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE  INDEX  "index_images_on_resource_id" ON "images"  ("resource_id")[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180114110029"]]
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDocuments (20180114110252)
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (21.0ms)[0m  [1m[35mCREATE TABLE "documents" ("id" bigserial primary key, "resource_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (12.5ms)[0m  [1m[35mCREATE  INDEX  "index_documents_on_resource_id" ON "documents"  ("resource_id")[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180114110252"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateLinks (20180114110303)
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (16.2ms)[0m  [1m[35mCREATE TABLE "links" ("id" bigserial primary key, "link" character varying, "resource_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE  INDEX  "index_links_on_resource_id" ON "links"  ("resource_id")[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180114110303"]]
+  [1m[35m (45.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AlterResourcesModel (20180114110522)
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT pg_advisory_unlock(5606644201848270315)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5606644201848270315)[0m
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AlterResourcesModel (20180114110522)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "image" DROP "document"[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_advisory_unlock(5606644201848270315)[0m
+  [1m[35m (23.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5606644201848270315)[0m
+  [1m[35m (4.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateLinks (20180114110303)
+  [1m[35m (2.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (334.5ms)[0m  [1m[35mDROP TABLE "links"[0m
+  [1m[35mSQL (8.0ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20180114110303"]]
+  [1m[35m (40.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDocuments (20180114110252)
+  [1m[35m (6.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.2ms)[0m  [1m[35mDROP TABLE "documents"[0m
+  [1m[35mSQL (6.8ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20180114110252"]]
+  [1m[35m (12.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateImages (20180114110029)
+  [1m[35m (7.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.1ms)[0m  [1m[35mDROP TABLE "images"[0m
+  [1m[35mSQL (5.9ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20180114110029"]]
+  [1m[35m (7.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddChallengeToQuiz (20180112122732)
+  [1m[35m (26.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (9.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(5606644201848270315)[0m
+  [1m[35m (4.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5606644201848270315)[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddChallengeToQuiz (20180112122732)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5606644201848270315)[0m
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5606644201848270315)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddChallengeToQuiz (20180112122732)
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (114.6ms)[0m  [1m[35mALTER TABLE "quizzes" DROP "challenge_id"[0m
+  [1m[35m (3.2ms)[0m  [1m[35mALTER TABLE "quizzes" ADD "challenge_id" index[0m
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5606644201848270315)[0m
+  [1m[35m (6.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5606644201848270315)[0m
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddAttachmentImageToResources (20180112051141)
+  [1m[35m (1.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (87.2ms)[0m  [1m[35mALTER TABLE "resources" DROP "image_file_name"[0m
+  [1m[35m (1.5ms)[0m  [1m[35mALTER TABLE "resources" DROP "image_content_type"[0m
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "resources" DROP "image_file_size"[0m
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "resources" DROP "image_updated_at"[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20180112051141"]]
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5606644201848270315)[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (3.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5606644201848270315)[0m
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddAttachmentDocumentToResources (20180112065930)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.7ms)[0m  [1m[35mALTER TABLE "resources" DROP "document_file_name"[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "resources" DROP "document_content_type"[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "resources" DROP "document_file_size"[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "resources" DROP "document_updated_at"[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20180112065930"]]
+  [1m[35m (5.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(5606644201848270315)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5606644201848270315)[0m
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddLinkToResources (20180112073703)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.6ms)[0m  [1m[35mALTER TABLE "resources" DROP "link"[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20180112073703"]]
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5606644201848270315)[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (4.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5606644201848270315)[0m
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateImages (20180114110029)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (249.7ms)[0m  [1m[35mCREATE TABLE "images" ("id" bigserial primary key, "resource_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (12.5ms)[0m  [1m[35mCREATE  INDEX  "index_images_on_resource_id" ON "images"  ("resource_id")[0m
+  [1m[35mSQL (37.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180114110029"]]
+  [1m[35m (19.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDocuments (20180114110252)
+  [1m[35m (3.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (65.8ms)[0m  [1m[35mCREATE TABLE "documents" ("id" bigserial primary key, "resource_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (68.1ms)[0m  [1m[35mCREATE  INDEX  "index_documents_on_resource_id" ON "documents"  ("resource_id")[0m
+  [1m[35mSQL (5.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180114110252"]]
+  [1m[35m (5.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateLinks (20180114110303)
+  [1m[35m (6.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (50.4ms)[0m  [1m[35mCREATE TABLE "links" ("id" bigserial primary key, "link" character varying, "resource_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (16.2ms)[0m  [1m[35mCREATE  INDEX  "index_links_on_resource_id" ON "links"  ("resource_id")[0m
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180114110303"]]
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (38.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(5606644201848270315)[0m
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5606644201848270315)[0m
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddAttachmentImageToImages (20180114131316)
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.3ms)[0m  [1m[35mALTER TABLE "images" ADD "image_file_name" character varying[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "images" ADD "image_content_type" character varying[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "images" ADD "image_file_size" integer[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "images" ADD "image_updated_at" timestamp[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180114131316"]]
+  [1m[35m (34.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddAttachmentDocumentToDocuments (20180114131340)
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.4ms)[0m  [1m[35mALTER TABLE "documents" ADD "document_file_name" character varying[0m
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "documents" ADD "document_content_type" character varying[0m
+  [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "documents" ADD "document_file_size" integer[0m
+  [1m[35m (1.1ms)[0m  [1m[35mALTER TABLE "documents" ADD "document_updated_at" timestamp[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180114131340"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_advisory_unlock(5606644201848270315)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/challenges/41" for 127.0.0.1 at 2018-01-14 19:32:33 +0500
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ChallengesController#show as HTML
+  Parameters: {"id"=>"41"}
+  [1m[36mChallenge Load (62.4ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering challenges/show.html.erb within layouts/application
+  Rendered challenges/show.html.erb within layouts/application (14.3ms)
+  [1m[36mUser Load (90.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (267.6ms)
+  Rendered layouts/_messages.html.erb (7.7ms)
+Completed 200 OK in 4841ms (Views: 4389.7ms | ActiveRecord: 194.6ms)
+
+
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 19:32:47 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (31.0ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (34.8ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  Rendered resources/index.html.erb within layouts/application (107.1ms)
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 19:32:48 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (3.4ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (30.7ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  Rendered resources/index.html.erb within layouts/application (40.9ms)
+  [1m[36mUser Load (23.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (49.9ms)
+  Rendered layouts/_messages.html.erb (28.8ms)
+Completed 200 OK in 1678ms (Views: 1305.9ms | ActiveRecord: 96.8ms)
+
+
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (25.7ms)
+  Rendered layouts/_messages.html.erb (3.1ms)
+Completed 200 OK in 1282ms (Views: 1097.6ms | ActiveRecord: 103.0ms)
+
+
+Started GET "/challenges/41/resources/new" for 127.0.0.1 at 2018-01-14 19:32:57 +0500
+Processing by ResourcesController#new as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.2ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/new.html.erb within layouts/application
+  Rendered resources/_form.html.erb (2753.9ms)
+  Rendered resources/new.html.erb within layouts/application (2761.8ms)
+Completed 500 Internal Server Error in 2910ms (ActiveRecord: 10.4ms)
+
+
+
+NameError - undefined local variable or method `form' for #<#<Class:0x00000002ddc7d0>:0x007f581a2d9230>
+Did you mean?  fork:
+  app/views/resources/_form.html.erb:17:in `block in _app_views_resources__form_html_erb__954787515076611494_70008186575420'
+  app/views/resources/_form.html.erb:1:in `_app_views_resources__form_html_erb__954787515076611494_70008186575420'
+  app/views/resources/new.html.erb:4:in `_app_views_resources_new_html_erb___4151081360479951809_70008186523180'
+
+Started POST "/__better_errors/380d21fe18f1a015/variables" for 127.0.0.1 at 2018-01-14 19:33:02 +0500
+Started GET "/challenges/41/resources/new" for 127.0.0.1 at 2018-01-14 19:33:51 +0500
+Processing by ResourcesController#new as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (2.7ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/new.html.erb within layouts/application
+  Rendered resources/_image_fields.html.erb (204.0ms)
+  Rendered resources/_form.html.erb (232.0ms)
+  Rendered resources/new.html.erb within layouts/application (252.9ms)
+Completed 500 Internal Server Error in 306ms (ActiveRecord: 4.2ms)
+
+
+
+NoMethodError - undefined method `new_record?' for nil:NilClass:
+  app/views/resources/_image_fields.html.erb:8:in `_app_views_resources__image_fields_html_erb___3560252493755266604_70008112282480'
+  app/views/resources/_form.html.erb:18:in `block (2 levels) in _app_views_resources__form_html_erb__954787515076611494_70008104347360'
+  app/views/resources/_form.html.erb:17:in `block in _app_views_resources__form_html_erb__954787515076611494_70008104347360'
+  app/views/resources/_form.html.erb:1:in `_app_views_resources__form_html_erb__954787515076611494_70008104347360'
+  app/views/resources/new.html.erb:4:in `_app_views_resources_new_html_erb___4151081360479951809_70008103458560'
+
+Started GET "/challenges/41/resources/new" for 127.0.0.1 at 2018-01-14 19:33:53 +0500
+Processing by ResourcesController#new as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (3.8ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/new.html.erb within layouts/application
+  Rendered resources/_image_fields.html.erb (84.5ms)
+  Rendered resources/_form.html.erb (113.2ms)
+  Rendered resources/new.html.erb within layouts/application (130.9ms)
+Completed 500 Internal Server Error in 210ms (ActiveRecord: 3.8ms)
+
+
+
+NoMethodError - undefined method `new_record?' for nil:NilClass:
+  app/views/resources/_image_fields.html.erb:8:in `_app_views_resources__image_fields_html_erb___3560252493755266604_70008068060520'
+  app/views/resources/_form.html.erb:18:in `block (2 levels) in _app_views_resources__form_html_erb__954787515076611494_70008068142040'
+  app/views/resources/_form.html.erb:17:in `block in _app_views_resources__form_html_erb__954787515076611494_70008068142040'
+  app/views/resources/_form.html.erb:1:in `_app_views_resources__form_html_erb__954787515076611494_70008068142040'
+  app/views/resources/new.html.erb:4:in `_app_views_resources_new_html_erb___4151081360479951809_70008068539380'
+
+Started POST "/__better_errors/ae7a4235a41f5a0d/variables" for 127.0.0.1 at 2018-01-14 19:33:55 +0500
+Started POST "/__better_errors/ae7a4235a41f5a0d/variables" for 127.0.0.1 at 2018-01-14 19:34:36 +0500
+Started POST "/__better_errors/ae7a4235a41f5a0d/variables" for 127.0.0.1 at 2018-01-14 19:34:39 +0500
+Started POST "/__better_errors/ae7a4235a41f5a0d/variables" for 127.0.0.1 at 2018-01-14 19:34:40 +0500
+Started POST "/__better_errors/ae7a4235a41f5a0d/variables" for 127.0.0.1 at 2018-01-14 19:34:41 +0500
+Started POST "/__better_errors/ae7a4235a41f5a0d/variables" for 127.0.0.1 at 2018-01-14 19:34:42 +0500
+Started POST "/__better_errors/ae7a4235a41f5a0d/variables" for 127.0.0.1 at 2018-01-14 19:34:46 +0500
+Started GET "/challenges/41/resources/new" for 127.0.0.1 at 2018-01-14 19:38:20 +0500
+Processing by ResourcesController#new as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.2ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/new.html.erb within layouts/application
+  Rendered resources/_image_fields.html.erb (28.0ms)
+  Rendered resources/_form.html.erb (39.8ms)
+  Rendered resources/new.html.erb within layouts/application (46.1ms)
+Completed 500 Internal Server Error in 313ms (ActiveRecord: 1.2ms)
+
+
+
+NoMethodError - undefined method `new_record?' for nil:NilClass:
+  app/views/resources/_image_fields.html.erb:8:in `_app_views_resources__image_fields_html_erb___3560252493755266604_70008189489320'
+  app/views/resources/_form.html.erb:18:in `block (2 levels) in _app_views_resources__form_html_erb__954787515076611494_70008189585360'
+  app/views/resources/_form.html.erb:17:in `block in _app_views_resources__form_html_erb__954787515076611494_70008189585360'
+  app/views/resources/_form.html.erb:1:in `_app_views_resources__form_html_erb__954787515076611494_70008189585360'
+  app/views/resources/new.html.erb:4:in `_app_views_resources_new_html_erb___4151081360479951809_70008189635080'
+
+Started POST "/__better_errors/d72a431300ed7eed/variables" for 127.0.0.1 at 2018-01-14 19:38:22 +0500
+Started GET "/challenges/41/resources/new" for 127.0.0.1 at 2018-01-14 19:38:30 +0500
+Processing by ResourcesController#new as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (2.8ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/new.html.erb within layouts/application
+  Rendered resources/_image_fields.html.erb (100.8ms)
+  Rendered resources/_form.html.erb (139.5ms)
+  Rendered resources/new.html.erb within layouts/application (162.9ms)
+Completed 500 Internal Server Error in 279ms (ActiveRecord: 2.8ms)
+
+
+
+NoMethodError - undefined method `new_record?' for nil:NilClass:
+  app/views/resources/_image_fields.html.erb:8:in `_app_views_resources__image_fields_html_erb___3560252493755266604_70008103665060'
+  app/views/resources/_form.html.erb:18:in `block (2 levels) in _app_views_resources__form_html_erb__954787515076611494_70008112357520'
+  app/views/resources/_form.html.erb:17:in `block in _app_views_resources__form_html_erb__954787515076611494_70008112357520'
+  app/views/resources/_form.html.erb:1:in `_app_views_resources__form_html_erb__954787515076611494_70008112357520'
+  app/views/resources/new.html.erb:4:in `_app_views_resources_new_html_erb___4151081360479951809_70008104345900'
+
+Started POST "/__better_errors/641385d746605a29/variables" for 127.0.0.1 at 2018-01-14 19:38:32 +0500
+Started GET "/challenges/41/resources/new" for 127.0.0.1 at 2018-01-14 19:40:45 +0500
+Processing by ResourcesController#new as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (5.2ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 303ms (ActiveRecord: 25.7ms)
+
+
+
+ArgumentError - No association found for name `image'. Has it been defined yet?:
+  app/models/resource.rb:7:in `<class:Resource>'
+  app/models/resource.rb:1:in `<top (required)>'
+  app/controllers/resources_controller.rb:19:in `new'
+
+Started POST "/__better_errors/e9c9743e7738df4b/variables" for 127.0.0.1 at 2018-01-14 19:40:47 +0500
+Started GET "/challenges/41/resources/new" for 127.0.0.1 at 2018-01-14 19:41:37 +0500
+Processing by ResourcesController#new as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (12.1ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/new.html.erb within layouts/application
+  Rendered resources/_image_fields.html.erb (5.1ms)
+  Rendered resources/_document_fields.html.erb (4.4ms)
+  Rendered resources/_link_fields.html.erb (217.3ms)
+  Rendered resources/_form.html.erb (2922.9ms)
+  Rendered resources/new.html.erb within layouts/application (2928.2ms)
+Completed 500 Internal Server Error in 3338ms (ActiveRecord: 74.1ms)
+
+
+
+NameError - undefined local variable or method `f' for #<#<Class:0x007f5819b430e8>:0x007f5819b41338>:
+  app/views/resources/_form.html.erb:44:in `block in _app_views_resources__form_html_erb__954787515076611494_70008182348640'
+  app/views/resources/_form.html.erb:1:in `_app_views_resources__form_html_erb__954787515076611494_70008182348640'
+  app/views/resources/new.html.erb:4:in `_app_views_resources_new_html_erb___4151081360479951809_70008182545600'
+
+Started POST "/__better_errors/80270748b2359787/variables" for 127.0.0.1 at 2018-01-14 19:41:43 +0500
+Started GET "/challenges/41/resources/new" for 127.0.0.1 at 2018-01-14 19:42:14 +0500
+Processing by ResourcesController#new as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.3ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/new.html.erb within layouts/application
+  Rendered resources/_image_fields.html.erb (5.2ms)
+  Rendered resources/_document_fields.html.erb (3.7ms)
+  Rendered resources/_link_fields.html.erb (8.3ms)
+  Rendered resources/_form.html.erb (105.9ms)
+  Rendered resources/new.html.erb within layouts/application (115.1ms)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (214.8ms)
+  Rendered layouts/_messages.html.erb (2.0ms)
+Completed 200 OK in 912ms (Views: 845.5ms | ActiveRecord: 39.1ms)
+
+
+Started POST "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 19:42:51 +0500
+Processing by ResourcesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RaLTWwHbYSxt5msZbXE/uYKOgByH4YRJDcB1bvoyZnhJvqzyaSEXlj0kZnF0sX2fAtXqowtDMJKoA7utwVB6eQ==", "resource"=>{"images_attributes"=>{"1515940941518"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007f5810d1e038 @tempfile=#<Tempfile:/tmp/RackMultipart20180114-4569-1fa54th.png>, @original_filename="image.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"resource[images_attributes][1515940941518][image]\"; filename=\"image.png\"\r\nContent-Type: image/png\r\n">, "_destroy"=>"false"}, "1515940954742"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007f5810d1dea8 @tempfile=#<Tempfile:/tmp/RackMultipart20180114-4569-i0r4s0.png>, @original_filename="ERD of Neophyte Catalogue - New Page.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"resource[images_attributes][1515940954742][image]\"; filename=\"ERD of Neophyte Catalogue - New Page.png\"\r\nContent-Type: image/png\r\n">, "_destroy"=>"false"}}}, "commit"=>"Upload", "challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.8ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+Command :: file -b --mime '/tmp/78805a221a988e79ef3f42d7c5bfd41820180114-4569-zouf0j.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/78805a221a988e79ef3f42d7c5bfd41820180114-4569-lewsfg.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/78805a221a988e79ef3f42d7c5bfd41820180114-4569-lewsfg.png[0]'
+Command :: convert '/tmp/78805a221a988e79ef3f42d7c5bfd41820180114-4569-lewsfg.png[0]' -auto-orient -resize "300x300>" '/tmp/a24971daed7255df485a84675b9f219220180114-4569-wl3til'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/78805a221a988e79ef3f42d7c5bfd41820180114-4569-lewsfg.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/78805a221a988e79ef3f42d7c5bfd41820180114-4569-lewsfg.png[0]'
+Command :: convert '/tmp/78805a221a988e79ef3f42d7c5bfd41820180114-4569-lewsfg.png[0]' -auto-orient -resize "100x100>" '/tmp/a24971daed7255df485a84675b9f219220180114-4569-fq9l2e'
+Command :: file -b --mime '/tmp/87bfe6da4182da970473b2aae727858320180114-4569-1j2e8as.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/2c2ffc7169ed81c8dfd7ac80c91f176620180114-4569-3e29wx.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/2c2ffc7169ed81c8dfd7ac80c91f176620180114-4569-3e29wx.png[0]'
+Command :: convert '/tmp/2c2ffc7169ed81c8dfd7ac80c91f176620180114-4569-3e29wx.png[0]' -auto-orient -resize "300x300>" '/tmp/9b4d8dc0bfef73aacd3221f8f309fe7d20180114-4569-e596ju'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/2c2ffc7169ed81c8dfd7ac80c91f176620180114-4569-3e29wx.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/2c2ffc7169ed81c8dfd7ac80c91f176620180114-4569-3e29wx.png[0]'
+Command :: convert '/tmp/2c2ffc7169ed81c8dfd7ac80c91f176620180114-4569-3e29wx.png[0]' -auto-orient -resize "100x100>" '/tmp/9b4d8dc0bfef73aacd3221f8f309fe7d20180114-4569-cjozpm'
+  [1m[35m (29.6ms)[0m  [1m[35mBEGIN[0m
+Command :: file -b --mime '/tmp/78805a221a988e79ef3f42d7c5bfd41820180114-4569-1bxrxcs.png'
+Command :: file -b --mime '/tmp/87bfe6da4182da970473b2aae727858320180114-4569-q9v0ax.png'
+  [1m[35mSQL (27.2ms)[0m  [1m[32mINSERT INTO "resources" ("created_at", "updated_at", "challenge_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2018-01-14 14:42:57.291068"], ["updated_at", "2018-01-14 14:42:57.291068"], ["challenge_id", 41]]
+  [1m[35mSQL (9.1ms)[0m  [1m[32mINSERT INTO "images" ("resource_id", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["resource_id", 39], ["created_at", "2018-01-14 14:42:57.331435"], ["updated_at", "2018-01-14 14:42:57.331435"], ["image_file_name", "image.png"], ["image_content_type", "image/png"], ["image_file_size", 90303], ["image_updated_at", "2018-01-14 14:42:51.094562"]]
+  [1m[35mSQL (9.1ms)[0m  [1m[32mINSERT INTO "images" ("resource_id", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["resource_id", 39], ["created_at", "2018-01-14 14:42:57.410759"], ["updated_at", "2018-01-14 14:42:57.410759"], ["image_file_name", "ERD_of_Neophyte_Catalogue_-_New_Page.png"], ["image_content_type", "image/png"], ["image_file_size", 294042], ["image_updated_at", "2018-01-14 14:42:52.319115"]]
+  [1m[35m (8.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/resources/39
+Completed 302 Found in 6462ms (ActiveRecord: 85.0ms)
+
+
+Started GET "/resources/39" for 127.0.0.1 at 2018-01-14 19:42:57 +0500
+Processing by ResourcesController#show as HTML
+  Parameters: {"id"=>"39"}
+  [1m[36mResource Load (3.5ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  Rendering resources/show.html.erb within layouts/application
+  Rendered resources/show.html.erb within layouts/application (10.1ms)
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (17.6ms)
+  Rendered layouts/_messages.html.erb (2.8ms)
+Completed 200 OK in 599ms (Views: 572.6ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 19:43:08 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.1ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (2.2ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  Rendered resources/index.html.erb within layouts/application (85.6ms)
+Completed 500 Internal Server Error in 129ms (ActiveRecord: 3.4ms)
+
+
+
+NoMethodError - undefined method `image_content_type' for #<Resource:0x000000045e8e28>:
+  app/views/resources/index.html.erb:18:in `block in _app_views_resources_index_html_erb__3435597886252226492_37299480'
+  app/views/resources/index.html.erb:17:in `_app_views_resources_index_html_erb__3435597886252226492_37299480'
+
+Started POST "/__better_errors/94352546507dc37c/variables" for 127.0.0.1 at 2018-01-14 19:43:09 +0500
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 19:51:21 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (2.5ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (1.8ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  Rendered resources/index.html.erb within layouts/application (50.8ms)
+Completed 500 Internal Server Error in 140ms (ActiveRecord: 4.3ms)
+
+
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+
+NoMethodError - undefined method `images' for #<Resource::ActiveRecord_Associations_CollectionProxy:0x007f581a864b78>:
+  app/views/resources/index.html.erb:17:in `_app_views_resources_index_html_erb__3435597886252226492_70008189417940'
+
+Started POST "/__better_errors/850f9b613b8f55a4/variables" for 127.0.0.1 at 2018-01-14 19:51:22 +0500
+  [1m[36mResource Load (1.6ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+Started GET "/projects/38/challenges/new" for 127.0.0.1 at 2018-01-14 19:53:01 +0500
+Processing by ChallengesController#new as HTML
+  Parameters: {"project_id"=>"38"}
+  [1m[36mProject Load (62.4ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  Rendering challenges/new.html.erb within layouts/application
+  Rendered challenges/_form.html.erb (43.3ms)
+  Rendered challenges/new.html.erb within layouts/application (64.2ms)
+  [1m[36mUser Load (44.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (56.8ms)
+  Rendered layouts/_messages.html.erb (18.4ms)
+Completed 200 OK in 1179ms (Views: 672.8ms | ActiveRecord: 166.0ms)
+
+
+Started GET "/challenges/41/quizzes" for 127.0.0.1 at 2018-01-14 19:53:16 +0500
+Processing by QuizzesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (2.1ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering quizzes/index.html.erb within layouts/application
+  [1m[35m (65.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "quizzes" WHERE "quizzes"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  Rendered quizzes/index.html.erb within layouts/application (90.8ms)
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (71.8ms)
+  Rendered layouts/_messages.html.erb (2.0ms)
+Completed 200 OK in 813ms (Views: 659.6ms | ActiveRecord: 77.8ms)
+
+
+Started GET "/challenges/41/quizzes/new" for 127.0.0.1 at 2018-01-14 19:53:25 +0500
+Processing by QuizzesController#new as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (2.2ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering quizzes/new.html.erb within layouts/application
+  Rendered quizzes/_answer_fields.html.erb (38.9ms)
+  Rendered quizzes/_question_fields.html.erb (196.3ms)
+  Rendered quizzes/_form.html.erb (400.1ms)
+  Rendered quizzes/new.html.erb within layouts/application (408.3ms)
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (28.9ms)
+  Rendered layouts/_messages.html.erb (1.6ms)
+Completed 200 OK in 1497ms (Views: 990.6ms | ActiveRecord: 56.5ms)
+
+
+Started POST "/challenges/41/quizzes" for 127.0.0.1 at 2018-01-14 19:55:06 +0500
+Processing by QuizzesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"o7tpebwbDQ6TybZSPABN2ZWXAX78Uls76ko+TK3OAXOMoWYYxcCQnQTTk458APXAMKZCc0kRiLs1yAH4VhGR/A==", "quiz"=>{"name"=>"Codding", "time_allowed"=>"20", "no_of_questions"=>"1", "pass_score"=>"10", "questions_attributes"=>{"1515941639646"=>{"statement"=>"C++ is a Scripting Language?", "_destroy"=>"false", "answers_attributes"=>{"1515941677781"=>{"content"=>"Yes", "correct"=>"0", "_destroy"=>"false"}, "1515941685000"=>{"content"=>"No", "correct"=>"1", "_destroy"=>"false"}}}, "1515941701541"=>{"statement"=>"", "_destroy"=>"false"}}}, "commit"=>"Create Quiz", "challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.0ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (20.1ms)[0m  [1m[32mINSERT INTO "quizzes" ("name", "time_allowed", "no_of_questions", "pass_score", "created_at", "updated_at", "challenge_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Codding"], ["time_allowed", "20"], ["no_of_questions", 1], ["pass_score", 10], ["created_at", "2018-01-14 14:55:06.739651"], ["updated_at", "2018-01-14 14:55:06.739651"], ["challenge_id", 41]]
+  [1m[35mSQL (95.4ms)[0m  [1m[32mINSERT INTO "questions" ("statement", "quiz_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["statement", "C++ is a Scripting Language?"], ["quiz_id", 36], ["created_at", "2018-01-14 14:55:06.767855"], ["updated_at", "2018-01-14 14:55:06.767855"]]
+  [1m[35mSQL (60.6ms)[0m  [1m[32mINSERT INTO "answers" ("content", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "Yes"], ["correct", "f"], ["question_id", 36], ["created_at", "2018-01-14 14:55:06.870851"], ["updated_at", "2018-01-14 14:55:06.870851"]]
+  [1m[35mSQL (61.7ms)[0m  [1m[32mINSERT INTO "answers" ("content", "correct", "question_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["content", "No"], ["correct", "t"], ["question_id", 36], ["created_at", "2018-01-14 14:55:06.950823"], ["updated_at", "2018-01-14 14:55:06.950823"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/quizzes/36
+Completed 302 Found in 397ms (ActiveRecord: 242.5ms)
+
+
+Started GET "/quizzes/36" for 127.0.0.1 at 2018-01-14 19:55:07 +0500
+Processing by QuizzesController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[36mQuiz Load (2.1ms)[0m  [1m[34mSELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering quizzes/show.html.erb within layouts/application
+  [1m[36mQuestion Load (1.8ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = $1[0m  [["quiz_id", 36]]
+  [1m[36mAnswer Load (3.3ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 36]]
+  Rendered quizzes/show.html.erb within layouts/application (50.9ms)
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (22.5ms)
+  Rendered layouts/_messages.html.erb (1.7ms)
+Completed 200 OK in 501ms (Views: 470.9ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/quizzes/36" for 127.0.0.1 at 2018-01-14 19:56:18 +0500
+Processing by QuizzesController#show as HTML
+  Parameters: {"id"=>"36"}
+  [1m[36mQuiz Load (2.6ms)[0m  [1m[34mSELECT  "quizzes".* FROM "quizzes" WHERE "quizzes"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  Rendering quizzes/show.html.erb within layouts/application
+  [1m[36mQuestion Load (2.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."quiz_id" = $1[0m  [["quiz_id", 36]]
+  [1m[36mAnswer Load (2.1ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 36]]
+  Rendered quizzes/show.html.erb within layouts/application (38.9ms)
+  [1m[36mUser Load (5.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (20.7ms)
+  Rendered layouts/_messages.html.erb (4.8ms)
+Completed 200 OK in 818ms (Views: 789.0ms | ActiveRecord: 12.5ms)
+
+
+Started GET "/challenges/41/quizzes" for 127.0.0.1 at 2018-01-14 19:56:35 +0500
+Processing by QuizzesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.0ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering quizzes/index.html.erb within layouts/application
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "quizzes" WHERE "quizzes"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  [1m[36mQuiz Load (1.7ms)[0m  [1m[34mSELECT "quizzes".* FROM "quizzes" WHERE "quizzes"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  Rendered quizzes/index.html.erb within layouts/application (23.6ms)
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (28.6ms)
+  Rendered layouts/_messages.html.erb (5.2ms)
+Completed 200 OK in 586ms (Views: 570.2ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/projects/38/challenges" for 127.0.0.1 at 2018-01-14 19:56:37 +0500
+Processing by ChallengesController#index as HTML
+  Parameters: {"project_id"=>"38"}
+  [1m[36mProject Load (3.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  Rendering challenges/index.html.erb within layouts/application
+  [1m[36mChallenge Load (1.7ms)[0m  [1m[34mSELECT "challenges".* FROM "challenges" WHERE "challenges"."project_id" = $1[0m  [["project_id", 38]]
+  Rendered challenges/index.html.erb within layouts/application (55.8ms)
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (48.2ms)
+  Rendered layouts/_messages.html.erb (1.8ms)
+Completed 200 OK in 965ms (Views: 880.1ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/challenges/41" for 127.0.0.1 at 2018-01-14 19:56:47 +0500
+Processing by ChallengesController#show as HTML
+  Parameters: {"id"=>"41"}
+  [1m[36mChallenge Load (1.3ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering challenges/show.html.erb within layouts/application
+  Rendered challenges/show.html.erb within layouts/application (16.0ms)
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (12.9ms)
+  Rendered layouts/_messages.html.erb (1.9ms)
+Completed 200 OK in 580ms (Views: 561.3ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 19:56:53 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (2.8ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  Rendered resources/index.html.erb within layouts/application (49.3ms)
+Completed 500 Internal Server Error in 183ms (ActiveRecord: 2.8ms)
+
+
+
+NoMethodError - undefined method `images' for nil:NilClass:
+  app/views/resources/index.html.erb:17:in `_app_views_resources_index_html_erb__3435597886252226492_70008068168820'
+
+Started POST "/__better_errors/3da931b8b6ff2a68/variables" for 127.0.0.1 at 2018-01-14 19:56:54 +0500
+  [1m[36mResource Load (1.4ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.2ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 20:04:30 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (2.3ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (2.4ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  Rendered resources/index.html.erb within layouts/application (74.0ms)
+Completed 500 Internal Server Error in 195ms (ActiveRecord: 4.7ms)
+
+
+  [1m[36mCACHE Resource Load (0.3ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+
+NoMethodError - undefined method `images' for #<Resource::ActiveRecord_Associations_CollectionProxy:0x007f581a2618e8>:
+  app/views/resources/index.html.erb:17:in `_app_views_resources_index_html_erb__3435597886252226492_70008186274380'
+
+Started POST "/__better_errors/894111bc6af389cc/variables" for 127.0.0.1 at 2018-01-14 20:04:31 +0500
+  [1m[36mResource Load (1.6ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.2ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 21:21:16 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (3.0ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (5.3ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  Rendered resources/index.html.erb within layouts/application (148.7ms)
+Completed 500 Internal Server Error in 253ms (ActiveRecord: 8.2ms)
+
+
+  [1m[36mCACHE Resource Load (0.2ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+
+NoMethodError - undefined method `images' for #<Resource::ActiveRecord_Associations_CollectionProxy:0x007f5800008908>:
+  app/views/resources/index.html.erb:17:in `_app_views_resources_index_html_erb__3435597886252226492_70008190718780'
+
+Started POST "/__better_errors/147facec69a3b724/variables" for 127.0.0.1 at 2018-01-14 21:21:18 +0500
+  [1m[36mResource Load (2.6ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.2ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 21:24:25 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.5ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (1.6ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  Rendered resources/index.html.erb within layouts/application (217.8ms)
+Completed 500 Internal Server Error in 253ms (ActiveRecord: 3.1ms)
+
+
+
+NoMethodError - undefined method `image_content_type' for #<Resource:0x00000001f104b8>:
+  app/views/resources/index.html.erb:18:in `block in _app_views_resources_index_html_erb__3435597886252226492_31012400'
+  app/views/resources/index.html.erb:17:in `_app_views_resources_index_html_erb__3435597886252226492_31012400'
+
+Started POST "/__better_errors/63d3314119de6dde/variables" for 127.0.0.1 at 2018-01-14 21:24:26 +0500
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 21:24:40 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.3ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (1.4ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  Rendered resources/index.html.erb within layouts/application (41.9ms)
+Completed 500 Internal Server Error in 70ms (ActiveRecord: 2.8ms)
+
+
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+
+NoMethodError - undefined method `image' for #<Resource::ActiveRecord_Associations_CollectionProxy:0x007f58194e8ef0>:
+  app/views/resources/index.html.erb:17:in `_app_views_resources_index_html_erb__3435597886252226492_70008179199660'
+
+Started POST "/__better_errors/370a73d7a95027df/variables" for 127.0.0.1 at 2018-01-14 21:24:41 +0500
+  [1m[36mResource Load (1.4ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 21:24:54 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.8ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (2.3ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  Rendered resources/index.html.erb within layouts/application (158.4ms)
+Completed 500 Internal Server Error in 198ms (ActiveRecord: 4.1ms)
+
+
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+
+NoMethodError - undefined method `images' for #<Resource::ActiveRecord_Associations_CollectionProxy:0x007f5819d09058>:
+  app/views/resources/index.html.erb:17:in `_app_views_resources_index_html_erb__3435597886252226492_70008183446420'
+
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 21:24:56 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.5ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (2.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  Rendered resources/index.html.erb within layouts/application (150.7ms)
+Completed 500 Internal Server Error in 193ms (ActiveRecord: 3.6ms)
+
+
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+
+NoMethodError - undefined method `images' for #<Resource::ActiveRecord_Associations_CollectionProxy:0x007f581952a080>:
+  app/views/resources/index.html.erb:17:in `_app_views_resources_index_html_erb__3435597886252226492_70008179323040'
+
+Started POST "/__better_errors/29ea3014e1174973/variables" for 127.0.0.1 at 2018-01-14 21:24:57 +0500
+  [1m[36mResource Load (20.5ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.2ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 21:25:14 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (0.9ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  Rendered resources/index.html.erb within layouts/application (35.0ms)
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 0.9ms)
+
+
+
+NoMethodError - undefined method `images' for nil:NilClass:
+  app/views/resources/index.html.erb:17:in `_app_views_resources_index_html_erb__3435597886252226492_70008182583180'
+
+Started POST "/__better_errors/d2acafe23cb3255a/variables" for 127.0.0.1 at 2018-01-14 21:25:15 +0500
+  [1m[36mResource Load (1.3ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.2ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 21:25:26 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (0.9ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (5.6ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  Rendered resources/index.html.erb within layouts/application (71.0ms)
+Completed 500 Internal Server Error in 94ms (ActiveRecord: 6.5ms)
+
+
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+
+NoMethodError - undefined method `images' for #<Resource::ActiveRecord_Associations_CollectionProxy:0x007f581a224a38>:
+  app/views/resources/index.html.erb:17:in `_app_views_resources_index_html_erb__3435597886252226492_70008186132600'
+
+Started POST "/__better_errors/5f02915f98a8cf22/variables" for 127.0.0.1 at 2018-01-14 21:25:27 +0500
+  [1m[36mResource Load (1.4ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.2ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.2ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 21:29:29 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.2ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (1.4ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  [1m[36mImage Load (2.5ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."resource_id" = $1 LIMIT $2[0m  [["resource_id", 39], ["LIMIT", 11]]
+  Rendered resources/index.html.erb within layouts/application (62.7ms)
+Completed 500 Internal Server Error in 93ms (ActiveRecord: 5.1ms)
+
+
+  [1m[36mCACHE Image Load (0.1ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."resource_id" = $1 LIMIT $2[0m  [["resource_id", 39], ["LIMIT", 11]]
+
+NoMethodError - undefined method `image_content_type' for #<Image::ActiveRecord_Associations_CollectionProxy:0x007f581a40bb58>:
+  app/views/resources/index.html.erb:18:in `block in _app_views_resources_index_html_erb__3435597886252226492_70008188375120'
+  app/views/resources/index.html.erb:17:in `_app_views_resources_index_html_erb__3435597886252226492_70008188375120'
+
+Started POST "/__better_errors/79d1b626e6e60e32/variables" for 127.0.0.1 at 2018-01-14 21:29:30 +0500
+  [1m[36mImage Load (2.8ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."resource_id" = $1 LIMIT $2[0m  [["resource_id", 39], ["LIMIT", 11]]
+  [1m[36mCACHE Image Load (0.1ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."resource_id" = $1 LIMIT $2[0m  [["resource_id", 39], ["LIMIT", 11]]
+  [1m[36mCACHE Image Load (0.1ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."resource_id" = $1 LIMIT $2[0m  [["resource_id", 39], ["LIMIT", 11]]
+  [1m[36mCACHE Image Load (0.1ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."resource_id" = $1 LIMIT $2[0m  [["resource_id", 39], ["LIMIT", 11]]
+  [1m[36mCACHE Image Load (0.1ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."resource_id" = $1 LIMIT $2[0m  [["resource_id", 39], ["LIMIT", 11]]
+  [1m[36mCACHE Image Load (0.1ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."resource_id" = $1 LIMIT $2[0m  [["resource_id", 39], ["LIMIT", 11]]
+  [1m[36mCACHE Image Load (0.1ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."resource_id" = $1 LIMIT $2[0m  [["resource_id", 39], ["LIMIT", 11]]
+  [1m[36mCACHE Image Load (0.1ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."resource_id" = $1 LIMIT $2[0m  [["resource_id", 39], ["LIMIT", 11]]
+  [1m[36mCACHE Image Load (0.1ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."resource_id" = $1 LIMIT $2[0m  [["resource_id", 39], ["LIMIT", 11]]
+  [1m[36mCACHE Image Load (0.1ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."resource_id" = $1 LIMIT $2[0m  [["resource_id", 39], ["LIMIT", 11]]
+  [1m[36mCACHE Image Load (0.1ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."resource_id" = $1 LIMIT $2[0m  [["resource_id", 39], ["LIMIT", 11]]
+  [1m[36mCACHE Image Load (0.1ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."resource_id" = $1 LIMIT $2[0m  [["resource_id", 39], ["LIMIT", 11]]
+  [1m[36mCACHE Image Load (0.1ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."resource_id" = $1 LIMIT $2[0m  [["resource_id", 39], ["LIMIT", 11]]
+  [1m[36mCACHE Image Load (0.1ms)[0m  [1m[34mSELECT  "images".* FROM "images" WHERE "images"."resource_id" = $1 LIMIT $2[0m  [["resource_id", 39], ["LIMIT", 11]]
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 21:32:42 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (5.1ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (1.7ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  Rendered resources/index.html.erb within layouts/application (71.5ms)
+Completed 500 Internal Server Error in 107ms (ActiveRecord: 6.9ms)
+
+
+
+NoMethodError - undefined method `mages' for #<Resource:0x007f580c0b01d8>
+Did you mean?  images
+               images=:
+  app/views/resources/index.html.erb:18:in `block in _app_views_resources_index_html_erb__3435597886252226492_70008068100800'
+  app/views/resources/index.html.erb:17:in `_app_views_resources_index_html_erb__3435597886252226492_70008068100800'
+
+Started POST "/__better_errors/8b9f1028d6e4d960/variables" for 127.0.0.1 at 2018-01-14 21:32:43 +0500
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 21:32:58 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.0ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (1.5ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  [1m[36mImage Load (1.5ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 39]]
+  Rendered resources/index.html.erb within layouts/application (73.9ms)
+Completed 500 Internal Server Error in 99ms (ActiveRecord: 4.0ms)
+
+
+
+NoMethodError - undefined method `images' for #<Image:0x007f581a7e94c8>
+Did you mean?  image
+               image=
+               image?:
+  app/views/resources/index.html.erb:21:in `block (2 levels) in _app_views_resources_index_html_erb__3435597886252226492_70008189328620'
+  app/views/resources/index.html.erb:18:in `block in _app_views_resources_index_html_erb__3435597886252226492_70008189328620'
+  app/views/resources/index.html.erb:17:in `_app_views_resources_index_html_erb__3435597886252226492_70008189328620'
+
+Started POST "/__better_errors/54c5733db795d8fa/variables" for 127.0.0.1 at 2018-01-14 21:32:59 +0500
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 21:33:20 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.0ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (1.1ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  [1m[36mImage Load (1.5ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 39]]
+  Rendered resources/index.html.erb within layouts/application (59.8ms)
+Completed 500 Internal Server Error in 92ms (ActiveRecord: 3.6ms)
+
+
+
+NoMethodError - undefined method `documents' for #<Resource::ActiveRecord_Associations_CollectionProxy:0x007f581868e5a8>:
+  app/views/resources/index.html.erb:44:in `_app_views_resources_index_html_erb__3435597886252226492_70008171643660'
+
+Started POST "/__better_errors/a710179fdc43e5e1/variables" for 127.0.0.1 at 2018-01-14 21:33:21 +0500
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 21:35:22 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (6.7ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (1.5ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  [1m[36mImage Load (2.3ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 39]]
+  Rendered resources/index.html.erb within layouts/application (86.7ms)
+Completed 500 Internal Server Error in 138ms (ActiveRecord: 10.6ms)
+
+
+
+NoMethodError - undefined method `documents' for nil:NilClass:
+  app/views/resources/index.html.erb:45:in `block in _app_views_resources_index_html_erb__3435597886252226492_70008189566200'
+  app/views/resources/index.html.erb:44:in `_app_views_resources_index_html_erb__3435597886252226492_70008189566200'
+
+Started POST "/__better_errors/192c5f4b39f19733/variables" for 127.0.0.1 at 2018-01-14 21:35:23 +0500
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 21:36:50 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (3.3ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (1.1ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  [1m[36mImage Load (2.0ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 39]]
+  Rendered resources/index.html.erb within layouts/application (58.8ms)
+Completed 500 Internal Server Error in 96ms (ActiveRecord: 6.4ms)
+
+
+
+NoMethodError - undefined method `documents' for nil:NilClass:
+  app/views/resources/index.html.erb:45:in `block in _app_views_resources_index_html_erb__3435597886252226492_70008104270640'
+  app/views/resources/index.html.erb:44:in `_app_views_resources_index_html_erb__3435597886252226492_70008104270640'
+
+Started POST "/__better_errors/d65133d9669e1ef0/variables" for 127.0.0.1 at 2018-01-14 21:36:51 +0500
+Started POST "/__better_errors/d65133d9669e1ef0/variables" for 127.0.0.1 at 2018-01-14 21:37:01 +0500
+Started POST "/__better_errors/d65133d9669e1ef0/variables" for 127.0.0.1 at 2018-01-14 21:37:01 +0500
+Started POST "/__better_errors/d65133d9669e1ef0/variables" for 127.0.0.1 at 2018-01-14 21:37:03 +0500
+Started POST "/__better_errors/d65133d9669e1ef0/variables" for 127.0.0.1 at 2018-01-14 21:37:03 +0500
+Started POST "/__better_errors/d65133d9669e1ef0/variables" for 127.0.0.1 at 2018-01-14 21:37:05 +0500
+Started POST "/__better_errors/d65133d9669e1ef0/variables" for 127.0.0.1 at 2018-01-14 21:37:09 +0500
+Started POST "/__better_errors/d65133d9669e1ef0/variables" for 127.0.0.1 at 2018-01-14 21:37:10 +0500
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 21:37:34 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.0ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (3.6ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  [1m[36mImage Load (1.1ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 39]]
+  [1m[36mDocument Load (2.6ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 39]]
+  [1m[36mLink Load (2.0ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 39]]
+  Rendered resources/index.html.erb within layouts/application (144.8ms)
+Completed 500 Internal Server Error in 176ms (ActiveRecord: 10.4ms)
+
+
+
+NoMethodError - undefined method `image_content_type' for #<Resource:0x00000003c7f468>:
+  app/views/resources/index.html.erb:87:in `block in _app_views_resources_index_html_erb__3435597886252226492_29787220'
+  app/views/resources/index.html.erb:86:in `_app_views_resources_index_html_erb__3435597886252226492_29787220'
+
+Started POST "/__better_errors/7b8586b838964e71/variables" for 127.0.0.1 at 2018-01-14 21:37:35 +0500
+Started GET "/projects/38/challenges" for 127.0.0.1 at 2018-01-14 21:45:05 +0500
+Processing by ChallengesController#index as HTML
+  Parameters: {"project_id"=>"38"}
+  [1m[36mProject Load (1.8ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  Rendering challenges/index.html.erb within layouts/application
+  [1m[36mChallenge Load (2.2ms)[0m  [1m[34mSELECT "challenges".* FROM "challenges" WHERE "challenges"."project_id" = $1[0m  [["project_id", 38]]
+  Rendered challenges/index.html.erb within layouts/application (38.0ms)
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (26.7ms)
+  Rendered layouts/_messages.html.erb (5.0ms)
+Completed 200 OK in 603ms (Views: 575.4ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/challenges/41" for 127.0.0.1 at 2018-01-14 21:45:10 +0500
+Processing by ChallengesController#show as HTML
+  Parameters: {"id"=>"41"}
+  [1m[36mChallenge Load (1.5ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering challenges/show.html.erb within layouts/application
+  Rendered challenges/show.html.erb within layouts/application (20.4ms)
+  [1m[36mUser Load (7.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (28.2ms)
+  Rendered layouts/_messages.html.erb (2.9ms)
+Completed 200 OK in 788ms (Views: 764.9ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 21:45:13 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.8ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (0.9ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  [1m[36mImage Load (1.4ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 39]]
+  [1m[36mDocument Load (1.8ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 39]]
+  [1m[36mLink Load (4.0ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 39]]
+  Rendered resources/index.html.erb within layouts/application (113.2ms)
+Completed 500 Internal Server Error in 144ms (ActiveRecord: 9.9ms)
+
+
+
+NoMethodError - undefined method `image_content_type' for #<Resource:0x007f581a888e60>:
+  app/views/resources/index.html.erb:87:in `block in _app_views_resources_index_html_erb__3435597886252226492_70008189681980'
+  app/views/resources/index.html.erb:86:in `_app_views_resources_index_html_erb__3435597886252226492_70008189681980'
+
+Started POST "/__better_errors/b784d2475237ed1c/variables" for 127.0.0.1 at 2018-01-14 21:45:14 +0500
+Started GET "/challenges/41/resources/new" for 127.0.0.1 at 2018-01-14 21:45:30 +0500
+Processing by ResourcesController#new as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (2.9ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/new.html.erb within layouts/application
+  Rendered resources/_image_fields.html.erb (14.3ms)
+  Rendered resources/_document_fields.html.erb (3.2ms)
+  Rendered resources/_link_fields.html.erb (14.4ms)
+  Rendered resources/_form.html.erb (85.1ms)
+  Rendered resources/new.html.erb within layouts/application (93.8ms)
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (17.7ms)
+  Rendered layouts/_messages.html.erb (3.6ms)
+Completed 200 OK in 757ms (Views: 738.2ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 21:45:46 +0500
+Processing by ResourcesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QRpVw7FPf4SppnNpNLFPIkM9dXfFcDlRTH/LRvFhTdFNBipq2bUJPvlkfgEtcQ0Ew2YfyEnSjYrpvAWFygNR0A==", "resource"=>{"images_attributes"=>{"1515948334896"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007f5818b72a10 @tempfile=#<Tempfile:/tmp/RackMultipart20180114-4569-asxx4w.png>, @original_filename="ERD of Neophyte Catalogue - New Page.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"resource[images_attributes][1515948334896][image]\"; filename=\"ERD of Neophyte Catalogue - New Page.png\"\r\nContent-Type: image/png\r\n">, "_destroy"=>"false"}}}, "commit"=>"Upload", "challenge_id"=>"41"}
+  [1m[36mChallenge Load (8.7ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+Command :: file -b --mime '/tmp/87bfe6da4182da970473b2aae727858320180114-4569-1djhjxh.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/2c2ffc7169ed81c8dfd7ac80c91f176620180114-4569-1gqx7md.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/2c2ffc7169ed81c8dfd7ac80c91f176620180114-4569-1gqx7md.png[0]'
+Command :: convert '/tmp/2c2ffc7169ed81c8dfd7ac80c91f176620180114-4569-1gqx7md.png[0]' -auto-orient -resize "300x300>" '/tmp/6aa9a63f7f960d6bc7d545c01572bcc220180114-4569-fa10zi'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/2c2ffc7169ed81c8dfd7ac80c91f176620180114-4569-1gqx7md.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/2c2ffc7169ed81c8dfd7ac80c91f176620180114-4569-1gqx7md.png[0]'
+Command :: convert '/tmp/2c2ffc7169ed81c8dfd7ac80c91f176620180114-4569-1gqx7md.png[0]' -auto-orient -resize "100x100>" '/tmp/6aa9a63f7f960d6bc7d545c01572bcc220180114-4569-1b61z3v'
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+Command :: file -b --mime '/tmp/87bfe6da4182da970473b2aae727858320180114-4569-qcgeyy.png'
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO "resources" ("created_at", "updated_at", "challenge_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2018-01-14 16:45:52.861521"], ["updated_at", "2018-01-14 16:45:52.861521"], ["challenge_id", 41]]
+  [1m[35mSQL (2.4ms)[0m  [1m[32mINSERT INTO "images" ("resource_id", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["resource_id", 40], ["created_at", "2018-01-14 16:45:52.870609"], ["updated_at", "2018-01-14 16:45:52.870609"], ["image_file_name", "ERD_of_Neophyte_Catalogue_-_New_Page.png"], ["image_content_type", "image/png"], ["image_file_size", 294042], ["image_updated_at", "2018-01-14 16:45:46.100713"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/resources/40
+Completed 302 Found in 6910ms (ActiveRecord: 16.2ms)
+
+
+Started GET "/resources/40" for 127.0.0.1 at 2018-01-14 21:45:53 +0500
+Processing by ResourcesController#show as HTML
+  Parameters: {"id"=>"40"}
+  [1m[36mResource Load (1.4ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  Rendering resources/show.html.erb within layouts/application
+  [1m[36mImage Load (1.7ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 40]]
+  Rendered resources/show.html.erb within layouts/application (27.4ms)
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (13.3ms)
+  Rendered layouts/_messages.html.erb (3.0ms)
+Completed 200 OK in 498ms (Views: 483.6ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 21:47:29 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (0.9ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  Rendered resources/index.html.erb within layouts/application (28.4ms)
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 0.9ms)
+
+
+
+NoMethodError - undefined method `images' for nil:NilClass:
+  app/views/resources/index.html.erb:8:in `_app_views_resources_index_html_erb__3435597886252226492_70008188159160'
+
+Started POST "/__better_errors/4af2a67940a8eec6/variables" for 127.0.0.1 at 2018-01-14 21:47:30 +0500
+  [1m[36mResource Load (1.4ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 21:47:55 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (2.5ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (2.6ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  Rendered resources/index.html.erb within layouts/application (35.4ms)
+Completed 500 Internal Server Error in 68ms (ActiveRecord: 5.1ms)
+
+
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+
+NoMethodError - undefined method `images' for #<Resource::ActiveRecord_Associations_CollectionProxy:0x000000042251d8>:
+  app/views/resources/index.html.erb:8:in `_app_views_resources_index_html_erb__3435597886252226492_34704580'
+
+Started POST "/__better_errors/6c9a24200293d087/variables" for 127.0.0.1 at 2018-01-14 21:47:56 +0500
+  [1m[36mResource Load (1.3ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+  [1m[36mCACHE Resource Load (0.1ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+Started POST "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 21:49:13 +0500
+Processing by ResourcesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QRpVw7FPf4SppnNpNLFPIkM9dXfFcDlRTH/LRvFhTdFNBipq2bUJPvlkfgEtcQ0Ew2YfyEnSjYrpvAWFygNR0A==", "resource"=>{"images_attributes"=>{"1515948546085"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x00000004709528 @tempfile=#<Tempfile:/tmp/RackMultipart20180114-4569-ct5t5i.png>, @original_filename="image.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"resource[images_attributes][1515948546085][image]\"; filename=\"image.png\"\r\nContent-Type: image/png\r\n">, "_destroy"=>"false"}}}, "commit"=>"Upload", "challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.6ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+Command :: file -b --mime '/tmp/78805a221a988e79ef3f42d7c5bfd41820180114-4569-12hvt2a.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/78805a221a988e79ef3f42d7c5bfd41820180114-4569-10ppq1u.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/78805a221a988e79ef3f42d7c5bfd41820180114-4569-10ppq1u.png[0]'
+Command :: convert '/tmp/78805a221a988e79ef3f42d7c5bfd41820180114-4569-10ppq1u.png[0]' -auto-orient -resize "300x300>" '/tmp/5a38065cecb85589f139d44870d7159020180114-4569-15aihlf'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/78805a221a988e79ef3f42d7c5bfd41820180114-4569-10ppq1u.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/78805a221a988e79ef3f42d7c5bfd41820180114-4569-10ppq1u.png[0]'
+Command :: convert '/tmp/78805a221a988e79ef3f42d7c5bfd41820180114-4569-10ppq1u.png[0]' -auto-orient -resize "100x100>" '/tmp/5a38065cecb85589f139d44870d7159020180114-4569-c26rz1'
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+Command :: file -b --mime '/tmp/78805a221a988e79ef3f42d7c5bfd41820180114-4569-4ks4fb.png'
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "resources" ("created_at", "updated_at", "challenge_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2018-01-14 16:49:14.502819"], ["updated_at", "2018-01-14 16:49:14.502819"], ["challenge_id", 41]]
+  [1m[35mSQL (6.8ms)[0m  [1m[32mINSERT INTO "images" ("resource_id", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["resource_id", 41], ["created_at", "2018-01-14 16:49:14.515027"], ["updated_at", "2018-01-14 16:49:14.515027"], ["image_file_name", "image.png"], ["image_content_type", "image/png"], ["image_file_size", 90303], ["image_updated_at", "2018-01-14 16:49:13.622221"]]
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/resources/41
+Completed 302 Found in 1021ms (ActiveRecord: 13.9ms)
+
+
+Started GET "/resources/41" for 127.0.0.1 at 2018-01-14 21:49:14 +0500
+Processing by ResourcesController#show as HTML
+  Parameters: {"id"=>"41"}
+  [1m[36mResource Load (1.2ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/show.html.erb within layouts/application
+  Rendered resources/show.html.erb within layouts/application (11.9ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 1.2ms)
+
+
+
+NoMethodError - undefined method `images' for nil:NilClass:
+  app/views/resources/show.html.erb:11:in `_app_views_resources_show_html_erb__3726578047320233467_70008180685400'
+
+Started POST "/__better_errors/7e69bcb45467dcfe/variables" for 127.0.0.1 at 2018-01-14 21:49:15 +0500
+Started GET "/resources/41" for 127.0.0.1 at 2018-01-14 21:51:22 +0500
+Processing by ResourcesController#show as HTML
+  Parameters: {"id"=>"41"}
+  [1m[36mResource Load (1.5ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/show.html.erb within layouts/application
+  [1m[36mImage Load (1.4ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 41]]
+  Rendered resources/show.html.erb within layouts/application (28.7ms)
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (18.1ms)
+  Rendered layouts/_messages.html.erb (2.2ms)
+Completed 200 OK in 553ms (Views: 536.6ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/challenges/41/resources/new" for 127.0.0.1 at 2018-01-14 21:52:03 +0500
+Processing by ResourcesController#new as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.9ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/new.html.erb within layouts/application
+  Rendered resources/_image_fields.html.erb (5.7ms)
+  Rendered resources/_document_fields.html.erb (5.4ms)
+  Rendered resources/_link_fields.html.erb (8.0ms)
+  Rendered resources/_form.html.erb (180.4ms)
+  Rendered resources/new.html.erb within layouts/application (193.3ms)
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (48.5ms)
+  Rendered layouts/_messages.html.erb (3.2ms)
+Completed 200 OK in 965ms (Views: 916.2ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/challenges/41/resources/new" for 127.0.0.1 at 2018-01-14 21:56:05 +0500
+Processing by ResourcesController#new as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.5ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/new.html.erb within layouts/application
+  Rendered resources/_image_fields.html.erb (3.6ms)
+  Rendered resources/_document_fields.html.erb (3.7ms)
+  Rendered resources/_link_fields.html.erb (4.6ms)
+  Rendered resources/_form.html.erb (105.4ms)
+  Rendered resources/new.html.erb within layouts/application (110.7ms)
+  [1m[36mUser Load (13.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (32.3ms)
+  Rendered layouts/_messages.html.erb (3.7ms)
+Completed 200 OK in 762ms (Views: 726.1ms | ActiveRecord: 15.4ms)
+
+
+Started GET "/challenges/41/resources/new" for 127.0.0.1 at 2018-01-14 21:57:01 +0500
+Processing by ResourcesController#new as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (3.9ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/new.html.erb within layouts/application
+  Rendered resources/_image_fields.html.erb (6.7ms)
+  Rendered resources/_document_fields.html.erb (4.8ms)
+  Rendered resources/_link_fields.html.erb (11.7ms)
+  Rendered resources/_form.html.erb (85.2ms)
+  Rendered resources/new.html.erb within layouts/application (93.3ms)
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (16.3ms)
+  Rendered layouts/_messages.html.erb (2.6ms)
+Completed 200 OK in 785ms (Views: 761.9ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/challenges/41/resources/new" for 127.0.0.1 at 2018-01-14 21:57:55 +0500
+Processing by ResourcesController#new as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.3ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/new.html.erb within layouts/application
+  Rendered resources/_image_fields.html.erb (4.3ms)
+  Rendered resources/_document_fields.html.erb (7.7ms)
+  Rendered resources/_link_fields.html.erb (6.2ms)
+  Rendered resources/_form.html.erb (60.9ms)
+  Rendered resources/new.html.erb within layouts/application (78.4ms)
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (15.5ms)
+  Rendered layouts/_messages.html.erb (2.1ms)
+Completed 200 OK in 497ms (Views: 460.3ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/challenges/41/resources/new" for 127.0.0.1 at 2018-01-14 21:58:44 +0500
+Processing by ResourcesController#new as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.0ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/new.html.erb within layouts/application
+  Rendered resources/_image_fields.html.erb (3.9ms)
+  Rendered resources/_document_fields.html.erb (3.2ms)
+  Rendered resources/_link_fields.html.erb (6.7ms)
+  Rendered resources/_form.html.erb (77.3ms)
+  Rendered resources/new.html.erb within layouts/application (82.7ms)
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (26.0ms)
+  Rendered layouts/_messages.html.erb (1.8ms)
+Completed 200 OK in 686ms (Views: 653.6ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/challenges/41/resources/new" for 127.0.0.1 at 2018-01-14 21:58:58 +0500
+Processing by ResourcesController#new as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.0ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/new.html.erb within layouts/application
+  Rendered resources/_image_fields.html.erb (4.0ms)
+  Rendered resources/_document_fields.html.erb (3.4ms)
+  Rendered resources/_link_fields.html.erb (4.5ms)
+  Rendered resources/_form.html.erb (63.1ms)
+  Rendered resources/new.html.erb within layouts/application (67.5ms)
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (17.3ms)
+  Rendered layouts/_messages.html.erb (1.8ms)
+Completed 200 OK in 631ms (Views: 613.1ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/challenges/41/resources/new" for 127.0.0.1 at 2018-01-14 22:00:49 +0500
+Processing by ResourcesController#new as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.4ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/new.html.erb within layouts/application
+  Rendered resources/_image_fields.html.erb (5.9ms)
+  Rendered resources/_document_fields.html.erb (8.0ms)
+  Rendered resources/_link_fields.html.erb (72.9ms)
+  Rendered resources/_form.html.erb (164.8ms)
+  Rendered resources/new.html.erb within layouts/application (173.3ms)
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (26.2ms)
+  Rendered layouts/_messages.html.erb (2.0ms)
+Completed 200 OK in 1139ms (Views: 1101.5ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 22:00:51 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (5.5ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (2.7ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  Rendered resources/index.html.erb within layouts/application (261.4ms)
+Completed 500 Internal Server Error in 334ms (ActiveRecord: 8.2ms)
+
+
+
+NoMethodError - undefined method `image' for #<Resource:0x007f580c0dba90>
+Did you mean?  images
+               images=:
+  app/views/resources/index.html.erb:18:in `block in _app_views_resources_index_html_erb__3435597886252226492_70008068546480'
+  app/views/resources/index.html.erb:17:in `_app_views_resources_index_html_erb__3435597886252226492_70008068546480'
+
+Started POST "/__better_errors/231208220d1fd79b/variables" for 127.0.0.1 at 2018-01-14 22:00:53 +0500
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 22:01:15 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (0.9ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (1.2ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  [1m[36mImage Load (1.7ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 39]]
+  [1m[36mImage Load (9.2ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 40]]
+  [1m[36mImage Load (0.9ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 41]]
+  [1m[36mDocument Load (1.4ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 39]]
+  [1m[36mDocument Load (2.8ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 40]]
+  [1m[36mDocument Load (3.0ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 41]]
+  [1m[36mLink Load (1.6ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 39]]
+  [1m[36mLink Load (1.1ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 40]]
+  [1m[36mLink Load (1.0ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 41]]
+  Rendered resources/index.html.erb within layouts/application (203.3ms)
+Completed 500 Internal Server Error in 230ms (ActiveRecord: 24.9ms)
+
+
+
+NoMethodError - undefined method `image_content_type' for #<Resource:0x007f581a2d3740>:
+  app/views/resources/index.html.erb:87:in `block in _app_views_resources_index_html_erb__3435597886252226492_70008188014620'
+  app/views/resources/index.html.erb:86:in `_app_views_resources_index_html_erb__3435597886252226492_70008188014620'
+
+Started POST "/__better_errors/7dd9304fc756a76a/variables" for 127.0.0.1 at 2018-01-14 22:01:16 +0500
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 22:07:29 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (4.3ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (1.0ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  [1m[36mImage Load (1.3ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 39]]
+  [1m[36mImage Load (1.6ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 40]]
+  [1m[36mImage Load (1.1ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 41]]
+  [1m[36mDocument Load (1.3ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 39]]
+  [1m[36mDocument Load (1.6ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 40]]
+  [1m[36mDocument Load (1.8ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 41]]
+  [1m[36mLink Load (1.4ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 39]]
+  [1m[36mLink Load (1.6ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 40]]
+  [1m[36mLink Load (1.0ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 41]]
+  Rendered resources/index.html.erb within layouts/application (176.3ms)
+Completed 500 Internal Server Error in 207ms (ActiveRecord: 18.1ms)
+
+
+
+NoMethodError - undefined method `image_content_type' for #<Resource:0x007f5810c99a40>:
+  app/views/resources/index.html.erb:87:in `block in _app_views_resources_index_html_erb__3435597886252226492_70008108679700'
+  app/views/resources/index.html.erb:86:in `_app_views_resources_index_html_erb__3435597886252226492_70008108679700'
+
+Started POST "/__better_errors/66feed3db707ad25/variables" for 127.0.0.1 at 2018-01-14 22:07:30 +0500
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 22:07:33 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.7ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (9.4ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  [1m[36mImage Load (2.8ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 39]]
+  [1m[36mImage Load (3.8ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 40]]
+  [1m[36mImage Load (5.6ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 41]]
+  [1m[36mDocument Load (1.3ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 39]]
+  [1m[36mDocument Load (4.8ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 40]]
+  [1m[36mDocument Load (4.2ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 41]]
+  [1m[36mLink Load (1.3ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 39]]
+  [1m[36mLink Load (1.2ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 40]]
+  [1m[36mLink Load (1.5ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 41]]
+  Rendered resources/index.html.erb within layouts/application (244.3ms)
+Completed 500 Internal Server Error in 277ms (ActiveRecord: 37.6ms)
+
+
+
+NoMethodError - undefined method `image_content_type' for #<Resource:0x007f5818bcce20>:
+  app/views/resources/index.html.erb:87:in `block in _app_views_resources_index_html_erb__3435597886252226492_70008176145040'
+  app/views/resources/index.html.erb:86:in `_app_views_resources_index_html_erb__3435597886252226492_70008176145040'
+
+Started POST "/__better_errors/686afe653aa4355a/variables" for 127.0.0.1 at 2018-01-14 22:07:34 +0500
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 22:07:51 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.8ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (1.8ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  [1m[36mImage Load (1.6ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 39]]
+  [1m[36mImage Load (1.4ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 40]]
+  [1m[36mImage Load (1.7ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 41]]
+  [1m[36mDocument Load (1.7ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 39]]
+  [1m[36mDocument Load (1.9ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 40]]
+  [1m[36mDocument Load (1.4ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 41]]
+  [1m[36mLink Load (1.7ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 39]]
+  [1m[36mLink Load (1.8ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 40]]
+  [1m[36mLink Load (1.3ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 41]]
+  Rendered resources/index.html.erb within layouts/application (350.1ms)
+Completed 500 Internal Server Error in 401ms (ActiveRecord: 18.2ms)
+
+
+
+NoMethodError - undefined method `image_content_type' for #<Resource:0x007f581a04bb58>:
+  app/views/resources/index.html.erb:87:in `block in _app_views_resources_index_html_erb__3435597886252226492_70008185972300'
+  app/views/resources/index.html.erb:86:in `_app_views_resources_index_html_erb__3435597886252226492_70008185972300'
+
+Started POST "/__better_errors/cab241a7c4f05063/variables" for 127.0.0.1 at 2018-01-14 22:07:52 +0500
+Started GET "/projects/38/challenges" for 127.0.0.1 at 2018-01-14 22:08:06 +0500
+Processing by ChallengesController#index as HTML
+  Parameters: {"project_id"=>"38"}
+  [1m[36mProject Load (2.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  Rendering challenges/index.html.erb within layouts/application
+  [1m[36mChallenge Load (1.5ms)[0m  [1m[34mSELECT "challenges".* FROM "challenges" WHERE "challenges"."project_id" = $1[0m  [["project_id", 38]]
+  Rendered challenges/index.html.erb within layouts/application (44.3ms)
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (18.7ms)
+  Rendered layouts/_messages.html.erb (2.6ms)
+Completed 200 OK in 760ms (Views: 732.4ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/challenges/41" for 127.0.0.1 at 2018-01-14 22:08:11 +0500
+Processing by ChallengesController#show as HTML
+  Parameters: {"id"=>"41"}
+  [1m[36mChallenge Load (3.4ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering challenges/show.html.erb within layouts/application
+  Rendered challenges/show.html.erb within layouts/application (7.0ms)
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (25.9ms)
+  Rendered layouts/_messages.html.erb (1.8ms)
+Completed 200 OK in 484ms (Views: 466.3ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 22:08:13 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.9ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (3.2ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  [1m[36mImage Load (1.5ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 39]]
+  [1m[36mImage Load (1.4ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 40]]
+  [1m[36mImage Load (1.5ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 41]]
+  [1m[36mDocument Load (1.3ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 39]]
+  [1m[36mDocument Load (1.6ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 40]]
+  [1m[36mDocument Load (1.6ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 41]]
+  [1m[36mLink Load (1.5ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 39]]
+  [1m[36mLink Load (1.8ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 40]]
+  [1m[36mLink Load (2.0ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 41]]
+  Rendered resources/index.html.erb within layouts/application (260.7ms)
+Completed 500 Internal Server Error in 326ms (ActiveRecord: 19.4ms)
+
+
+
+NoMethodError - undefined method `image_content_type' for #<Resource:0x007f581aa5c110>:
+  app/views/resources/index.html.erb:87:in `block in _app_views_resources_index_html_erb__3435597886252226492_70008190633320'
+  app/views/resources/index.html.erb:86:in `_app_views_resources_index_html_erb__3435597886252226492_70008190633320'
+
+Started POST "/__better_errors/6e75ecdf116d6fbc/variables" for 127.0.0.1 at 2018-01-14 22:08:13 +0500
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 22:09:02 +0500
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (3.4ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (10.2ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  [1m[36mImage Load (3.4ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 39]]
+  [1m[36mImage Load (1.9ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 40]]
+  [1m[36mImage Load (1.7ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 41]]
+  [1m[36mDocument Load (2.1ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 39]]
+  [1m[36mDocument Load (1.3ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 40]]
+  [1m[36mDocument Load (2.3ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 41]]
+  [1m[36mLink Load (5.0ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 39]]
+  [1m[36mLink Load (1.6ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 40]]
+  [1m[36mLink Load (1.2ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 41]]
+  Rendered resources/index.html.erb within layouts/application (506.8ms)
+Completed 500 Internal Server Error in 897ms (ActiveRecord: 121.4ms)
+
+
+
+NoMethodError - undefined method `image_content_type' for #<Resource:0x00000004b55cf8>:
+  app/views/resources/index.html.erb:87:in `block in _app_views_resources_index_html_erb___4592364101362245671_39917080'
+  app/views/resources/index.html.erb:86:in `_app_views_resources_index_html_erb___4592364101362245671_39917080'
+
+Started POST "/__better_errors/f6539214c3d590e6/variables" for 127.0.0.1 at 2018-01-14 22:09:04 +0500
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-14 22:10:00 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (17.6ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (2.3ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  [1m[36mImage Load (5.0ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 39]]
+  [1m[36mImage Load (4.8ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 40]]
+  [1m[36mImage Load (1.7ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 41]]
+  [1m[36mDocument Load (2.3ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 39]]
+  [1m[36mDocument Load (8.0ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 40]]
+  [1m[36mDocument Load (2.0ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 41]]
+  [1m[36mLink Load (1.2ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 39]]
+  [1m[36mLink Load (1.2ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 40]]
+  [1m[36mLink Load (1.9ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 41]]
+  Rendered resources/index.html.erb within layouts/application (149.7ms)
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (242.1ms)
+  Rendered layouts/_messages.html.erb (1.9ms)
+Completed 200 OK in 2542ms (Views: 2448.5ms | ActiveRecord: 74.5ms)
+
+
+Started GET "/challenges/41" for 127.0.0.1 at 2018-01-14 22:11:47 +0500
+Processing by ChallengesController#show as HTML
+  Parameters: {"id"=>"41"}
+  [1m[36mChallenge Load (1.2ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering challenges/show.html.erb within layouts/application
+  Rendered challenges/show.html.erb within layouts/application (6.4ms)
+Started GET "/projects/38/challenges" for 127.0.0.1 at 2018-01-14 22:11:47 +0500
+Processing by ChallengesController#index as HTML
+  Parameters: {"project_id"=>"38"}
+  [1m[36mUser Load (55.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (82.0ms)
+  Rendered layouts/_messages.html.erb (11.2ms)
+Completed 200 OK in 911ms (Views: 842.0ms | ActiveRecord: 57.0ms)
+
+
+  [1m[36mProject Load (8.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  Rendering challenges/index.html.erb within layouts/application
+  [1m[36mChallenge Load (6.1ms)[0m  [1m[34mSELECT "challenges".* FROM "challenges" WHERE "challenges"."project_id" = $1[0m  [["project_id", 38]]
+  Rendered challenges/index.html.erb within layouts/application (58.2ms)
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (15.0ms)
+  Rendered layouts/_messages.html.erb (1.6ms)
+Completed 200 OK in 1512ms (Views: 701.4ms | ActiveRecord: 167.4ms)
+
+

@@ -14,11 +14,13 @@
 
     <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
       <div class="card-block">  
-     <% @resources.each do |resource| %>
+     <% @resources.each do |res| %>
+      <% res.images.each do |resource| %>
        <%  if (resource.image_content_type != nil) %>
       <div class= " resource_img img-thumbnail">
          <%= image_tag resource.image.url %>
     </div>
+    <%  end %>
     <%  end %>
    <% end %>
       </div>
@@ -39,13 +41,15 @@
          <thead class= "table-primary border ">
         </thead>
         <tbody>
-           <% @resources.each do |resource| %>
+           <% @resources.each do |res| %>
+            <% res.documents.each do |resource| %>
              <%  if resource.document_content_type != nil %>
            <tr>
             <td><%= link_to resource.document_file_name, resource.document.url, target: "_blank", class: ' fa fa-file btn btn-link offset-md-5 btn-outline-primary' %></td>
            <td>
              <%= link_to 'Delete', resource, method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-remove fa-lg btn' %></td>
           </tr>
+          <% end %>
           <% end %>
          <% end %>
         </tbody>
@@ -63,11 +67,13 @@
     </div>
     <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
       <div class="card-block">
-      <% @resources.each do |resource| %>
+      <% @resources.each do |res| %>
+      <% res.links.each do |resource| %>
         <% if resource.link != "" %>
           <div class="resource_links">
               <%= embed(resource.link) %>
             </div>
+            <% end %>
           <% end %>
       <% end %>
       </div>
@@ -76,22 +82,7 @@
 </div>  
 
 
-<div class="card-group">
-     <% @resources.each do |resource| %>
-       <%  if (resource.image_content_type != nil) %>
-      <div class= " resource_img img-thumbnail">
-        <div class="card">
-         <%= image_tag resource.image.url %>
-        
-      </div>
-    <%  end %>
-  
-    <div class="card-block">
-      <%= link_to 'Delete', resource, method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-remove fa-lg btn' %></td>
-      </div>
-    </div> 
-     <% end %>
-</div>
+
 
 <br><br><br>
 

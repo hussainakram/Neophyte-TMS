@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180112122732) do
+ActiveRecord::Schema.define(version: 20180114131340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,36 @@ ActiveRecord::Schema.define(version: 20180112122732) do
     t.index ["company_id"], name: "index_departments_on_company_id"
   end
 
+  create_table "documents", force: :cascade do |t|
+    t.bigint "resource_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "document_file_name"
+    t.string "document_content_type"
+    t.integer "document_file_size"
+    t.datetime "document_updated_at"
+    t.index ["resource_id"], name: "index_documents_on_resource_id"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.bigint "resource_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.index ["resource_id"], name: "index_images_on_resource_id"
+  end
+
+  create_table "links", force: :cascade do |t|
+    t.string "link"
+    t.bigint "resource_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resource_id"], name: "index_links_on_resource_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.text "description", default: ""
@@ -131,16 +161,7 @@ ActiveRecord::Schema.define(version: 20180112122732) do
     t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
     t.bigint "challenge_id"
-    t.string "document_file_name"
-    t.string "document_content_type"
-    t.integer "document_file_size"
-    t.datetime "document_updated_at"
-    t.string "link"
     t.index ["challenge_id"], name: "index_resources_on_challenge_id"
   end
 
