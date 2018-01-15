@@ -2,60 +2,100 @@
 <hr>
 <h1>Available Resources</h1>
 
+<div id="accordion" role="tablist" aria-multiselectable="true">
+  <disv class="card">
+    <div class="card-header" role="tab" id="headingOne">
+      <h5 class="mb-0">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Images
+        </a>
+      </h5>
+    </div>
 
-
-<h1> Images </h1>
-<div class="container ">
- <div class="gallery">
-	<div class="well well-lg">
+    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+      <div class="card-block">  
      <% @resources.each do |resource| %>
-    	 <%  if (resource.image_content_type != nil) %>
-     	<div class= " resource_img">
-     		<figure>
-     			<img>
-			<%= image_tag resource.image.url %>
-		</img>
-			</figure>
-		</div>
-		<%  end %>
- 	<% end %>
- </div>
+       <%  if (resource.image_content_type != nil) %>
+      <div class= " resource_img img-thumbnail">
+         <%= image_tag resource.image.url %>
+    </div>
+    <%  end %>
+   <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" role="tab" id="headingTwo">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Document or PDFs
+        </a>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="card-block">
+        <table class="table  table-hover">
+         <thead class= "table-primary border ">
+        </thead>
+        <tbody>
+           <% @resources.each do |resource| %>
+             <%  if resource.document_content_type != nil %>
+           <tr>
+            <td><%= link_to resource.document_file_name, resource.document.url, target: "_blank", class: ' fa fa-file btn btn-link offset-md-5 btn-outline-primary' %></td>
+           <td>
+             <%= link_to 'Delete', resource, method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-remove fa-lg btn' %></td>
+          </tr>
+          <% end %>
+         <% end %>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab" id="headingThree">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Youtube Videos
+        </a>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="card-block">
+      <% @resources.each do |resource| %>
+        <% if resource.link != "" %>
+          <div class="resource_links">
+              <%= embed(resource.link) %>
+            </div>
+          <% end %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>  
+
+
+<div class="card-group">
+     <% @resources.each do |resource| %>
+       <%  if (resource.image_content_type != nil) %>
+      <div class= " resource_img img-thumbnail">
+        <div class="card">
+         <%= image_tag resource.image.url %>
+        
+      </div>
+    <%  end %>
+  
+    <div class="card-block">
+      <%= link_to 'Delete', resource, method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-remove fa-lg btn' %></td>
+      </div>
+    </div> 
+     <% end %>
 </div>
-</div>
 
-<br><br>
-<h1> Documents </h1>
-	<div class="container ">
-		<div class="well well-lg">
-			<% @resources.each do |resource| %>
-				<%  if resource.document_content_type != nil %>
-					<div class=" resource_doc">
-     				<%= link_to resource.document_file_name, resource.document.url, target: "_blank", class: 'btn btn-lg offset-md-5 btn-outline-primary'%>
-     				</div>
-     			<% end %>
- 			<% end %>
- 		</div>
- 	</div>
- 
-<br><br>
-
-<h1> Youtube Videos </h1>
-	<div class="container ">
-		<div class="well well-lg">
-			<% @resources.each do |resource| %>
-				<% if resource.link != "" %>
-					<div class="resource_links">
-     					<%= embed(resource.link) %>
-     				</div>
-     			<% end %>
-			<% end %>
-		</div>
-	</div>
-
-
-
-<br>
+<br><br><br>
 
 <%= link_to 'Add Resources', new_challenge_resource_path , class: "fa fa-plus-circle btn btn-outline-primary my-2 my-sm-0 btn-lg btn btn-info link_button" %>
 <br><br>
+
 

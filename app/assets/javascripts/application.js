@@ -18,3 +18,5 @@
 //= require cocoon
 //= require_tree .
 //= require bootstrap
+//= require resource
+
