@@ -46,8 +46,7 @@
              <%  if resource.document_content_type != nil %>
            <tr>
             <td><%= link_to resource.document_file_name, resource.document.url, target: "_blank", class: ' fa fa-file btn btn-link offset-md-5 btn-outline-primary' %></td>
-           <td>
-             <%= link_to 'Delete', resource, method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-remove fa-lg btn' %></td>
+           
           </tr>
           <% end %>
           <% end %>

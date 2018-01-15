@@ -17,6 +17,7 @@
 @import "bootswatch/_variables";
 @import "bootswatch/_bootswatch";
 @import 'home';
+@import 'footer';
 @import 'resource';
 @import 'SignUpForm';
 @import "bootstrap";
@@ -30,9 +31,6 @@
   border-radius: 20px;
 }
 
-.logo:hover {
-  background: #edf2f2;
-}
 
 .home_brain {
   width: 330px;
@@ -59,6 +57,7 @@ main {
 }
 
 .lead {
+  font-size: 20px;
   padding: 5px 5px 5px 5px;
   margin-left: 195px;
   margin-right: 210px;
@@ -74,8 +73,26 @@ main {
   border-radius: 50px;
   height: 250px;
 }
+
+.navbar {
+  background-color: #33383c;
+  border-radius: 7px;
+  .sign-in-up-button {
+    color: white !important;
+  }
+  a {
+    color: #c6c9ce;
+  }
+}
+
+.footer {
+  position: inherit;
+  bottom: 0;
+  width: 100%;
+  /* Set the minimum height of the footer here */
+}
+
 body{
   font-family: 'Metrophobic', sans-serif;
-  margin-top: 60px;
-
+  margin-top: 0px;
 }
