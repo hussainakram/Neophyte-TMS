@@ -12567,3 +12567,745 @@ Processing by ResourcesController#new as HTML
 Completed 200 OK in 579ms (Views: 557.8ms | ActiveRecord: 3.5ms)
 
 
+Started POST "/challenges/41/resources" for 127.0.0.1 at 2018-01-15 19:59:48 +0500
+Processing by ResourcesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dn6GEWOr/dQyNaInOVSN9cORJ2O9EuylAFLTFiwiutd6Yvm4C1GLbmL3r08glM/TQ8pN3DGwWH6lkR3VF0Cm1g==", "resource"=>{"name"=>"Xyx", "images_attributes"=>{"1516028379183"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007f70e41be7c8 @tempfile=#<Tempfile:/tmp/RackMultipart20180115-6583-3lbno4.png>, @original_filename="ERD of Neophyte Catalogue - New Page.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"resource[images_attributes][1516028379183][image]\"; filename=\"ERD of Neophyte Catalogue - New Page.png\"\r\nContent-Type: image/png\r\n">, "_destroy"=>"false"}}}, "commit"=>"Upload", "challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.4ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+Unpermitted parameter: :name
+Command :: file -b --mime '/tmp/87bfe6da4182da970473b2aae727858320180115-6583-47ds4q.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/2c2ffc7169ed81c8dfd7ac80c91f176620180115-6583-vpyugu.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/2c2ffc7169ed81c8dfd7ac80c91f176620180115-6583-vpyugu.png[0]'
+Command :: convert '/tmp/2c2ffc7169ed81c8dfd7ac80c91f176620180115-6583-vpyugu.png[0]' -auto-orient -resize "300x300>" '/tmp/599bf2d33351227a917fb3163d26a82520180115-6583-54rwvk'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/2c2ffc7169ed81c8dfd7ac80c91f176620180115-6583-vpyugu.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/2c2ffc7169ed81c8dfd7ac80c91f176620180115-6583-vpyugu.png[0]'
+Command :: convert '/tmp/2c2ffc7169ed81c8dfd7ac80c91f176620180115-6583-vpyugu.png[0]' -auto-orient -resize "100x100>" '/tmp/599bf2d33351227a917fb3163d26a82520180115-6583-smburr'
+  [1m[35m (6.2ms)[0m  [1m[35mBEGIN[0m
+Command :: file -b --mime '/tmp/87bfe6da4182da970473b2aae727858320180115-6583-1alzb7h.png'
+  [1m[35mSQL (9.4ms)[0m  [1m[32mINSERT INTO "resources" ("created_at", "updated_at", "challenge_id") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2018-01-15 14:59:54.672279"], ["updated_at", "2018-01-15 14:59:54.672279"], ["challenge_id", 41]]
+  [1m[35m (2.4ms)[0m  [1m[31mROLLBACK[0m
+Completed 500 Internal Server Error in 6019ms (ActiveRecord: 19.4ms)
+
+
+
+PG::NotNullViolation - ERROR:  null value in column "name" violates not-null constraint
+DETAIL:  Failing row contains (50, null, 2018-01-15 14:59:54.672279, 2018-01-15 14:59:54.672279, 41).
+:
+  app/controllers/resources_controller.rb:32:in `block in create'
+  app/controllers/resources_controller.rb:31:in `create'
+
+Started POST "/__better_errors/5a11443d0385623a/variables" for 127.0.0.1 at 2018-01-15 19:59:55 +0500
+Started POST "/challenges/41/resources" for 127.0.0.1 at 2018-01-15 20:00:54 +0500
+Processing by ResourcesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dn6GEWOr/dQyNaInOVSN9cORJ2O9EuylAFLTFiwiutd6Yvm4C1GLbmL3r08glM/TQ8pN3DGwWH6lkR3VF0Cm1g==", "resource"=>{"name"=>"Xyx", "images_attributes"=>{"1516028379183"=>{"image"=>#<ActionDispatch::Http::UploadedFile:0x007f710c32a170 @tempfile=#<Tempfile:/tmp/RackMultipart20180115-6583-4bue63.png>, @original_filename="ERD of Neophyte Catalogue - New Page.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"resource[images_attributes][1516028379183][image]\"; filename=\"ERD of Neophyte Catalogue - New Page.png\"\r\nContent-Type: image/png\r\n">, "_destroy"=>"false"}}}, "commit"=>"Upload", "challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.4ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+Command :: file -b --mime '/tmp/87bfe6da4182da970473b2aae727858320180115-6583-1eywoj0.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/2c2ffc7169ed81c8dfd7ac80c91f176620180115-6583-17wr1qg.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/2c2ffc7169ed81c8dfd7ac80c91f176620180115-6583-17wr1qg.png[0]'
+Command :: convert '/tmp/2c2ffc7169ed81c8dfd7ac80c91f176620180115-6583-17wr1qg.png[0]' -auto-orient -resize "300x300>" '/tmp/5a617f7c3d1cafd8002aae6e1fe11c4420180115-6583-1mhhrfz'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/2c2ffc7169ed81c8dfd7ac80c91f176620180115-6583-17wr1qg.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/2c2ffc7169ed81c8dfd7ac80c91f176620180115-6583-17wr1qg.png[0]'
+Command :: convert '/tmp/2c2ffc7169ed81c8dfd7ac80c91f176620180115-6583-17wr1qg.png[0]' -auto-orient -resize "100x100>" '/tmp/5a617f7c3d1cafd8002aae6e1fe11c4420180115-6583-1bplmt5'
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+Command :: file -b --mime '/tmp/87bfe6da4182da970473b2aae727858320180115-6583-cgaze7.png'
+  [1m[35mSQL (3.8ms)[0m  [1m[32mINSERT INTO "resources" ("name", "created_at", "updated_at", "challenge_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Xyx"], ["created_at", "2018-01-15 15:01:01.261106"], ["updated_at", "2018-01-15 15:01:01.261106"], ["challenge_id", 41]]
+  [1m[35mSQL (2.5ms)[0m  [1m[32mINSERT INTO "images" ("resource_id", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["resource_id", 51], ["created_at", "2018-01-15 15:01:01.273981"], ["updated_at", "2018-01-15 15:01:01.273981"], ["image_file_name", "ERD_of_Neophyte_Catalogue_-_New_Page.png"], ["image_content_type", "image/png"], ["image_file_size", 294042], ["image_updated_at", "2018-01-15 15:00:56.138179"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/resources/51
+Completed 302 Found in 5730ms (ActiveRecord: 147.2ms)
+
+
+Started GET "/resources/51" for 127.0.0.1 at 2018-01-15 20:01:01 +0500
+Processing by ResourcesController#show as HTML
+  Parameters: {"id"=>"51"}
+  [1m[36mResource Load (1.3ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  Rendering resources/show.html.erb within layouts/application
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 51]]
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 51]]
+  [1m[35m (7.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 51]]
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 51]]
+  Rendered resources/show.html.erb within layouts/application (116.1ms)
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (147.1ms)
+  Rendered layouts/_messages.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (5.3ms)
+Completed 200 OK in 798ms (Views: 741.1ms | ActiveRecord: 46.1ms)
+
+
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-15 20:01:08 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.9ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (13.7ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  [1m[36mResource Load (3.0ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  [1m[36mImage Load (2.8ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 51]]
+  [1m[36mDocument Load (1.7ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 51]]
+  [1m[36mLink Load (2.4ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 51]]
+  Rendered resources/index.html.erb within layouts/application (165.3ms)
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (20.4ms)
+  Rendered layouts/_messages.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (4.7ms)
+Completed 200 OK in 917ms (Views: 860.6ms | ActiveRecord: 28.5ms)
+
+
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-15 20:09:50 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (7.8ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (1.2ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  [1m[36mImage Load (11.1ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 51]]
+  [1m[36mDocument Load (1.0ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 51]]
+  [1m[36mLink Load (2.1ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 51]]
+  Rendered resources/index.html.erb within layouts/application (3046.9ms)
+Completed 500 Internal Server Error in 3311ms (ActiveRecord: 95.0ms)
+
+
+
+NameError - undefined local variable or method `index2_challenge_resource_path' for #<#<Class:0x007f7116079890>:0x007f7116077a90>
+Did you mean?  new_challenge_resource_path
+               new_challenge_resource_url:
+  app/views/resources/index.html.erb:93:in `_app_views_resources_index_html_erb__2346517362481079568_70061838815380'
+
+Started POST "/__better_errors/47a64a23c0cc3fbb/variables" for 127.0.0.1 at 2018-01-15 20:09:55 +0500
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-15 20:11:49 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (40.4ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (2.0ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  [1m[36mImage Load (1.5ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 51]]
+  [1m[36mDocument Load (1.7ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 51]]
+  [1m[36mLink Load (3.6ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 51]]
+  Rendered resources/index.html.erb within layouts/application (3661.1ms)
+Completed 500 Internal Server Error in 3803ms (ActiveRecord: 49.2ms)
+
+
+
+NameError - undefined local variable or method `index2' for #<#<Class:0x007f7116079890>:0x007f711d617638>:
+  app/views/resources/index.html.erb:93:in `_app_views_resources_index_html_erb__2346517362481079568_70061900481400'
+
+Started POST "/__better_errors/77adc4e63d602563/variables" for 127.0.0.1 at 2018-01-15 20:11:55 +0500
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-15 20:12:19 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (9.0ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (3.2ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  [1m[36mImage Load (1.6ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 51]]
+  [1m[36mDocument Load (1.4ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 51]]
+  [1m[36mLink Load (2.5ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 51]]
+  Rendered resources/index.html.erb within layouts/application (3133.7ms)
+Completed 500 Internal Server Error in 3183ms (ActiveRecord: 17.7ms)
+
+
+
+NameError - undefined local variable or method `index2_path' for #<#<Class:0x007f7116079890>:0x007f711d7ae438>
+Did you mean?  video_path:
+  app/views/resources/index.html.erb:93:in `_app_views_resources_index_html_erb__2346517362481079568_70061901314280'
+
+Started POST "/__better_errors/dbca5f0083ff6b67/variables" for 127.0.0.1 at 2018-01-15 20:12:24 +0500
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-15 20:18:01 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (13.2ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (1.5ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  [1m[36mImage Load (3.9ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 51]]
+  [1m[36mDocument Load (3.5ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 51]]
+  [1m[36mLink Load (2.2ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 51]]
+  Rendered resources/index.html.erb within layouts/application (351.1ms)
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (99.1ms)
+  Rendered layouts/_messages.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (4.3ms)
+Completed 200 OK in 16766ms (Views: 16392.6ms | ActiveRecord: 132.6ms)
+
+
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-15 20:18:23 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (0.8ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (3.8ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  [1m[36mImage Load (1.5ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 51]]
+  [1m[36mDocument Load (1.1ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 51]]
+  [1m[36mLink Load (1.9ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 51]]
+  Rendered resources/index.html.erb within layouts/application (40.0ms)
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (14.3ms)
+  Rendered layouts/_messages.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (4.0ms)
+Completed 200 OK in 548ms (Views: 529.4ms | ActiveRecord: 10.7ms)
+
+
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-15 20:18:24 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.9ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (0.8ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  [1m[36mImage Load (0.8ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 51]]
+  [1m[36mDocument Load (0.8ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 51]]
+  [1m[36mLink Load (0.8ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 51]]
+  Rendered resources/index.html.erb within layouts/application (35.9ms)
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (12.4ms)
+  Rendered layouts/_messages.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (5.2ms)
+Completed 200 OK in 506ms (Views: 489.3ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/resources/49" for 127.0.0.1 at 2018-01-15 20:18:30 +0500
+Processing by ResourcesController#show as HTML
+  Parameters: {"id"=>"49"}
+  [1m[36mResource Load (1.8ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."id" = $1 LIMIT $2[0m  [["id", 49], ["LIMIT", 1]]
+Completed 404 Not Found in 64ms (ActiveRecord: 1.8ms)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find Resource with 'id'=49:
+  app/controllers/resources_controller.rb:69:in `set_resource'
+
+Started POST "/__better_errors/5173cfe9e71ebcb1/variables" for 127.0.0.1 at 2018-01-15 20:18:31 +0500
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-15 20:18:36 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (2.1ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (1.5ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  [1m[36mImage Load (1.4ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 51]]
+  [1m[36mDocument Load (1.4ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 51]]
+  [1m[36mLink Load (1.6ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 51]]
+  Rendered resources/index.html.erb within layouts/application (60.9ms)
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (14.6ms)
+  Rendered layouts/_messages.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (4.1ms)
+Completed 200 OK in 820ms (Views: 769.8ms | ActiveRecord: 9.8ms)
+
+
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-15 20:18:37 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.8ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (0.9ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  [1m[36mImage Load (0.9ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 51]]
+  [1m[36mDocument Load (2.3ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 51]]
+  [1m[36mLink Load (1.0ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 51]]
+  Rendered resources/index.html.erb within layouts/application (35.7ms)
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (13.0ms)
+  Rendered layouts/_messages.html.erb (2.9ms)
+  Rendered layouts/_footer.html.erb (4.4ms)
+Completed 200 OK in 514ms (Views: 494.4ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/projects/38/challenges" for 127.0.0.1 at 2018-01-15 20:18:39 +0500
+Processing by ChallengesController#index as HTML
+  Parameters: {"project_id"=>"38"}
+  [1m[36mProject Load (2.8ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  Rendering challenges/index.html.erb within layouts/application
+  [1m[36mChallenge Load (1.8ms)[0m  [1m[34mSELECT "challenges".* FROM "challenges" WHERE "challenges"."project_id" = $1[0m  [["project_id", 38]]
+  Rendered challenges/index.html.erb within layouts/application (77.8ms)
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (18.4ms)
+  Rendered layouts/_messages.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (4.4ms)
+Completed 200 OK in 799ms (Views: 639.3ms | ActiveRecord: 24.3ms)
+
+
+Started GET "/projects/38/challenges" for 127.0.0.1 at 2018-01-15 20:18:43 +0500
+Processing by ChallengesController#index as HTML
+  Parameters: {"project_id"=>"38"}
+  [1m[36mProject Load (0.8ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  Rendering challenges/index.html.erb within layouts/application
+  [1m[36mChallenge Load (1.2ms)[0m  [1m[34mSELECT "challenges".* FROM "challenges" WHERE "challenges"."project_id" = $1[0m  [["project_id", 38]]
+  Rendered challenges/index.html.erb within layouts/application (46.2ms)
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (24.0ms)
+  Rendered layouts/_messages.html.erb (6.1ms)
+  Rendered layouts/_footer.html.erb (7.6ms)
+Completed 200 OK in 549ms (Views: 535.4ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/projects/38/challenges" for 127.0.0.1 at 2018-01-15 20:18:44 +0500
+Processing by ChallengesController#index as HTML
+  Parameters: {"project_id"=>"38"}
+  [1m[36mProject Load (3.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  Rendering challenges/index.html.erb within layouts/application
+  [1m[36mChallenge Load (2.2ms)[0m  [1m[34mSELECT "challenges".* FROM "challenges" WHERE "challenges"."project_id" = $1[0m  [["project_id", 38]]
+  Rendered challenges/index.html.erb within layouts/application (38.6ms)
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (20.0ms)
+  Rendered layouts/_messages.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (4.7ms)
+Completed 200 OK in 578ms (Views: 556.5ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/challenges/74/resources" for 127.0.0.1 at 2018-01-15 20:18:53 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"74"}
+  [1m[36mChallenge Load (2.9ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 74], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (3.0ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 74]]
+  Rendered resources/index.html.erb within layouts/application (38.2ms)
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (20.2ms)
+  Rendered layouts/_messages.html.erb (3.1ms)
+  Rendered layouts/_footer.html.erb (4.5ms)
+Completed 200 OK in 1183ms (Views: 1142.5ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/challenges/41" for 127.0.0.1 at 2018-01-15 20:19:23 +0500
+Processing by ChallengesController#show as HTML
+  Parameters: {"id"=>"41"}
+  [1m[36mChallenge Load (2.5ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering challenges/show.html.erb within layouts/application
+  Rendered challenges/show.html.erb within layouts/application (5.7ms)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (13.9ms)
+  Rendered layouts/_messages.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (4.2ms)
+Completed 200 OK in 483ms (Views: 459.8ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/departments/73/projects" for 127.0.0.1 at 2018-01-15 20:19:26 +0500
+Processing by ProjectsController#index as HTML
+  Parameters: {"department_id"=>"73"}
+  [1m[36mDepartment Load (31.5ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (1.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."department_id" = $1[0m  [["department_id", 73]]
+  Rendered projects/index.html.erb within layouts/application (22.4ms)
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (16.4ms)
+  Rendered layouts/_messages.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (12.9ms)
+Completed 200 OK in 698ms (Views: 484.0ms | ActiveRecord: 62.6ms)
+
+
+Started GET "/departments/73/projects" for 127.0.0.1 at 2018-01-15 20:19:26 +0500
+Processing by ProjectsController#index as HTML
+  Parameters: {"department_id"=>"73"}
+  [1m[36mDepartment Load (3.9ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (1.7ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."department_id" = $1[0m  [["department_id", 73]]
+  Rendered projects/index.html.erb within layouts/application (16.6ms)
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (18.4ms)
+  Rendered layouts/_messages.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (5.0ms)
+Completed 200 OK in 516ms (Views: 500.5ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/projects/38" for 127.0.0.1 at 2018-01-15 20:19:39 +0500
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"38"}
+  [1m[36mProject Load (1.6ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (10.1ms)
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (18.6ms)
+  Rendered layouts/_messages.html.erb (3.0ms)
+  Rendered layouts/_footer.html.erb (4.9ms)
+Completed 200 OK in 624ms (Views: 579.7ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/projects/38" for 127.0.0.1 at 2018-01-15 20:19:47 +0500
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"38"}
+  [1m[36mProject Load (3.0ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/show.html.erb within layouts/application (8.6ms)
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (18.5ms)
+  Rendered layouts/_messages.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (6.5ms)
+Completed 200 OK in 652ms (Views: 626.1ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/projects/38/challenges" for 127.0.0.1 at 2018-01-15 20:19:48 +0500
+Processing by ChallengesController#index as HTML
+  Parameters: {"project_id"=>"38"}
+  [1m[36mProject Load (2.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  Rendering challenges/index.html.erb within layouts/application
+  [1m[36mChallenge Load (1.4ms)[0m  [1m[34mSELECT "challenges".* FROM "challenges" WHERE "challenges"."project_id" = $1[0m  [["project_id", 38]]
+  Rendered challenges/index.html.erb within layouts/application (36.6ms)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (15.1ms)
+  Rendered layouts/_messages.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (7.9ms)
+Completed 200 OK in 507ms (Views: 489.7ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/departments" for 127.0.0.1 at 2018-01-15 20:20:08 +0500
+  
+ActionController::RoutingError (No route matches [GET] "/departments"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/departments/1" for 127.0.0.1 at 2018-01-15 20:20:25 +0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDepartment Load (1.9ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering departments/show.html.erb within layouts/application
+  Rendered departments/show.html.erb within layouts/application (12.2ms)
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (19.2ms)
+  Rendered layouts/_messages.html.erb (2.7ms)
+  Rendered layouts/_footer.html.erb (7.2ms)
+Completed 200 OK in 733ms (Views: 707.5ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/departments/1/edit" for 127.0.0.1 at 2018-01-15 20:20:35 +0500
+Processing by DepartmentsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDepartment Load (1.4ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering departments/edit.html.erb within layouts/application
+  Rendered departments/_form.html.erb (10.8ms)
+  Rendered departments/edit.html.erb within layouts/application (43.0ms)
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (15.9ms)
+  Rendered layouts/_messages.html.erb (3.2ms)
+  Rendered layouts/_footer.html.erb (5.8ms)
+Completed 200 OK in 474ms (Views: 460.1ms | ActiveRecord: 3.0ms)
+
+
+Started PATCH "/departments/1" for 127.0.0.1 at 2018-01-15 20:20:38 +0500
+Processing by DepartmentsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YFoMC0rq91vnMRyzgOYHpcajMWpIw1bne6rJprbZBV7w/kgJIIwwFs+sQAqzmSs69vAEkT3M7kLH8HpWvXlvOw==", "department"=>{"name"=>"Web", "description"=>"The team that develops soft systems and solutions for business growth."}, "commit"=>"Submit", "id"=>"1"}
+  [1m[36mDepartment Load (2.1ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCompany Load (44.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/departments/1
+Completed 302 Found in 411ms (ActiveRecord: 111.3ms)
+
+
+Started GET "/departments/1" for 127.0.0.1 at 2018-01-15 20:20:38 +0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDepartment Load (1.6ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering departments/show.html.erb within layouts/application
+  Rendered departments/show.html.erb within layouts/application (9.7ms)
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (58.8ms)
+  Rendered layouts/_messages.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (6.4ms)
+Completed 200 OK in 600ms (Views: 587.4ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/companies/1/departments" for 127.0.0.1 at 2018-01-15 20:20:48 +0500
+Processing by DepartmentsController#index as HTML
+  Parameters: {"company_id"=>"1"}
+  [1m[36mCompany Load (1.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering departments/index.html.erb within layouts/application
+  [1m[36mDepartment Load (1.5ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."company_id" = $1[0m  [["company_id", 1]]
+  Rendered departments/index.html.erb within layouts/application (45.6ms)
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (13.9ms)
+  Rendered layouts/_messages.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (3.9ms)
+Completed 200 OK in 583ms (Views: 556.4ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/departments/39" for 127.0.0.1 at 2018-01-15 20:20:53 +0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"39"}
+  [1m[36mDepartment Load (4.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  Rendering departments/show.html.erb within layouts/application
+  Rendered departments/show.html.erb within layouts/application (6.3ms)
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (13.8ms)
+  Rendered layouts/_messages.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (5.8ms)
+Completed 200 OK in 827ms (Views: 787.4ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/departments/6" for 127.0.0.1 at 2018-01-15 20:21:00 +0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mDepartment Load (2.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering departments/show.html.erb within layouts/application
+  Rendered departments/show.html.erb within layouts/application (10.4ms)
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (12.7ms)
+  Rendered layouts/_messages.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (4.3ms)
+Completed 200 OK in 775ms (Views: 753.7ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/departments/6/projects" for 127.0.0.1 at 2018-01-15 20:21:02 +0500
+Processing by ProjectsController#index as HTML
+  Parameters: {"department_id"=>"6"}
+  [1m[36mDepartment Load (1.8ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (2.0ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."department_id" = $1[0m  [["department_id", 6]]
+  Rendered projects/index.html.erb within layouts/application (24.5ms)
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (13.9ms)
+  Rendered layouts/_messages.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (3.7ms)
+Completed 200 OK in 531ms (Views: 505.9ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/departments/6/projects" for 127.0.0.1 at 2018-01-15 20:21:20 +0500
+Processing by ProjectsController#index as HTML
+  Parameters: {"department_id"=>"6"}
+  [1m[36mDepartment Load (1.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (1.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."department_id" = $1[0m  [["department_id", 6]]
+  Rendered projects/index.html.erb within layouts/application (10.4ms)
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (24.6ms)
+  Rendered layouts/_messages.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (4.0ms)
+Completed 200 OK in 16603ms (Views: 16590.3ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/departments/6/projects" for 127.0.0.1 at 2018-01-15 20:21:42 +0500
+Processing by ProjectsController#index as HTML
+  Parameters: {"department_id"=>"6"}
+  [1m[36mDepartment Load (3.1ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (6.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."department_id" = $1[0m  [["department_id", 6]]
+  Rendered projects/index.html.erb within layouts/application (15.3ms)
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (29.3ms)
+  Rendered layouts/_messages.html.erb (2.6ms)
+  Rendered layouts/_footer.html.erb (4.9ms)
+Completed 200 OK in 680ms (Views: 643.7ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/departments/6/projects" for 127.0.0.1 at 2018-01-15 20:22:04 +0500
+Processing by ProjectsController#index as HTML
+  Parameters: {"department_id"=>"6"}
+  [1m[36mDepartment Load (17.8ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (7.7ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."department_id" = $1[0m  [["department_id", 6]]
+  Rendered projects/index.html.erb within layouts/application (93.4ms)
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (13.9ms)
+  Rendered layouts/_messages.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (3.7ms)
+Completed 200 OK in 18290ms (Views: 18226.6ms | ActiveRecord: 27.1ms)
+
+
+Started GET "/departments/6/projects" for 127.0.0.1 at 2018-01-15 20:22:43 +0500
+Processing by ProjectsController#index as HTML
+  Parameters: {"department_id"=>"6"}
+  [1m[36mDepartment Load (1.0ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.9ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."department_id" = $1[0m  [["department_id", 6]]
+  Rendered projects/index.html.erb within layouts/application (14.6ms)
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (17.1ms)
+  Rendered layouts/_messages.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (5.9ms)
+Completed 200 OK in 549ms (Views: 533.7ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/departments/6" for 127.0.0.1 at 2018-01-15 20:22:50 +0500
+Processing by DepartmentsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mDepartment Load (0.9ms)[0m  [1m[34mSELECT  "departments".* FROM "departments" WHERE "departments"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering departments/show.html.erb within layouts/application
+  Rendered departments/show.html.erb within layouts/application (3.4ms)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (14.7ms)
+  Rendered layouts/_messages.html.erb (4.8ms)
+  Rendered layouts/_footer.html.erb (4.2ms)
+Completed 200 OK in 610ms (Views: 593.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/companies/1/departments" for 127.0.0.1 at 2018-01-15 20:22:54 +0500
+Processing by DepartmentsController#index as HTML
+  Parameters: {"company_id"=>"1"}
+  [1m[36mCompany Load (3.5ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering departments/index.html.erb within layouts/application
+  [1m[36mDepartment Load (1.9ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."company_id" = $1[0m  [["company_id", 1]]
+  Rendered departments/index.html.erb within layouts/application (78.0ms)
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (16.1ms)
+  Rendered layouts/_messages.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (11.5ms)
+Completed 200 OK in 924ms (Views: 859.9ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/companies/1" for 127.0.0.1 at 2018-01-15 20:23:02 +0500
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCompany Load (2.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering companies/show.html.erb within layouts/application
+  Rendered companies/show.html.erb within layouts/application (17.9ms)
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (30.8ms)
+  Rendered layouts/_messages.html.erb (3.1ms)
+  Rendered layouts/_footer.html.erb (7.4ms)
+Completed 200 OK in 748ms (Views: 723.9ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-01-15 20:23:06 +0500
+Processing by CompaniesController#index as HTML
+  [1m[36mUser Load (6.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mCompany Load (35.1ms)[0m  [1m[34mSELECT "companies".* FROM "companies" INNER JOIN "company_users" ON "companies"."id" = "company_users"."company_id" WHERE "company_users"."user_id" = $1[0m  [["user_id", 2]]
+  Rendered companies/index.html.erb within layouts/application (131.7ms)
+  Rendered layouts/_navigation.html.erb (9.1ms)
+  Rendered layouts/_messages.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (11.4ms)
+Completed 200 OK in 1166ms (Views: 854.9ms | ActiveRecord: 56.0ms)
+
+
+Started GET "/companies/12" for 127.0.0.1 at 2018-01-15 20:23:10 +0500
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mCompany Load (40.9ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering companies/show.html.erb within layouts/application
+  Rendered companies/show.html.erb within layouts/application (11.0ms)
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (15.4ms)
+  Rendered layouts/_messages.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (4.5ms)
+Completed 200 OK in 661ms (Views: 597.4ms | ActiveRecord: 42.6ms)
+
+
+Started GET "/companies/13" for 127.0.0.1 at 2018-01-15 20:23:16 +0500
+Processing by CompaniesController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mCompany Load (1.8ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering companies/show.html.erb within layouts/application
+  Rendered companies/show.html.erb within layouts/application (15.2ms)
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (12.3ms)
+  Rendered layouts/_messages.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (3.7ms)
+Completed 200 OK in 697ms (Views: 669.1ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/companies/13/departments" for 127.0.0.1 at 2018-01-15 20:23:20 +0500
+Processing by DepartmentsController#index as HTML
+  Parameters: {"company_id"=>"13"}
+  [1m[36mCompany Load (1.4ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering departments/index.html.erb within layouts/application
+  [1m[36mDepartment Load (2.6ms)[0m  [1m[34mSELECT "departments".* FROM "departments" WHERE "departments"."company_id" = $1[0m  [["company_id", 13]]
+  Rendered departments/index.html.erb within layouts/application (38.6ms)
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (17.4ms)
+  Rendered layouts/_messages.html.erb (4.2ms)
+  Rendered layouts/_footer.html.erb (3.9ms)
+Completed 200 OK in 632ms (Views: 610.1ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/projects/38/challenges" for 127.0.0.1 at 2018-01-15 20:25:02 +0500
+Processing by ChallengesController#index as HTML
+  Parameters: {"project_id"=>"38"}
+  [1m[36mProject Load (3.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  Rendering challenges/index.html.erb within layouts/application
+  [1m[36mChallenge Load (6.2ms)[0m  [1m[34mSELECT "challenges".* FROM "challenges" WHERE "challenges"."project_id" = $1[0m  [["project_id", 38]]
+  Rendered challenges/index.html.erb within layouts/application (49.0ms)
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (15.5ms)
+  Rendered layouts/_messages.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (7.8ms)
+Completed 200 OK in 619ms (Views: 592.3ms | ActiveRecord: 13.0ms)
+
+
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-15 20:25:06 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.5ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (1.5ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  [1m[36mImage Load (1.4ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 51]]
+  [1m[36mDocument Load (2.1ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 51]]
+  [1m[36mLink Load (2.6ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 51]]
+  Rendered resources/index.html.erb within layouts/application (67.3ms)
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (18.4ms)
+  Rendered layouts/_messages.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (5.8ms)
+Completed 200 OK in 779ms (Views: 753.4ms | ActiveRecord: 11.3ms)
+
+
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-15 20:26:01 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (1.4ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  Rendered resources/index.html.erb within layouts/application (5.9ms)
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 1.4ms)
+
+
+
+SyntaxError - syntax error, unexpected keyword_else, expecting keyword_end
+            else 
+                ^
+/home/kainat/Desktop/neophyte-lms/app/views/resources/index.html.erb:104: syntax error, unexpected keyword_ensure, expecting end-of-input
+          ensure
+                ^:
+  app/views/resources/index.html.erb:58:in `'
+
+Started POST "/__better_errors/c447d7b7993ee3f4/variables" for 127.0.0.1 at 2018-01-15 20:26:02 +0500
+  [1m[36mResource Load (1.4ms)[0m  [1m[34mSELECT  "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1 LIMIT $2[0m  [["challenge_id", 41], ["LIMIT", 11]]
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-15 20:26:29 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (3.2ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (1.1ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  [1m[36mImage Load (1.5ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 51]]
+  [1m[36mDocument Load (0.9ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 51]]
+  [1m[36mLink Load (8.1ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 51]]
+  Rendered resources/index.html.erb within layouts/application (49.1ms)
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (18.6ms)
+  Rendered layouts/_messages.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (3.7ms)
+Completed 200 OK in 849ms (Views: 812.4ms | ActiveRecord: 17.7ms)
+
+
+Started GET "/challenges/41/resources" for 127.0.0.1 at 2018-01-15 20:27:23 +0500
+Processing by ResourcesController#index as HTML
+  Parameters: {"challenge_id"=>"41"}
+  [1m[36mChallenge Load (2.1ms)[0m  [1m[34mSELECT  "challenges".* FROM "challenges" WHERE "challenges"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  Rendering resources/index.html.erb within layouts/application
+  [1m[36mResource Load (1.0ms)[0m  [1m[34mSELECT "resources".* FROM "resources" WHERE "resources"."challenge_id" = $1[0m  [["challenge_id", 41]]
+  [1m[36mImage Load (1.7ms)[0m  [1m[34mSELECT "images".* FROM "images" WHERE "images"."resource_id" = $1[0m  [["resource_id", 51]]
+  [1m[36mDocument Load (5.4ms)[0m  [1m[34mSELECT "documents".* FROM "documents" WHERE "documents"."resource_id" = $1[0m  [["resource_id", 51]]
+  [1m[36mLink Load (1.8ms)[0m  [1m[34mSELECT "links".* FROM "links" WHERE "links"."resource_id" = $1[0m  [["resource_id", 51]]
+  Rendered resources/index.html.erb within layouts/application (51.0ms)
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_navigation.html.erb (19.9ms)
+  Rendered layouts/_messages.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (6.3ms)
+Completed 200 OK in 609ms (Views: 578.4ms | ActiveRecord: 15.8ms)
+
+

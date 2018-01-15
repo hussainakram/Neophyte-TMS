@@ -20,7 +20,10 @@
       <div class= " resource_img img-thumbnail">
          <%= image_tag resource.image.url %>
     </div>
+    <%  else %>
+    <p> No Images Available </p>
     <%  end %>
+
     <%  end %>
    <% end %>
       </div>
@@ -51,6 +54,9 @@
 
             </td>           
           </tr>
+          
+          <%  else %>
+           <p> No Files Available </p>
           <% end %>
           <% end %>
          <% end %>
@@ -75,6 +81,8 @@
           <div class="resource_links">
               <%= embed(resource.link) %>
             </div>
+            <%  else %>
+              <p> No Link Available </p>
             <% end %>
           <% end %>
       <% end %>
