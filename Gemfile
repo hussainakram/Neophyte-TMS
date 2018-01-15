@@ -18,6 +18,7 @@ gem "paperclip", "~> 5.0.0.beta1"
 gem 'yt', '~> 0.13.7'
 gem 'autoprefixer-rails'
 
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'

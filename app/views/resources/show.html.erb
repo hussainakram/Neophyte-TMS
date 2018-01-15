@@ -1,16 +1,40 @@
+<%= link_to '', challenge_resources_path(@resource.challenge_id), class: 'fa fa-arrow-left fa-lg' %>
 
-<div class= "container">
-
-<%= image_tag("resource.png", class: " img-thumbnail img-fluid resource_share") %>
+<hr>
+<div class="card col-md-7 offset-md-2">
+  <div class="card-header">
+    <b><%= @resource.name %></b>
+  </div>
+  <div class="card-block">
+    <h5>No. of Images:</h5>
+      <% if @resource.images.count > 0 %>
+        <p class="card-text"><%= @resource.images.count %></p>
+      <% else %>
+         <p class="card-text"> 0 </p>
+      <% end %>
+    <h5>No. of Documents:</h5>
+      <% if @resource.documents.count > 0 %>
+        <p class="card-text"><%= @challenge.documents.count %></p>
+      <% else %>
+         <p class="card-text"> 0 </p>
+      <% end %>
+    
+    <h5>No. of Videos:</h5>
+        <% if @resource.links.count > 0 %>
+         <p class="card-text"><%= @challenge.links.count %></p>
+      <% else %>
+         <p class="card-text"> 0 </p>
+      <% end %>
+  </div>
 </div>
 
+<br>
+
+ <%= link_to 'All Resources', challenge_resources_path(@resource.challenge_id) ,class: "fa fa-backward-circle btn btn-outline-primary my-2 my-sm-0 btn-lg btn btn-info link_button" %>
+
+<br> <br>
 
 
 
-
-
-
-
-  
 
    

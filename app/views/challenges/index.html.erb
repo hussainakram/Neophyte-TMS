@@ -10,6 +10,7 @@
       <th>Points</th>
       <th>Actions</th>
       <th>Quizzes</th>
+      <th>Resources</th>
     </tr>
   </thead>
 
@@ -28,6 +29,9 @@
         </td>
         <td style="width: 60px;">
           <%= link_to image_tag('quiz.png'), challenge_quizzes_path(challenge) %>
+        </td>
+        <td style="width: 100px; height:60px;">
+          <%= link_to image_tag('res.png'), challenge_resources_path(challenge) %>
         </td>
       </tr>
     <% end %>

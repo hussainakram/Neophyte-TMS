@@ -1,0 +1,13 @@
+<div>
+	<%= f.label :document, "Upload PDF or Doc" %>
+  <div class="row">
+    <div class="offset-md-1"></div>
+    <div class="col-md-12">
+        <%= f.file_field :document, class: 'form-control'%>
+    <%= link_to_remove_association " Remove", f, { wrapper_class: '.document-block', class: 'fa fa-close col-md-3' } %>
+  </div>
+</div>
+</div>
+ 
+ <br>
+
