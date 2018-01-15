@@ -11,8 +11,6 @@ class ResourcesController < ApplicationController
   # GET /resources/1
   # GET /resources/1.json
   def show
-   / @resource = Resource.find(params[:id])/
-   @resources = Resource.all
   end
 
   # GET /resources/new
@@ -47,7 +45,7 @@ class ResourcesController < ApplicationController
     respond_to do |format|
       if @resource.update(resource_params)
         format.html { redirect_to @resource, notice: 'Resource was successfully updated.' }
-        format.json { render :show, status: :ok, location: @resource }
+        format.json { render :index, status: :ok, location: @resource }
       else
         format.html { render :edit }
         format.json { render json: @resource.errors, status: :unprocessable_entity }
@@ -73,9 +71,10 @@ class ResourcesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def resource_params
-      /params.fetch(:resource, {})/
-      params.require(:resource).permit(:image , :challenge_id , :document , :link)
+      
+      params.require(:resource).permit(:challenge_id ,:name , images_attributes: [:id, :image, :_destroy], documents_attributes: [:id, :document, :_destroy], links_attributes: [:id, :link, :_destroy])
     end
+
 
     
 end
