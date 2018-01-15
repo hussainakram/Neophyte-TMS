@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   end
 
   root to: 'visitors#index'
-  devise_for :users
+  devise_for :users, controllers: { invitations: 'users/invitations' }
 end
