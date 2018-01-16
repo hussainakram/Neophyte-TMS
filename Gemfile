@@ -17,6 +17,7 @@ gem 'formtastic', '~> 3.0'
 gem "paperclip", "~> 5.0.0.beta1"
 gem 'yt', '~> 0.13.7'
 gem 'autoprefixer-rails'
+gem "figaro"
 
 
 group :development, :test do
