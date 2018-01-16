@@ -10,10 +10,7 @@
       <th>End Date</th>
       <th>Last Updated At</th>
       <th>Actions</th>
-      <th>Start_Date</th>
-      <th>End_Date</th>
-      <th>Last_Updated_At</th>
-      <th>Actions</th>
+      <th>Invite</th>
     </tr>
 
   </thead>
@@ -30,7 +27,11 @@
         <td>
           <%= link_to '', project, class: 'fa fa-eye fa-lg btn' %>
           <%= link_to '', edit_project_path(project), class: 'fa fa-edit fa-lg btn' %>
-          <%= link_to '', project, method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-remove fa-lg btn' %></td>
+          <%= link_to '', project, method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-remove fa-lg btn' %>
+        </td>
+          <td>
+            <%= link_to '', new_user_invitation_path, class: 'fa fa-user-plus fa-lg' %>
+          </td>
       </tr>
     <% end %>
   </tbody>
