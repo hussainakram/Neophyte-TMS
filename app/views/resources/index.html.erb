@@ -1,49 +1,117 @@
 <%= link_to "", project_challenges_path(@challenge.project_id), class: 'btn fa fa-arrow-left' %>
 <h1 class="model-header">Resouces</h1>
+<div id="accordion" role="tablist" aria-multiselectable="true">
+  <disv class="card">
+    <div class="card-header" role="tab" id="headingOne">
+      <h5 class="mb-0">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Images
+        </a>
+      </h5>
+    </div>
 
-  <table class="table table-responsive">
-    <thead class="table-info">
-      <tr>
-        <th>Resource </th>
-        <th>Images </th>
-        <th>Documents </th>
-        <th>Videos </th>
-        <th>Actions</th>
-      </tr>
-    </thead>
+    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+      <div class="card-block">  
+     <% @resources.each do |res| %>
+        <% if res.images.count > 0 %>
+         <% res.images.each do |resource| %>
+           <%  if (resource.image_content_type != nil) %>
+              <div class= " resource_img img-thumbnail">
+                 <%= image_tag resource.image.url %>
+               </div>
+            <%  end %>
+          <%  end %>
+        <%  else %>
 
-    <tbody>
+            <blockquote class="blockquote msg text-center">
+                 <h6 class="mb-0"> No Images Available </h6>
+            </blockquote>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" role="tab" id="headingTwo">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Document or PDFs
+        </a>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="card-block">
+        <table class="table  table-hover">
+         <thead class= "table-primary border ">
+        </thead>
+        <tbody>
+           <% @resources.each do |res| %>
+            <% if res.documents.count > 0 %>
+            <% res.documents.each do |resource| %>
+           
+             <%  if resource.document_content_type != nil %>
+               <tr>
+                  <td><%= link_to resource.document_file_name, resource.document.url, target: "_blank", class: ' fa fa-file btn btn-link offset-md-5 btn-outline-primary' %></td>
+
+                 <td>  </td>           
+              </tr>
+            <% end %>
+          <% end %>
+          <%  else %>
+            <blockquote class="blockquote msg text-center">
+                 <h6 class="mb-0"> No Files Available </h6>
+            </blockquote>
+          <% end %>
+          
+         <% end %>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab" id="headingThree">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Youtube Videos
+        </a>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="card-block">
       <% @resources.each do |res| %>
-        <tr>
-          <td><%= res.name  %></td>
-          <td><%= res.images.count  %></td>
-          <td><%= res.documents.count %></td>
-          <td><%= res.links.count  %></td>
-          <td>
-            <%= link_to '', edit_resource_path(res), class: 'fa fa-plus fa-lg btn' %>
-
-            <%= link_to '', res, method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-remove fa-lg btn' %>
-          </td>
-        </tr>
+        <% if res.links.count > 0 %>
+           <% res.links.each do |resource| %>
+              <% if resource.link != "" %>
+                <div class="card resource_links">
+                   <%= embed(resource.link) %>
+                </div>
+              <% end %>
+             <% end %>
+        <%  else %>
+          <blockquote class="blockquote msg text-center">
+             <h6 class="mb-0"> No Links Available </h6>
+          </blockquote>
+       <% end %>          
       <% end %>
-    </tbody>
-  </table>
- 
+      </div>
+    </div>
+  </div>
+</div>  
+<br><br>
+<%= link_to 'Add More Resources', new_challenge_resource_path , class: "fa fa-plus-circle btn btn-outline-primary my-2 my-sm-0 btn-lg btn btn-info link_button" %>
 
-
+<br><br>
+<%= link_to 'View Resources Details', challenge_resources_path(index: true) , class: "fa fa-eye btn btn-outline-primary my-2 my-sm-0 btn-lg btn btn-info link_button" %> 
 <br>
 
-<div class="row">
-  <div class="col-md-3">
-  </div>
-  <div class="col-md-3">
-<%= link_to 'Add Resources', new_challenge_resource_path , class: "fa fa-plus-circle btn btn-outline-primary my-2 my-sm-0 btn-lg btn btn-info" %>
-</div>
-<div class="col-md-3">
-<%= link_to 'View All Resources', challenge_resources_path(index: true) , class: "fa fa-eye btn btn-outline-primary my-2 my-sm-0 btn-lg btn btn-info" %>   
-</div>
-  <div class="col-md-3">
-  
-  </div>
-</div>
-<br><br>
+
+
+
+
+
+
+
+
+
