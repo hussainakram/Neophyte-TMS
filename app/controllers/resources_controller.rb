@@ -6,6 +6,11 @@ class ResourcesController < ApplicationController
   def index
     @challenge = Challenge.find(params[:challenge_id])
     @resources = @challenge.resources
+    if params[:index]
+    render :all
+  else
+    render :index
+  end
   end
 
   # GET /resources/1
