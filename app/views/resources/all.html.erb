@@ -14,17 +14,21 @@
     <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
       <div class="card-block">  
      <% @resources.each do |res| %>
-      <% res.images.each do |resource| %>
-       <%  if (resource.image_content_type != nil) %>
-      <div class= " resource_img img-thumbnail">
-         <%= image_tag resource.image.url %>
-    </div>
-    <%  else %>
-    <p> No Images Available </p>
-    <%  end %>
+        <% if res.images.count > 0 %>
+         <% res.images.each do |resource| %>
+           <%  if (resource.image_content_type != nil) %>
+              <div class= " resource_img img-thumbnail">
+                 <%= image_tag resource.image.url %>
+               </div>
+            <%  end %>
+          <%  end %>
+        <%  else %>
 
-    <%  end %>
-   <% end %>
+            <blockquote class="blockquote msg text-center">
+                 <h6 class="mb-0"> No Images Available </h6>
+            </blockquote>
+        <% end %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -44,20 +48,23 @@
         </thead>
         <tbody>
            <% @resources.each do |res| %>
+            <% if res.documents.count > 0 %>
             <% res.documents.each do |resource| %>
+           
              <%  if resource.document_content_type != nil %>
-           <tr>
-            <td><%= link_to resource.document_file_name, resource.document.url, target: "_blank", class: ' fa fa-file btn btn-link offset-md-5 btn-outline-primary' %></td>
+               <tr>
+                  <td><%= link_to resource.document_file_name, resource.document.url, target: "_blank", class: ' fa fa-file btn btn-link offset-md-5 btn-outline-primary' %></td>
 
-            <td>
-                
-            </td>           
-          </tr>
-          
+                 <td>  </td>           
+              </tr>
+            <% end %>
+          <% end %>
           <%  else %>
-           <p> No Files Available </p>
+            <blockquote class="blockquote msg text-center">
+                 <h6 class="mb-0"> No Files Available </h6>
+            </blockquote>
           <% end %>
-          <% end %>
+          
          <% end %>
         </tbody>
       </table>
@@ -75,15 +82,19 @@
     <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
       <div class="card-block">
       <% @resources.each do |res| %>
-      <% res.links.each do |resource| %>
-        <% if resource.link != "" %>
-          <div class="card resource_links">
-              <%= embed(resource.link) %>
-            </div>
-            <%  else %>
-              <p> No Link Available </p>
-            <% end %>
-          <% end %>
+        <% if res.links.count > 0 %>
+           <% res.links.each do |resource| %>
+              <% if resource.link != "" %>
+                <div class="card resource_links">
+                   <%= embed(resource.link) %>
+                </div>
+              <% end %>
+             <% end %>
+        <%  else %>
+          <blockquote class="blockquote msg text-center">
+             <h6 class="mb-0"> No Links Available </h6>
+          </blockquote>
+       <% end %>          
       <% end %>
       </div>
     </div>
