@@ -1,6 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to '', departments_path, class: 'fa fa-lg fa-arrow-left btn' %>
+<%= link_to '', company_departments_path(@department.company_id), class: 'fa fa-lg fa-arrow-left btn' %>
 <div class="card col-md-7 offset-md-2">
   <div class="card-header">
     <b><%= @department.name %></b>
@@ -11,6 +9,9 @@
     <p class="card-text"><%= @department.name %></p>
     <h5>Description:</h5>
     <p class="card-text"><%= @department.description %></p>
-    
+
   </div>
 </div>
+<br>
+<%= link_to "Projects", department_projects_path(@department), class: 'btn btn-lg offset-md-5 btn-outline-primary' %>
+<i class="fa fa-chevron-right fa-lg"></i>

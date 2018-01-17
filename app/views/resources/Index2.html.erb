@@ -1,0 +1,32 @@
+<h1 class="model-header">Resouces</h1>
+
+  <table class="table table-responsive">
+    <thead class="table-info">
+      <tr>
+        <th>Resource </th>
+        <th>Images </th>
+        <th>Documents </th>
+        <th>Videos </th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @resources.each do |res| %>
+        <tr>
+          <td><%= res.id  %></td>
+          <td><%= res.images.count  %></td>
+          <td><%= res.documents.count %></td>
+          <td><%= res.links.count  %></td>
+          <td>
+            
+            <%= link_to '', @resource, method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-remove fa-lg btn' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+ 
+
+
+<br>

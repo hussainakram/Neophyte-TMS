@@ -1,0 +1,60 @@
+<%= form_with(model: resource,url: [@challenge, @resource], local: true, html: { multipart: true})do |form| %>
+  <% if resource.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(resource.errors.count, "error") %> prohibited this resource from being saved:</h2>
+
+      <ul>
+      <% resource.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <div class="form-group">
+      <div class="col-md-4">
+       <%= form.label :name, "Name:", class: "control-label" %>
+      <div>
+        <%= form.text_field :name, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-md-8">
+    </div>
+  </div>
+    <div class="form-group">
+      <div class="image-block">
+          <%= form.fields_for :images do |builder| %>
+            <%= render 'image_fields', f: builder %>
+          <% end  %>
+        </div>
+        <%= link_to_add_association ' Add Image', form, :images, 'data-association-insertion-method' => 'append', 'data-association-insertion-node' => '.image-block', class: 'fa fa-picture-o btn btn-outline-info' %>
+    </div>
+
+    <div class="form-group">
+     <div class="document-block">
+          <%= form.fields_for :documents do |builder| %>
+            <%= render 'document_fields', f: builder %>
+          <% end  %>
+        </div>
+        <%= link_to_add_association ' Add Document', form, :documents, 'data-association-insertion-method' => 'append', 'data-association-insertion-node' => '.document-block', class: 'fa fa-file-text btn btn-outline-info' %>
+    </div>
+
+    <div class="form-group">
+       <div class="link-block">
+          <%= form.fields_for :links do |builder| %>
+            <%= render 'link_fields', f: builder %>
+          <% end  %>
+        </div>
+        <%= link_to_add_association ' Add Link', form, :links, 'data-association-insertion-method' => 'append', 'data-association-insertion-node' => '.link-block', class: 'fa fa-youtube btn btn-outline-info' %>
+      
+    </div>
+
+    <div class="form-group">
+      <%= form.submit 'Upload', class: 'fa fa-upload btn btn-primary link_button' %>
+    </div>
+
+  </div>
+ </div>
+</div>
+<% end %>

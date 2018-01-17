@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171109125725) do
+ActiveRecord::Schema.define(version: 20180115144050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.string "content", default: ""
+    t.boolean "correct"
+    t.bigint "question_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
+  end
 
   create_table "bugs", force: :cascade do |t|
     t.string "title"
@@ -35,7 +44,9 @@ ActiveRecord::Schema.define(version: 20171109125725) do
     t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "resource_id"
     t.index ["project_id"], name: "index_challenges_on_project_id"
+    t.index ["resource_id"], name: "index_challenges_on_resource_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -68,12 +79,42 @@ ActiveRecord::Schema.define(version: 20171109125725) do
     t.index ["company_id"], name: "index_departments_on_company_id"
   end
 
+  create_table "documents", force: :cascade do |t|
+    t.bigint "resource_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "document_file_name"
+    t.string "document_content_type"
+    t.integer "document_file_size"
+    t.datetime "document_updated_at"
+    t.index ["resource_id"], name: "index_documents_on_resource_id"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.bigint "resource_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.index ["resource_id"], name: "index_images_on_resource_id"
+  end
+
+  create_table "links", force: :cascade do |t|
+    t.string "link"
+    t.bigint "resource_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["resource_id"], name: "index_links_on_resource_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.text "description", default: ""
     t.string "category", default: ""
     t.datetime "start_date"
-    t.datetime "end_data"
+    t.datetime "end_date"
     t.bigint "department_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -82,11 +123,6 @@ ActiveRecord::Schema.define(version: 20171109125725) do
 
   create_table "questions", force: :cascade do |t|
     t.text "statement"
-    t.string "option1"
-    t.string "option2"
-    t.string "option3"
-    t.string "option4"
-    t.string "correct_option"
     t.bigint "quiz_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -116,8 +152,17 @@ ActiveRecord::Schema.define(version: 20171109125725) do
     t.bigint "quiz_attempt_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["project_id"], name: "index_quizzes_on_project_id"
+    t.bigint "challenge_id"
+    t.index ["challenge_id"], name: "index_quizzes_on_challenge_id"
     t.index ["quiz_attempt_id"], name: "index_quizzes_on_quiz_attempt_id"
+  end
+
+  create_table "resources", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "challenge_id"
+    t.index ["challenge_id"], name: "index_resources_on_challenge_id"
   end
 
   create_table "solutions", force: :cascade do |t|
@@ -148,4 +193,5 @@ ActiveRecord::Schema.define(version: 20171109125725) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "answers", "questions"
 end

@@ -1,0 +1,43 @@
+<%= link_to '', project_path(@project), class: 'fa fa-lg fa-arrow-left btn' %>
+<h1 class="model-header">Challenges</h1>
+<table class="table table-responsive table-hover ">
+  <thead class= "table-info">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Duration</th>
+      <th>Points</th>
+      <th>Actions</th>
+      <th>Quizzes</th>
+      <th>Resources</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @challenges.each do |challenge| %>
+      <tr>
+        <td><%= challenge.id %></td>
+        <td><%= challenge.name %></td>
+        <td><%= challenge.description %></td>
+        <td><%= challenge.duration %></td>
+        <td><%= challenge.points %></td>
+        <td>
+          <%= link_to '', challenge, class: 'fa fa-eye fa-lg btn' %>
+          <%= link_to '', edit_challenge_path(challenge), class: 'fa fa-edit fa-lg btn' %>
+          <%= link_to '', challenge, method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-remove fa-lg btn' %>
+        </td>
+        <td style="width: 60px;">
+          <%= link_to image_tag('quiz.png'), challenge_quizzes_path(challenge) %>
+        </td>
+        <td style="width: 100px; height:60px;">
+          <%= link_to image_tag('res.png'), challenge_resources_path(challenge) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to ' New Challenge', new_project_challenge_path, class: "fa fa-plus-circle btn btn-outline-success my-2 my-sm-0 btn-lg btn btn-info"%>

@@ -1,0 +1,55 @@
+<%= form_with(model: quiz, url: [@challenge, @quiz], local: true, html: {class: "form-horizontal center"}) do |form| %>
+  <% if quiz.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(quiz.errors.count, "error") %> prohibited this quiz from being saved:</h2>
+
+      <ul>
+      <% quiz.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-md-4">
+      <%= form.label :name, "Name:", class: "control-label" %>
+      <div>
+        <%= form.text_field :name, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <%= form.label :time_allowed, "Time Allowed:", class: "control-label" %>
+      <%= form.text_field :time_allowed, class: "form-control" %>
+    </div>
+    <div class="col-md-2">
+      <%= form.label :no_of_questions, "No of Questions:", class: "control-label" %>
+      <%= form.select :no_of_questions, ((0..20).map {|i| [i,i] } << ["No limit",999]), {}, {class: "form-control"} %>
+    </div>
+    <div class="col-md-2">
+      <%= form.label :pass_score, "Pass Score:", class: "control-label" %>
+      <%= form.text_field :pass_score, class: "form-control" %>
+    </div>
+  </div>
+  <hr class="shaded-line">
+  <div class="row">
+    <div class="offset-md-2"></div>
+    <div class="col-md-offset-2 col-md-8">
+      <h3 class="bordered-header col-md-3 offset-md-4">Questions</h3>
+      <div class='question-card'>
+        <br>
+        <div class="question-block">
+          <%= form.fields_for :questions do |builder| %>
+            <%= render 'question_fields', f: builder %>
+          <% end  %>
+        </div>
+        <%= link_to_add_association ' Add Question', form, :questions, 'data-association-insertion-method' => 'append', 'data-association-insertion-node' => '.question-block', class: 'fa fa-plus btn btn-outline-primary' %>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="actions offset-md-5">
+      <%= form.submit "Create Quiz", class: "btn btn-outline-info my-2 my-sm-0", style: 'cursor: pointer;' %>
+    </div>
+  </div>
+<% end %>

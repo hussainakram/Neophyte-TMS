@@ -1,0 +1,24 @@
+<%= link_to '', challenge_quizzes_path(@quiz.challenge_id), class: 'fa fa-arrow-left fa-lg' %>
+<h2 class="model-header">Quiz</h2>
+
+<div class="row">
+  <div class="col-md-6 offset-md-2 question-card">
+    <div class="card-header">
+      <b>Quiz Title: <%= @quiz.name %></b>
+      <%= link_to '', edit_quiz_path(@quiz), class: 'fa fa-edit fa-lg btn pull-right' %>
+    </div>
+    <hr class="dotted">
+    <ol>
+    <% @quiz.questions.each do |question| %>
+      <li>
+        <%= question.statement %>
+        <ul>
+        <% question.answers.each do |answer| %>
+          <li><%=h answer.content %></li>
+        <% end %>
+        </ul>
+      </li>
+    <% end %>
+    </ol>
+  </div>
+</div>

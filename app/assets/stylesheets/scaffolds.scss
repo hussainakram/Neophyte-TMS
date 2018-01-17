@@ -22,14 +22,6 @@ pre {
 a {
   color: #000;
 
-  &:visited {
-    color: #666;
-  }
-
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
 }
 
 th {
@@ -54,6 +46,103 @@ div {
   padding: 2px;
   background-color: red;
   display: table;
+}
+
+.model-header {
+  background-color: #e1f7e4;
+  margin-bottom: 15px;
+  border-left: 18px solid #19b793;
+  border-radius: 8px;
+  border-bottom: 1px dashed #ccc;
+
+}
+
+.card-header {
+  background-color: rgba(11, 103, 241, 0.12) !important;
+}
+
+.table-info {
+  background-color: #6c7ae0 !important;
+}
+
+.question-card {
+  background-color: #fff;
+  overflow: scroll;
+  border-style: ridge;
+  border-radius: 5px;
+  padding-left: 15px;
+}
+
+.fa-close {
+  color: red !important;
+}
+
+.fa-remove {
+  color: red !important;
+}
+
+.bordered-header {
+  background-color: #f7f5e1;
+  margin-bottom: 15px;
+  border-left: 6px solid #b7a819;
+  border-right: 6px solid #b7a819;
+  border-radius: 30px;
+}
+
+hr.shaded-line {
+    height: 12px;
+    border: 0;
+    box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+}
+
+hr.faded {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+hr.dotted {
+    border: 0;
+    border-bottom: 1px dashed #ccc;
+    background: #999;
+}
+
+hr.spiked {
+    overflow: visible; /* For IE */
+    height: 30px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+}
+
+hr.spiked:before { /* Not really supposed to work, but does */
+    display: block;
+    content: "";
+    height: 30px;
+    margin-top: -31px;
+    border-style: solid;
+    border-color: black;
+    border-width: 0 0 1px 0;
+    border-radius: 20px;
+}
+
+hr.double-lined {
+    overflow: visible; /* For IE */
+    padding: 0;
+    border: none;
+    border-top: medium double #333;
+    color: #333;
+    text-align: center;
+}
+hr.double-lined:after {
+    content: "§";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: white;
 }
 
 #error_explanation {

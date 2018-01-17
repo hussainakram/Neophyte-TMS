@@ -1,0 +1,25 @@
+<%= link_to '', department_projects_path(@project.department_id), class: 'fa fa-lg fa-arrow-left btn' %>
+
+
+<hr>
+<div class="card col-md-7 offset-md-2">
+  <div class="card-header">
+    <b><%= @project.name %></b>
+    <%= link_to '', edit_project_path(@project), class: 'fa fa-edit fa-lg btn pull-right' %>
+  </div>
+  <div class="card-block">
+    <h5>Description:</h5>
+    <p class="card-text"><%= @project.description %></p>
+    <h5>Category:</h5>
+    <p class="card-text"><%= @project.category %></p>
+    <h5>Start Date:</h5>
+    <p class="card-text"><%= @project.start_date %></p>
+    <h5>End Date:</h5>
+    <p class="card-text"><%= @project.end_date %></p>
+    <h5>Last Updated At:</h5>
+    <p class="card-text"><%= @project.updated_at %></p>
+  </div>
+</div>
+<br>
+<%= link_to "Challenges", project_challenges_path(@project), class: 'btn btn-lg offset-md-5 btn-outline-primary' %>
+<i class="fa fa-chevron-right fa-lg"></i>
