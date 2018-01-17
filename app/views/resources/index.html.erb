@@ -13,7 +13,6 @@
     <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
       <div class="card-block">  
      <% @resources.each do |res| %>
-        <% if res.images.count > 0 %>
          <% res.images.each do |resource| %>
            <%  if (resource.image_content_type != nil) %>
               <div class= " resource_img img-thumbnail">
@@ -21,12 +20,6 @@
                </div>
             <%  end %>
           <%  end %>
-        <%  else %>
-
-            <blockquote class="blockquote msg text-center">
-                 <h6 class="mb-0"> No Images Available </h6>
-            </blockquote>
-        <% end %>
         <% end %>
       </div>
     </div>
@@ -47,7 +40,6 @@
         </thead>
         <tbody>
            <% @resources.each do |res| %>
-            <% if res.documents.count > 0 %>
             <% res.documents.each do |resource| %>
            
              <%  if resource.document_content_type != nil %>
@@ -57,13 +49,7 @@
                  <td>  </td>           
               </tr>
             <% end %>
-          <% end %>
-          <%  else %>
-            <blockquote class="blockquote msg text-center">
-                 <h6 class="mb-0"> No Files Available </h6>
-            </blockquote>
-          <% end %>
-          
+          <% end %>          
          <% end %>
         </tbody>
       </table>
@@ -81,19 +67,13 @@
     <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
       <div class="card-block">
       <% @resources.each do |res| %>
-        <% if res.links.count > 0 %>
            <% res.links.each do |resource| %>
               <% if resource.link != "" %>
                 <div class="card resource_links">
                    <%= embed(resource.link) %>
                 </div>
               <% end %>
-             <% end %>
-        <%  else %>
-          <blockquote class="blockquote msg text-center">
-             <h6 class="mb-0"> No Links Available </h6>
-          </blockquote>
-       <% end %>          
+             <% end %>         
       <% end %>
       </div>
     </div>

@@ -22,8 +22,8 @@
           <td><%= res.documents.count %></td>
           <td><%= res.links.count  %></td>
           <td>
+            <%= link_to '', res, class: 'fa fa-eye fa-lg btn' %>
             <%= link_to '', edit_resource_path(res), class: 'fa fa-plus fa-lg btn' %>
-
             <%= link_to '', res, method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-remove fa-lg btn' %>
           </td>
         </tr>

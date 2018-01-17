@@ -4,12 +4,11 @@ class Resource < ApplicationRecord
 	has_many :documents , dependent: :destroy
 	has_many :links , dependent: :destroy
 
-	accepts_nested_attributes_for :images, 
-                                   allow_destroy: true
-    accepts_nested_attributes_for :documents, 
-                                   allow_destroy: true
-    accepts_nested_attributes_for :links, 
-                                   allow_destroy: true
+	accepts_nested_attributes_for :images, reject_if: lambda { |a| a[:image_file_name].blank? }, allow_destroy: true
+                                
+    accepts_nested_attributes_for :documents, reject_if: lambda { |a| a[:document_file_name].blank? }, allow_destroy: true
+                                  
+    accepts_nested_attributes_for :links, reject_if: lambda { |a| a[:link].blank? }, allow_destroy: true
 
 	
 
