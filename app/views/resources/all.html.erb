@@ -77,7 +77,7 @@
       <% @resources.each do |res| %>
       <% res.links.each do |resource| %>
         <% if resource.link != "" %>
-          <div class="resource_links">
+          <div class="card resource_links">
               <%= embed(resource.link) %>
             </div>
             <%  else %>
