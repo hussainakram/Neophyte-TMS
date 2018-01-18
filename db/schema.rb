@@ -121,6 +121,16 @@ ActiveRecord::Schema.define(version: 20180117194358) do
     t.index ["department_id"], name: "index_projects_on_department_id"
   end
 
+  create_table "question_attemps", force: :cascade do |t|
+    t.integer "selected_answer"
+    t.bigint "question_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_question_attemps_on_question_id"
+    t.index ["user_id"], name: "index_question_attemps_on_user_id"
+  end
+
   create_table "question_attempts", force: :cascade do |t|
     t.integer "answer_id"
     t.boolean "correct"
