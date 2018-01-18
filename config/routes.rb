@@ -4,7 +4,9 @@ Rails.application.routes.draw do
       resources :departments do
         resources :projects do
           resources :challenges do
-            resources :quizzes
+            resources :quizzes do
+              resources :quiz_attempts
+            end
             resources :resources
 
           end
