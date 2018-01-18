@@ -1,0 +1,35 @@
+<h1 class="model-header">Quiz Attempts</h1>
+<table class="table table-responsive">
+  <thead class="table-info">
+    <tr>
+      <th>Quiz Title</th>
+      <th>User Name</th>
+      <th>Attempted Questions</th>
+      <th>Correct Answers</th>
+      <th>Status</th>
+      <th>Time Taken</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @quiz_attempts.each do |quiz_attempt| %>
+      <tr>
+        <td><%= @quiz.name %></td>
+        <td><%= quiz_attempt.user.name %></td>
+        <td><%= quiz_attempt.attempted_questions %></td>
+        <td><%= quiz_attempt.correct_answers %></td>
+        <td><%= quiz_attempt.status %></td>
+        <td><%= quiz_attempt.time_taken %></td>
+        <td>
+          <% if current_user.admin? %>
+            <%= link_to '', quiz_attempt, class: 'fa fa-eye fa-lg btn' %>
+            <%= link_to '', edit_quiz_attempt_path(quiz_attempt), class: 'fa fa-edit fa-lg btn' %>
+            <%= link_to '', quiz_attempt, method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-remove fa-lg btn' %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to "Back to Quiz", challenge_quizzes_path(@quiz.challenge_id), class: 'btn btn-outline-info' %>

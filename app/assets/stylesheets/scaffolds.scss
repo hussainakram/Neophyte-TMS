@@ -116,6 +116,20 @@ hr.spiked {
     border-radius: 20px;
 }
 
+.play-icon {
+  width: 31px;
+  height: 31px;
+}
+
+.result {
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 20%,rgba(0,0,0,0.4) 100%);
+  font-family: initial;
+  color: white !important;
+  border-radius: 10px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
 hr.spiked:before { /* Not really supposed to work, but does */
     display: block;
     content: "";
