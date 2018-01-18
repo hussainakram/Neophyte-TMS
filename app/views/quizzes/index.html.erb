@@ -6,6 +6,7 @@
       <tr>
         <th>Quiz Name</th>
         <th>Actions</th>
+        <th>Start Quiz</th>
       </tr>
     </thead>
 
@@ -14,10 +15,13 @@
         <tr>
           <td><%= quiz.name %></td>
           <td>
-            <%= link_to '', quiz, class: 'fa fa-eye fa-lg btn' %>
-            <%= link_to '', edit_quiz_path(quiz), class: 'fa fa-edit fa-lg btn' %>
-            <%= link_to '', quiz, method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-remove fa-lg btn' %>
+            <% if current_user.admin? %>
+              <%= link_to '', quiz, class: 'fa fa-eye fa-lg btn' %>
+              <%= link_to '', edit_quiz_path(quiz), class: 'fa fa-edit fa-lg btn' %>
+              <%= link_to '', quiz, method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-remove fa-lg btn' %>
+            <% end %>
           </td>
+          <td><%= link_to image_tag("start.png", class: 'play-icon'), new_quiz_quiz_attempt_path(quiz.id)%></td>
         </tr>
       <% end %>
     </tbody>
