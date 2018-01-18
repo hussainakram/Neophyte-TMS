@@ -89,6 +89,25 @@ div {
   border-radius: 30px;
 }
 
+.challenge-header {
+  font-family: initial;
+  text-align: center;
+  background-color: #f8ff91e0;
+  margin-bottom: 15px;
+  border-left: 15px solid #285f80e3;
+  border-right: 15px solid #285f80e3;
+  border-radius: 5px;
+}
+
+.challenge-box {
+  background-color: white;
+  border-radius: 5px;
+}
+
+.resources-box {
+  text-align: center;
+}
+
 hr.shaded-line {
     height: 12px;
     border: 0;
@@ -128,6 +147,10 @@ hr.spiked {
   border-radius: 10px;
   padding-bottom: 20px;
   padding-top: 20px;
+}
+
+.next-icon {
+  width: 25px;
 }
 
 hr.spiked:before { /* Not really supposed to work, but does */
