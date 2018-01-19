@@ -1,4 +1,7 @@
-<h1 class="model-header">Resouces</h1>
+<%= link_to "", challenge_resources_path, class: 'btn fa fa-arrow-left' %>
+<h1 class="model-header">Resouces Details</h1>
+<br>
+
 
   <table class="table table-responsive">
     <thead class="table-info">
@@ -14,13 +17,14 @@
     <tbody>
       <% @resources.each do |res| %>
         <tr>
-          <td><%= res.id  %></td>
+          <td><%= res.name  %></td>
           <td><%= res.images.count  %></td>
           <td><%= res.documents.count %></td>
           <td><%= res.links.count  %></td>
           <td>
-            
-            <%= link_to '', @resource, method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-remove fa-lg btn' %>
+            <%= link_to '', res, class: 'fa fa-eye fa-lg btn' %>
+            <%= link_to '', edit_resource_path(res), class: 'fa fa-plus fa-lg btn' %>
+            <%= link_to '', res, method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-remove fa-lg btn' %>
           </td>
         </tr>
       <% end %>
@@ -28,5 +32,4 @@
   </table>
  
 
-
-<br>
+<br><br>
