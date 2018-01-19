@@ -5,30 +5,36 @@
 <table class="table table-responsive table-hover">
   <thead class="table-info">
     <tr>
-      <th>ID</th>
       <th>Name</th>
       <th>Location</th>
       <th>CEO</th>
       <th>Email</th>
       <th>Contact No</th>
-      <th>Actions</th>
-      <th>Invite Users</th>
+      <th>Departments</th>
+      <% if current_user.admin? %>
+        <th>Actions</th>
+        <th>Employees</th>
+      <% end  %>
     </tr>
   </thead>
 
   <tbody>
     <% @companies.each do |company| %>
       <tr>
-        <td><%= company.id %></td>
-        <td><%= company.name %></td>
+        <td><strong><%= link_to company.name, company %></strong></td>
         <td><%= company.location %></td>
         <td><%= company.ceo %></td>
         <td><%= company.email %></td>
         <td><%= company.contact_no %></td>
-        <td>
-          <%= link_to '', company, class: 'fa fa-eye fa-lg btn' %>
-          <%= link_to '', edit_company_path(company), class: 'fa fa-edit fa-lg btn' %>
-          <%= link_to '', company, method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-remove fa-lg btn' %></td>
+        <td><%= link_to image_tag("next.png", class: 'next-icon'), company_departments_path(company) %></td>
+        <% if current_user.admin? %>
+          <td>
+            <%= link_to '', company, class: 'fa fa-eye fa-lg btn' %>
+            <%= link_to '', edit_company_path(company), class: 'fa fa-edit fa-lg btn' %>
+            <%= link_to '', company, method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-remove fa-lg btn' %>
+            </td>
+            <td><%= link_to '', '#', class: 'fa fa-group fa-lg' %></td>
+          <% end  %>
       </tr>
     <% end %>
   </tbody>
@@ -36,5 +42,5 @@
 
 <br>
 
-<%= link_to ' Create New Company', new_company_path, class: "fa fa-plus-circle btn btn-outline-primary my-2 my-sm-0 btn-lg" %>
+<%= link_to ' Create New Company', new_company_path, class: "fa fa-plus-circle btn btn-outline-primary my-2 my-sm-0 btn-lg"  if current_user.admin? %>
 </div>
