@@ -2,41 +2,34 @@
 <% if user_signed_in? %>
   <div class="container home_page">
     <div class="col-md-4">
-    <h1 class=" main-heading" >Welcome Back!!!</h1>
-    <p class="lead">An ultimate solution for training and evaluating new employees in your company.</p>
-    <div class="company-btn">
-      <%= link_to "Your Companies", companies_path, class: "btn btn-success my-2 my-sm-0" %>
-      <br><br>
-      <%= link_to "Create Company", new_company_path, class: "btn btn-primary my-2 my-sm-0 " %>
-    </div>
-  </div>
-  <div class="col-md-8">
-      
-    </div>
-  </div>
-  <% else %>
-    <div class="container jumbo-image home_page">
-      <div class="col-md-4">
-      <h3 class="main-heading">A Perfect Training System</h3>
-      <p class="lead">An ultimate solution for training and evaluating new employees in your company.</p>
     </div>
     <div class="col-md-8">
-      
-    </div>
 
     </div>
+  </div>
+  <hr class="shaded">
+  <div class="company-btn row">
+    <div class="offset-md-4"></div>
+    <%= link_to "Your Companies", companies_path, class: "btn btn-outline-success my-2 my-sm-0 col-md-2", style: 'margin-right: 5px;' %>
+    <%= link_to "Create Company", new_company_path, class: "btn btn-outline-primary my-2 my-sm-0 col-md-2" %>
+  </div>
+  <hr class="spiked">
+  <% else %>
+    <div class="container jumbo-image home_page">
+    </div>
+    <hr class="dotted">
+    </div>
 <% end  %>
-<hr class="faded">
 <h1 class="text-center"> Features </h1>
 <hr class="faded">
 <div class="container three-steps">
   <div class="row">
     <div class="col-md-4">
       <%= image_tag "train.jpg", class: "img-thumbnail feature" %>
-      <br>  
+      <br>
       <h3 class="text-center">Train</h3>
     </div>
-    <div class="col-md-4">  
+    <div class="col-md-4">
       <%= image_tag "quiz.jpg", class: 'img-thumbnail feature' %>
       <br>
       <h3 class="text-center">Take test</h3>
@@ -68,59 +61,56 @@
     </div>
   </div>
 
-  <section class="section-primary">
+  <section class="section-primary" style="margin-bottom: 50px;">
     <div class="row">
       <div class="col-md-5 col-md-offset-1 ">
-            <img src="/../assets/Training.jpg" class="img-responsive rounded-circle offset-md-2" style="padding-top:0px; height: 350px; width: 350px;">
-        </div> 
-        <br>
-        <div class="col-md-1">
-        </div>
-        <div class="col-md-5" style="padding-top:10px;">
-            <h2 style="font-size:50px;">Neophyte TMS </h2>
-            <p style="font-size:20px;">With our best training software, you can plan, implement, assign and track your training initiatives. Our main motto behind providing a web-based solution is to simply simplify training management.The web based training software helps eliminate the wastage of time, resources and money that can be lost through the inefficiencies or loopholes in managing your organization’s training initiatives.</p>
-            </div>
-            
+        <img src="/../assets/Training.jpg" class="img-responsive rounded-circle offset-md-2" style="padding-top:0px; height: 350px; width: 350px;">
+      </div>
+      <br>
+      <div class="col-md-7" style="padding-top:10px;">
+          <h2 style="font-size:50px;">Neophyte TMS </h2>
+          <p style="font-size:20px; line-height: 150%;">With our best training software, you can plan, implement, assign and track your training initiatives. Our main motto behind providing a web-based solution is to simply simplify training management.The web based training software helps eliminate the wastage of time, resources and money that can be lost through the inefficiencies or loopholes in managing your organization’s training initiatives.</p>
+      </div>
     </div>
-    </section>
-
-    <section class="gray">
+  </section>
+<br>
+  <section class="gray">
     <div class="container">
-        <div class= "row">
-            <div class="col-md-3 text-center">
-            <span class="fa-stack fa-lg fa-4x">
-              <i class="fa fa-circle fa-stack-2x fa-color"></i>
-              <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
-            </span>
-            <h3>Easy to Use</h3>
-            </div>
-            <div class="col-md-3 text-center">
-            <span class="fa-stack fa-lg fa-4x">
-              <i class="fa fa-circle fa-stack-2x fa-color"></i>
-              <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
-            </span>
-            <h3>Responsive</h3>
-            </div>
-            <div class="col-md-3 text-center">
-            <span class="fa-stack fa-lg fa-4x">
-              <i class="fa fa-circle fa-stack-2x fa-color"></i>
-              <i class="fa fa-clock-o fa-stack-1x fa-inverse"></i>
-            </span>
-            <h3>Time Saving</h3>
-            </div>
-            <div class="col-md-3 text-center">
-            <span class="fa-stack fa-lg fa-4x">
-              <i class="fa fa-circle fa-stack-2x fa-color"></i>
-              <i class="fa fa-gear fa-stack-1x fa-inverse"></i>
-            </span>
-            <h3>Customizable</h3>
-            </div>
+      <div class= "row">
+          <div class="col-md-3 text-center">
+          <span class="fa-stack fa-lg fa-4x">
+            <i class="fa fa-circle fa-stack-2x fa-color"></i>
+            <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+          </span>
+          <h3>Easy to Use</h3>
+          </div>
+          <div class="col-md-3 text-center">
+          <span class="fa-stack fa-lg fa-4x">
+            <i class="fa fa-circle fa-stack-2x fa-color"></i>
+            <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+          </span>
+          <h3>Responsive</h3>
+          </div>
+          <div class="col-md-3 text-center">
+          <span class="fa-stack fa-lg fa-4x">
+            <i class="fa fa-circle fa-stack-2x fa-color"></i>
+            <i class="fa fa-clock-o fa-stack-1x fa-inverse"></i>
+          </span>
+          <h3>Time Saving</h3>
+          </div>
+          <div class="col-md-3 text-center">
+          <span class="fa-stack fa-lg fa-4x">
+            <i class="fa fa-circle fa-stack-2x fa-color"></i>
+            <i class="fa fa-gear fa-stack-1x fa-inverse"></i>
+          </span>
+          <h3>Customizable</h3>
         </div>
+      </div>
     </div>
-    </section>
-
-           
+  </section>
 
 
- 
+
+
+
 
