@@ -1,35 +1,73 @@
 
 <% if user_signed_in? %>
   <div class="container home_page">
-    <h1 class="text-center main-heading" >Welcome Back!!!</h1>
+    <div class="col-md-4">
+    <h1 class=" main-heading" >Welcome Back!!!</h1>
     <p class="lead">An ultimate solution for training and evaluating new employees in your company.</p>
     <div class="company-btn">
-      <%= link_to "Your Companies", companies_path, class: "btn btn-success my-2 my-sm-0 offset-md-4" %>
-      <%= link_to "Create Company", new_company_path, class: "btn btn-info my-2 my-sm-0 " %>
+      <%= link_to "Your Companies", companies_path, class: "btn btn-success my-2 my-sm-0" %>
+      <br><br>
+      <%= link_to "Create Company", new_company_path, class: "btn btn-primary my-2 my-sm-0 " %>
+    </div>
+  </div>
+  <div class="col-md-8">
+      
     </div>
   </div>
   <% else %>
     <div class="container jumbo-image home_page">
-      <h3 class="text-center main-heading">A perfect and full-featured Training System</h3>
+      <div class="col-md-4">
+      <h3 class="main-heading">A Perfect Training System</h3>
       <p class="lead">An ultimate solution for training and evaluating new employees in your company.</p>
     </div>
+    <div class="col-md-8">
+      
+    </div>
+
+    </div>
 <% end  %>
-<hr>
+<hr class="faded">
+<h1 class="text-center"> Features </h1>
+<hr class="faded">
 <div class="container three-steps">
   <div class="row">
     <div class="col-md-4">
-      <h3 class="offset-md-4">Train</h3>
+      <%= image_tag "train.jpg", class: "img-thumbnail feature" %>
+      <br>  
+      <h3 class="text-center">Train</h3>
+    </div>
+    <div class="col-md-4">  
+      <%= image_tag "quiz.jpg", class: 'img-thumbnail feature' %>
       <br>
-      <%= image_tag "brain.jpg", class: "home_brain" %>
+      <h3 class="text-center">Take test</h3>
     </div>
     <div class="col-md-4">
-      <h3 class="offset-md-3">Take test</h3>
+      <%= image_tag "prgress.jpg", class: "img-thumbnail feature" %>
       <br>
-      <%= image_tag "quiz.jpg", class: 'quiz-image' %>
-    </div>
-    <div class="col-md-4">
-      <h3 class="offset-md-4">Evaluate</h3>
-      <%= image_tag "prgress.jpg", class: "home_brain" %>
+      <h3 class="text-center">Evaluate</h3>
     </div>
   </div>
 </div>
+<br>
+<div class="row">
+    <div class="col-md-4">
+      <%= image_tag "progress.jpg", class: "img-thumbnail feature" %>
+      <br>
+      <h3 class="text-center">Mark Progress</h3>
+    </div>
+    <div class="col-md-4">
+      <%= image_tag "badge.jpg", class: 'img-thumbnail feature' %>
+      <br>
+      <h3 class="text-center">Assign Badges</h3>
+    </div>
+    <div class="col-md-4">
+      <%= image_tag "Report.jpg", class: "img-thumbnail feature" %>
+      <br>
+      <h3 class="text-center">Show Reports</h3>
+    </div>
+  </div>
+           
+</div>
+
+ 
+

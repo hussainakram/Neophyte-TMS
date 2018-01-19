@@ -28,8 +28,9 @@
   background: linear-gradient(rgba(20,20,20, 0.7),rgba(20,20,20, 0)), image-url("home.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 600px;
+  height: 340px;
   border-radius: 20px;
+  width: 100%;
 }
 
 
@@ -60,8 +61,8 @@ main {
 .lead {
   font-size: 20px;
   padding: 5px 5px 5px 5px;
-  margin-left: 195px;
-  margin-right: 210px;
+  margin-left: 10px;
+  margin-right: 90px;
   color: white;
   border:1px solid #f8b28e;
   border-radius: 10px;
@@ -73,8 +74,12 @@ main {
 .quiz-image {
   border-radius: 50px;
   height: 250px;
+  width: 300px;
 }
-
+.feature{
+  height: 250px;
+  width: 300px;
+}
 .navbar {
   background-color: #33383c;
   border-radius: 7px;
