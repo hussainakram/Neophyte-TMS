@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180117194358) do
+ActiveRecord::Schema.define(version: 20180119185010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -204,6 +204,16 @@ ActiveRecord::Schema.define(version: 20180117194358) do
     t.index ["bug_id"], name: "index_solutions_on_bug_id"
   end
 
+  create_table "user_challenges", force: :cascade do |t|
+    t.string "status", default: ""
+    t.bigint "user_id"
+    t.bigint "challenge_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["challenge_id"], name: "index_user_challenges_on_challenge_id"
+    t.index ["user_id"], name: "index_user_challenges_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -227,6 +237,7 @@ ActiveRecord::Schema.define(version: 20180117194358) do
     t.string "invited_by_type"
     t.bigint "invited_by_id"
     t.integer "invitations_count", default: 0
+    t.integer "points", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
     t.index ["invitations_count"], name: "index_users_on_invitations_count"
@@ -240,4 +251,6 @@ ActiveRecord::Schema.define(version: 20180117194358) do
   add_foreign_key "question_attemps", "users"
   add_foreign_key "question_attempts", "questions"
   add_foreign_key "question_attempts", "quiz_attempts"
+  add_foreign_key "user_challenges", "challenges"
+  add_foreign_key "user_challenges", "users"
 end

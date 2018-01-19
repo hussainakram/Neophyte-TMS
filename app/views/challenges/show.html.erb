@@ -27,6 +27,4 @@
   </div>
 </div>
 <br>
-<%= link_to " Complete Challenge", '#', class: "fa fa-check btn btn-lg btn-outline-success offset-md-5" %>
-
-
+<%= button_to "Complete Challenge", challenge_complete_challenge_path(@challenge.id), class: 'fa fa-check btn btn-outline-success offset-md-5',method: :post %>

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       resources :departments do
         resources :projects do
           resources :challenges do
+            post 'complete_challenge'
             resources :quizzes do
               resources :quiz_attempts
             end

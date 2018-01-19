@@ -13,7 +13,6 @@
       <th>Departments</th>
       <% if current_user.admin? %>
         <th>Actions</th>
-        <th>Employees</th>
       <% end  %>
     </tr>
   </thead>
@@ -33,7 +32,6 @@
             <%= link_to '', edit_company_path(company), class: 'fa fa-edit fa-lg btn' %>
             <%= link_to '', company, method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-remove fa-lg btn' %>
             </td>
-            <td><%= link_to '', '#', class: 'fa fa-group fa-lg' %></td>
           <% end  %>
       </tr>
     <% end %>

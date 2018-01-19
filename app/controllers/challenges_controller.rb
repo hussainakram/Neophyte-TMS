@@ -66,6 +66,17 @@ class ChallengesController < ApplicationController
     end
   end
 
+  def complete_challenge
+    @challenge = Challenge.find(params[:challenge_id])
+    completed_challenge = UserChallenge.where(user_id: current_user.id, challenge_id: @challenge.id).first_or_create!
+    completed_challenge.update_column(:status, "completed")
+    current_user.update_column(:points, @challenge.points)
+    respond_to do |format|
+      format.html { redirect_to project_challenges_path(@challenge.project_id), notice: 'Challenge has been completed.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_challenge

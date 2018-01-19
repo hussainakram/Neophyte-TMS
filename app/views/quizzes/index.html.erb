@@ -4,6 +4,7 @@
   <table class="table table-responsive">
     <thead class="table-info">
       <tr>
+        <th>Status</th>
         <th>Quiz Name</th>
         <th>Number of Questions</th>
         <th>Time Allowed</th>
@@ -17,10 +18,23 @@
     <tbody>
       <% @quizzes.each do |quiz| %>
         <tr>
+          <td>
+            <% if quiz.quiz_status(current_user) == "completed" %>
+              <%= image_tag("completed.png", style: 'width: 35px;') %>
+              <% else %>
+                <%= image_tag("cross.png", style: 'width: 35px;') %>
+            <% end %>
+          </td>
           <td><strong><%= quiz.name %></strong></td>
           <td><%= quiz.no_of_questions %></td>
           <td><%= quiz.time_allowed %></td>
-          <td><%= link_to image_tag("start.png", class: 'play-icon'), new_quiz_quiz_attempt_path(quiz.id)%></td>
+          <td>
+            <% if quiz.quiz_status(current_user) == "completed" %>
+
+            <% else %>
+              <%= link_to image_tag("start.png", class: 'play-icon'), new_quiz_quiz_attempt_path(quiz.id) %>
+            <% end %>
+          </td>
           <td>
             <% if current_user.admin? %>
               <%= link_to '', quiz, class: 'fa fa-eye fa-lg btn' %>

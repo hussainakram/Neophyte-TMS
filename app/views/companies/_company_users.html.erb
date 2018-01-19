@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-7 offset-md-2">
+    <hr class="dotted">
+    <h2>
+      Employees
+      <%= link_to image_tag("add-user.png", style: "width:35px;"), '#inviteUserModal', "data-toggle" => "modal", class: "pull-right" %>
+    </h2>
+    <hr class="dotted">
+    <table class="table table-responsive table-hover">
+      <thead class="table-info">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Points Gained</th>
+          <th>Progress</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @company_users.each do |user| %>
+          <tr>
+            <td><strong><%= user.name %></strong></td>
+            <td><%= user.email %></td>
+            <td><%= user.role %></td>
+            <td><%= user.points %></td>
+            <td>kkk</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

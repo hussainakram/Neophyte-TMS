@@ -38,10 +38,12 @@ class QuizAttemptsController < ApplicationController
   def update
     respond_to do |format|
       if @quiz_attempt.update(quiz_attempt_params)
-        format.html { redirect_to @quiz_attempt, notice: 'Quiz attempt was successfully updated.' }
+        format.html { redirect_to @quiz_attempt, notice: 'Quiz has been successfully attempted.' }
         format.json { render :show, status: :ok, location: @quiz_attempt }
         @quiz_attempt.set_correct_answers
         @quiz_attempt.set_attempted_answers
+        @quiz_attempt.set_earned_marks
+        @quiz_attempt.update_column(:status, "completed")
       else
         format.html { render :edit }
         format.json { render json: @quiz_attempt.errors, status: :unprocessable_entity }
