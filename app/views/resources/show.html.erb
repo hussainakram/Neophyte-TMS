@@ -1,9 +1,76 @@
 <%= link_to '', challenge_resources_path(@resource.challenge_id), class: 'fa fa-arrow-left fa-lg' %>
 
 <hr>
-<div class="card col-md-7 offset-md-2">
-  <div class="card-header">
-    <b><%= @resource.name %></b>
+<h1 class="model-header"> @resource.name </h1>
+<div id="accordion" role="tablist" aria-multiselectable="true">
+  <disv class="card">
+    <div class="card-header" role="tab" id="headingOne">
+      <h5 class="mb-0">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Images
+        </a>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+      <div class="card-block">  
+     
+        <% if @resource.images.count > 0 %>
+         <% @resource.images.each do |resource| %>
+           <%  if (resource.image_content_type != nil) %>
+              <div class= " resource_img img-thumbnail">
+                 <%= image_tag resource.image.url %>
+               </div>
+            <%  end %>
+          <%  end %>
+        <%  else %>
+
+            <blockquote class="blockquote msg text-center">
+                 <h6 class="mb-0"> No Images Available </h6>
+            </blockquote>
+        <% end %>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" role="tab" id="headingTwo">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Document or PDFs
+        </a>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="card-block">
+        <table class="table  table-hover">
+         <thead class= "table-primary border ">
+        </thead>
+        <tbody>
+           
+            <% if @resource.documents.count > 0 %>
+            <% @resource.documents.each do |resource| %>
+           
+             <%  if resource.document_content_type != nil %>
+               <tr>
+                  <td><%= link_to resource.document_file_name, resource.document.url, target: "_blank", class: ' fa fa-file btn btn-link offset-md-5 btn-outline-primary' %></td>
+
+                 <td>  </td>           
+              </tr>
+            <% end %>
+          <% end %>
+          <%  else %>
+            <blockquote class="blockquote msg text-center">
+                 <h6 class="mb-0"> No Files Available </h6>
+            </blockquote>
+          <% end %>
+          
+         
+        </tbody>
+      </table>
+      </div>
+    </div>
   </div>
   <div class="card-block">
     <h5>No. of Images:</h5>
@@ -26,7 +93,8 @@
          <p class="card-text"> 0 </p>
       <% end %>
   </div>
-</div>
+</div>  
+<br><br>
 
 <br>
 
