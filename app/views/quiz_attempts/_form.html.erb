@@ -1,0 +1,7 @@
+<%= form_with(model: quiz_attempt, url: quiz_attempt_path(@quiz_attempt), method: :patch, local: true, html: {class: "form-horizontal center"}) do |f| %>
+  <%= f.fields_for :question_attempts do |builder| %>
+    <%= render "questions", f: builder %>
+  <% end %>
+  <hr class="shaded-line">
+  <%= f.submit "Submit Quiz", class: 'btn btn-outline-danger'%>
+<% end %>

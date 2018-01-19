@@ -1,41 +1,80 @@
-<div class="authform">
+ <div class="container">
+  <div class="row main">
+    <div class="main-login main-center">
+      <div class="">
   <h3>Edit <%= resource_name.to_s.humanize %></h3>
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :role => 'form'}) do |f| %>
     <%= devise_error_messages! %>
+
     <div class="form-group">
       <%= f.label :name %>
-      <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
+      <div class="cols-sm-10">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+              <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
+          </div>
+      </div>
     </div>
+
     <div class="form-group">
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
+    <%= f.label :email %>
+    <div class="cols-sm-10">
+      <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+             <%= f.email_field :email, class: 'form-control' %>
+         </div>
+    </div>
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
     </div>
     <fieldset>
       <p>Leave these fields blank if you don't want to change your password.</p>
+      
       <div class="form-group">
         <%= f.label :password %>
-        <%= f.password_field :password, :autocomplete => 'off', class: 'form-control' %>
+        <div class="cols-sm-10">
+          <div class="input-group">
+             <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                <%= f.password_field :password, :autocomplete => 'off', class: 'form-control' %>
+          </div>
+        </div>
       </div>
+
       <div class="form-group">
         <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, class: 'form-control' %>
+        <div class="cols-sm-10">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+              <%= f.password_field :password_confirmation, class: 'form-control' %>
+            </div>
+          </div>
       </div>
     </fieldset>
+
     <fieldset>
       <p>You must enter your current password to make changes.</p>
       <div class="form-group">
         <%= f.label :current_password %>
-        <%= f.password_field :current_password, class: 'form-control' %>
+        <div class="cols-sm-10">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                <%= f.password_field :current_password, class: 'form-control' %>
+            </div>
+          </div>
       </div>
     </fieldset>
-    <%= f.submit 'Update', :class => 'button right' %>
+
+    <%= f.submit 'Update', :class => 'button right btn btn-primary btn-lg btn-block login-button' %>
   <% end %>
 </div>
-<div class="authform">
+<hr class="faded">
+<div class="">
 <h3>Cancel Account</h3>
 <p>Unhappy? We'll be sad to see you go.</p>
-<%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button right' %>
+<%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button right btn btn-primary btn-lg btn-block login-button' %>
+</div>
+
+</div>
+</div>
 </div>

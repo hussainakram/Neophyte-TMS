@@ -5,18 +5,28 @@
     <thead class="table-info">
       <tr>
         <th>Quiz Name</th>
-        <th>Actions</th>
+        <th>Number of Questions</th>
+        <th>Time Allowed</th>
+        <th>Start Quiz</th>
+        <% if current_user.admin? %>
+          <th>Actions</th>
+        <% end %>
       </tr>
     </thead>
 
     <tbody>
       <% @quizzes.each do |quiz| %>
         <tr>
-          <td><%= quiz.name %></td>
+          <td><strong><%= quiz.name %></strong></td>
+          <td><%= quiz.no_of_questions %></td>
+          <td><%= quiz.time_allowed %></td>
+          <td><%= link_to image_tag("start.png", class: 'play-icon'), new_quiz_quiz_attempt_path(quiz.id)%></td>
           <td>
-            <%= link_to '', quiz, class: 'fa fa-eye fa-lg btn' %>
-            <%= link_to '', edit_quiz_path(quiz), class: 'fa fa-edit fa-lg btn' %>
-            <%= link_to '', quiz, method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-remove fa-lg btn' %>
+            <% if current_user.admin? %>
+              <%= link_to '', quiz, class: 'fa fa-eye fa-lg btn' %>
+              <%= link_to '', edit_quiz_path(quiz), class: 'fa fa-edit fa-lg btn' %>
+              <%= link_to '', quiz, method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-remove fa-lg btn' %>
+            <% end %>
           </td>
         </tr>
       <% end %>
@@ -24,9 +34,8 @@
   </table>
   <% else %>
     <h3>There is no quiz created yet.</h3>
-    <h5>Create one!</h5>
   <% end %>
 
 <br>
 
-<%= link_to 'New Quiz', new_challenge_quiz_path, class: 'btn btn-outline-success' %>
+<%= link_to 'New Quiz', new_challenge_quiz_path, class: 'btn btn-outline-success' if current_user.admin? %>

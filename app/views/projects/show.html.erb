@@ -5,7 +5,7 @@
 <div class="card col-md-7 offset-md-2">
   <div class="card-header">
     <b><%= @project.name %></b>
-    <%= link_to '', edit_project_path(@project), class: 'fa fa-edit fa-lg btn pull-right' %>
+    <%= link_to '', edit_project_path(@project), class: 'fa fa-edit fa-lg btn pull-right' if current_user.admin? %>
   </div>
   <div class="card-block">
     <h5>Description:</h5>

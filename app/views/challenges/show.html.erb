@@ -1,23 +1,32 @@
 <%= link_to '', project_challenges_path(@challenge.project_id), class: 'fa fa-lg fa-arrow-left btn' %>
-<hr>
-<div class="card col-md-7 offset-md-2">
-  <div class="card-header">
-    <b><%= @challenge.name %></b>
-    <%= link_to '', edit_challenge_path(@challenge), class: 'fa fa-edit fa-lg btn pull-right' %>
-  </div>
-  <div class="card-block">
-    <h5>Description:</h5>
-    <p class="card-text"><%= @challenge.description %></p>
-    <h5>Duration:</h5>
-    <p class="card-text"><%= @challenge.duration %></p>
-    <h5>Level:</h5>
-    <p class="card-text"><%= @challenge.level %></p>
-    <h5>Points:</h5>
-    <p class="card-text"><%= @challenge.points %></p>
-    <h5>Updated At:</h5>
-    <p class="card-text"><%= @challenge.updated_at %></p>
+<div class="challenge-box">
+  <h1 class="challenge-header"><%= @challenge.name %></h1>
+  <hr class="dotted">
+  <div class="container">
+    <div class="row">
+      <div class="level col-md-4" style="text-align: left;">
+        <%= image_tag("level.png", style: 'width:30px') %><h4><%= @challenge.level %></h4>
+      </div>
+      <div class="level col-md-4" style="text-align: center;">
+        <%= image_tag("timer.png", style: 'width:30px') %><h4><%= @challenge.duration %></h4>
+      </div>
+      <div class="level col-md-4" style="text-align: right;">
+        <%= image_tag("Coin.png", style: 'width:30px') %><h4><%= @challenge.points %></h4>
+      </div>
+      <hr class="dotted">
+    </div>
+    <div class="container">
+      <h3>Description:</h3>
+      <div>
+        <%= @challenge.description %>
+      </div>
+    </div>
+    <div class="resources-box">
+      <%= render "shared/challenge_resources" %>
+    </div>
   </div>
 </div>
-
 <br>
+<%= link_to " Complete Challenge", '#', class: "fa fa-check btn btn-lg btn-outline-success offset-md-5" %>
+
 

@@ -1,0 +1,29 @@
+<%= link_to '', quiz_quiz_attempts_path(@quiz_attempt.quiz_id), class: 'fa fa-arrow-left fa-lg' %>
+<h2 class="model-header">Results</h2>
+<div class="row">
+  <div class="col-md-6 offset-md-2 question-card">
+    <div class="card-header">
+      <b>Quiz Title: <%= @quiz.name %></b>
+    </div>
+    <hr class="dotted">
+    <div class="row result">
+      <div class="col-md-6">
+        <h5>User Name</h5>
+        <h5>Attempted Questions</h5>
+        <h5>Correct Answers</h5>
+        <h5>Status</h5>
+        <h5>Time Taken</h5>
+      </div>
+      <div class="col-md-6">
+        <strong><p class="col-md-6"><%= @quiz_attempt.user.name %></p></strong>
+        <p class="col-md-6"><%= @quiz_attempt.attempted_questions %></p>
+        <p class="col-md-6"><%= @quiz_attempt.correct_answers %></p>
+        <p class="col-md-6"><%= @quiz_attempt.status %></p>
+        <p class="col-md-6"><%= @quiz_attempt.time_taken %></p>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<%= link_to "Back to Quiz Attempts", quiz_quiz_attempts_path(@quiz_attempt.quiz_id), class: 'btn btn-outline-info offset-md-2' %>
+
