@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20180117194358) do
 
   # These are extensions that must be enabled in order to support this database
@@ -122,16 +121,6 @@ ActiveRecord::Schema.define(version: 20180117194358) do
     t.index ["department_id"], name: "index_projects_on_department_id"
   end
 
-  create_table "question_attemps", force: :cascade do |t|
-    t.integer "selected_answer"
-    t.bigint "question_id"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["question_id"], name: "index_question_attemps_on_question_id"
-    t.index ["user_id"], name: "index_question_attemps_on_user_id"
-  end
-
   create_table "question_attempts", force: :cascade do |t|
     t.integer "answer_id"
     t.boolean "correct"
@@ -183,16 +172,7 @@ ActiveRecord::Schema.define(version: 20180117194358) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
     t.bigint "challenge_id"
-    t.string "document_file_name"
-    t.string "document_content_type"
-    t.integer "document_file_size"
-    t.datetime "document_updated_at"
-    t.string "link"
     t.index ["challenge_id"], name: "index_resources_on_challenge_id"
   end
 
@@ -237,8 +217,6 @@ ActiveRecord::Schema.define(version: 20180117194358) do
   end
 
   add_foreign_key "answers", "questions"
-  add_foreign_key "question_attemps", "questions"
-  add_foreign_key "question_attemps", "users"
   add_foreign_key "question_attempts", "questions"
   add_foreign_key "question_attempts", "quiz_attempts"
 end
