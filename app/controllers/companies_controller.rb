@@ -10,7 +10,7 @@ class CompaniesController < ApplicationController
   # GET /companies/1
   # GET /companies/1.json
   def show
-    @company_users = @company.users
+    @company_users = @company.users.all.sort{|a,b| b.points <=> a.points}
   end
 
   # GET /companies/new
@@ -63,6 +63,12 @@ class CompaniesController < ApplicationController
       format.html { redirect_to companies_url, notice: 'Company was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def user_graphs
+    @company = Company.find(params[:company_id])
+    @user = User.find(params[:user_id])
+    @user_challenges = @user.user_challenges
   end
 
   private
