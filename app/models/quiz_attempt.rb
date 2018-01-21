@@ -19,4 +19,8 @@ class QuizAttempt < ApplicationRecord
   def set_attempted_answers
     self.update_column(:attempted_questions, self.question_attempts.where.not(answer_id: nil).count)
   end
+
+  def set_earned_marks
+    self.update_column(:earned_marks, self.correct_answers * 5)
+  end
 end

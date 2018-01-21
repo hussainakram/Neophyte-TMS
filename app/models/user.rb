@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :quiz_attempts
   has_many :company_users
   has_many :companies, through: :company_users
+  has_many :user_challenges
+  has_many :challenges, through: :user_challenges
 
   def set_default_role
     self.role ||= :admin

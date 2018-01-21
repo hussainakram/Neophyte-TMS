@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  *= require font-awesome
- 
+
  */
 @import "bootswatch/_variables";
 @import "bootswatch/_bootswatch";
@@ -25,7 +25,7 @@
 
 
 .home_page {
-  background: linear-gradient(rgba(20,20,20, 0.7),rgba(20,20,20, 0)), image-url("home.jpg");
+  background: image-url("home.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 340px;
@@ -99,7 +99,7 @@ main {
 }
 
 .footer {
-  margin-top: 300px;
+  margin-top: 200px;
   position: inherit;
   bottom: 0;
   width: 100%;

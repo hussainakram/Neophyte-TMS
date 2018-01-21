@@ -1,19 +1,40 @@
-<%= link_to "", project_challenges_path(@challenge.project_id), class: 'btn fa fa-arrow-left' %>
+<%= link_to "", project_challenges_path(@challenge.project_id), class: 'btn fa fa-lg fa-arrow-left' %>
 <h1 class="model-header">Quizzes</h1>
 <% if @quizzes.count > 0 %>
   <table class="table table-responsive">
     <thead class="table-info">
       <tr>
+        <th>Status</th>
         <th>Quiz Name</th>
-        <th>Actions</th>
+        <th>Number of Questions</th>
+        <th>Time Allowed</th>
         <th>Start Quiz</th>
+        <% if current_user.admin? %>
+          <th>Actions</th>
+        <% end %>
       </tr>
     </thead>
 
     <tbody>
       <% @quizzes.each do |quiz| %>
         <tr>
-          <td><%= quiz.name %></td>
+          <td>
+            <% if quiz.quiz_status(current_user) == "completed" %>
+              <%= image_tag("completed.png", style: 'width: 35px;') %>
+              <% else %>
+                <%= image_tag("cross.png", style: 'width: 35px;') %>
+            <% end %>
+          </td>
+          <td><strong><%= quiz.name %></strong></td>
+          <td><%= quiz.no_of_questions %></td>
+          <td><%= quiz.time_allowed %></td>
+          <td>
+            <% if quiz.quiz_status(current_user) == "completed" %>
+
+            <% else %>
+              <%= link_to image_tag("start.png", class: 'play-icon'), new_quiz_quiz_attempt_path(quiz.id) %>
+            <% end %>
+          </td>
           <td>
             <% if current_user.admin? %>
               <%= link_to '', quiz, class: 'fa fa-eye fa-lg btn' %>
@@ -21,16 +42,14 @@
               <%= link_to '', quiz, method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-remove fa-lg btn' %>
             <% end %>
           </td>
-          <td><%= link_to image_tag("start.png", class: 'play-icon'), new_quiz_quiz_attempt_path(quiz.id)%></td>
         </tr>
       <% end %>
     </tbody>
   </table>
   <% else %>
     <h3>There is no quiz created yet.</h3>
-    <h5>Create one!</h5>
   <% end %>
 
 <br>
 
-<%= link_to 'New Quiz', new_challenge_quiz_path, class: 'btn btn-outline-success' %>
+<%= link_to 'New Quiz', new_challenge_quiz_path, class: 'btn btn-outline-success' if current_user.admin? %>

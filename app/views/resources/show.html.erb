@@ -72,33 +72,26 @@
       </div>
     </div>
   </div>
-  <div class="card">
-    <div class="card-header" role="tab" id="headingThree">
-      <h5 class="mb-0">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Youtube Videos
-        </a>
-      </h5>
-    </div>
-    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
-      <div class="card-block">
-      
+  <div class="card-block">
+    <h5>No. of Images:</h5>
+      <% if @resource.images.count > 0 %>
+        <p class="card-text"><%= @resource.images.count %></p>
+      <% else %>
+         <p class="card-text"> 0 </p>
+      <% end %>
+    <h5>No. of Documents:</h5>
+      <% if @resource.documents.count > 0 %>
+        <p class="card-text"><%= @resource.documents.count %></p>
+      <% else %>
+         <p class="card-text"> 0 </p>
+      <% end %>
+
+    <h5>No. of Videos:</h5>
         <% if @resource.links.count > 0 %>
-           <% @resource.links.each do |resource| %>
-              <% if resource.link != "" %>
-                <div class="card resource_links">
-                   <%= embed(resource.link) %>
-                </div>
-              <% end %>
-             <% end %>
-        <%  else %>
-          <blockquote class="blockquote msg text-center">
-             <h6 class="mb-0"> No Links Available </h6>
-          </blockquote>
-       <% end %>          
-      
-      </div>
-    </div>
+         <p class="card-text"><%= @resource.links.count %></p>
+      <% else %>
+         <p class="card-text"> 0 </p>
+      <% end %>
   </div>
 </div>  
 <br><br>
@@ -112,4 +105,4 @@
 
 
 
-   
+

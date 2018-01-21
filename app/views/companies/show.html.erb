@@ -3,12 +3,8 @@
 <div class="card col-md-7 offset-md-2">
   <div class="card-header">
     <b><%= @company.name %></b>
-    <%= link_to '', edit_company_path(@company), class: 'fa fa-edit fa-lg btn pull-right' %>
-
-    <% if current_user.role == "admin" %>
-      <div class="pull-right" style='width: 35px;'>
-        <%= link_to image_tag("add-user.png"), '#inviteUserModal', "data-toggle" => "modal" %>
-      </div class="pull-right">
+    <% if current_user.admin? %>
+      <%= link_to '', edit_company_path(@company), class: 'fa fa-edit fa-lg btn pull-right' %>
     <% end %>
   </div>
   <div class="card-block">
@@ -29,3 +25,4 @@
 <br>
 <%= link_to "Departments", company_departments_path(@company), class: 'btn btn-lg offset-md-5 btn-outline-primary' %>
 <i class="fa fa-chevron-right fa-lg"></i>
+<%= render "company_users" %>

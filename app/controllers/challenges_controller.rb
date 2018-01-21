@@ -11,6 +11,8 @@ class ChallengesController < ApplicationController
   # GET /challenges/1
   # GET /challenges/1.json
   def show
+    @challenge = Challenge.find(params[:id])
+    @resources = @challenge.resources
   end
 
   # GET /challenges/new
@@ -60,6 +62,17 @@ class ChallengesController < ApplicationController
     @challenge.destroy
     respond_to do |format|
       format.html { redirect_to project_challenges_url(@challenge.project_id), notice: 'Challenge was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def complete_challenge
+    @challenge = Challenge.find(params[:challenge_id])
+    completed_challenge = UserChallenge.where(user_id: current_user.id, challenge_id: @challenge.id).first_or_create!
+    completed_challenge.update_column(:status, "completed")
+    current_user.update_column(:points, @challenge.points)
+    respond_to do |format|
+      format.html { redirect_to project_challenges_path(@challenge.project_id), notice: 'Challenge has been completed.' }
       format.json { head :no_content }
     end
   end
