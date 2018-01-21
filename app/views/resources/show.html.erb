@@ -1,7 +1,7 @@
 <%= link_to '', challenge_resources_path(@resource.challenge_id), class: 'fa fa-arrow-left fa-lg' %>
 
 <hr>
-<h1 class="model-header"> @resource.name </h1>
+<h1 class="model-header"> <b>  <%= @resource.name %></b> </h1>
 <div id="accordion" role="tablist" aria-multiselectable="true">
   <disv class="card">
     <div class="card-header" role="tab" id="headingOne">
@@ -72,27 +72,7 @@
       </div>
     </div>
   </div>
-  <div class="card-block">
-    <h5>No. of Images:</h5>
-      <% if @resource.images.count > 0 %>
-        <p class="card-text"><%= @resource.images.count %></p>
-      <% else %>
-         <p class="card-text"> 0 </p>
-      <% end %>
-    <h5>No. of Documents:</h5>
-      <% if @resource.documents.count > 0 %>
-        <p class="card-text"><%= @resource.documents.count %></p>
-      <% else %>
-         <p class="card-text"> 0 </p>
-      <% end %>
-
-    <h5>No. of Videos:</h5>
-        <% if @resource.links.count > 0 %>
-         <p class="card-text"><%= @resource.links.count %></p>
-      <% else %>
-         <p class="card-text"> 0 </p>
-      <% end %>
-  </div>
+  
 </div>  
 <br><br>
 
