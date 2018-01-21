@@ -18,6 +18,8 @@ gem "paperclip", "~> 5.0.0.beta1"
 gem 'yt', '~> 0.13.7'
 gem 'autoprefixer-rails'
 gem "figaro"
+gem "chartkick"
+gem 'groupdate'
 
 
 group :development, :test do

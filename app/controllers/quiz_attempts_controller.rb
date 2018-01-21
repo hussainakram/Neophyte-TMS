@@ -43,7 +43,7 @@ class QuizAttemptsController < ApplicationController
         @quiz_attempt.set_correct_answers
         @quiz_attempt.set_attempted_answers
         @quiz_attempt.set_earned_marks
-        @quiz_attempt.update_column(:status, "completed")
+        @quiz_attempt.set_status
       else
         format.html { render :edit }
         format.json { render json: @quiz_attempt.errors, status: :unprocessable_entity }

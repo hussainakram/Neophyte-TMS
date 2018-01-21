@@ -23,4 +23,15 @@ class QuizAttempt < ApplicationRecord
   def set_earned_marks
     self.update_column(:earned_marks, self.correct_answers * 5)
   end
+
+  def set_status
+    pass_marks = (self.quiz.no_of_questions * 5)/2
+    if self.earned_marks > pass_marks
+      self.update_column(:status, "Passed")
+    elsif self.earned_marks < pass_marks
+      self.update_column(:status, "Failed")
+    else
+      self.update_column(:status, "Pending")
+    end
+  end
 end

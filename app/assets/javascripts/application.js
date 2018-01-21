@@ -19,4 +19,6 @@
 //= require_tree .
 //= require bootstrap
 //= require resource
-
+//= require Chart.bundle
+//= require chartkick
+//= require highcharts

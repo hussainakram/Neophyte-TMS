@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="container">
+    <div class="row">
+      <h2 class="col-md-7"><span class="user-name"><%= @user.name %></span>'s perfoamnce</h2>
+      <div class="level col-md-4" style="text-align: right;">
+        <%=  %><h3>Points: <%= @user.points %> <%= image_tag("Coin.png", style: 'width:30px') %></h3>
+      </div>
+    </div>
+    <hr class="dotted">
+    <div class="container challenge-graph">
+      <h3 class="graph-box">User Vs Challenges</h3>
+      <%= area_chart @user_challenges.group_by_day(:created_at).count %>
+      <%= pie_chart @user_challenges.group(:status).count %>
+    </div>
+    <hr class="faded">
+    <div class="container challenge-graph">
+      <h3 class="graph-box">User Vs Quizzes</h3>
+      <%= column_chart @user.quiz_attempts.group_by_day(:updated_at).count %>
+      <%= pie_chart @user.quiz_attempts.group(:status).count %>
+    </div>
+</div>
+</div>
