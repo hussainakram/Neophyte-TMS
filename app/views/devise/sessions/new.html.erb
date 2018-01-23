@@ -34,7 +34,7 @@
     </div>
 
 
-      <%= f.submit 'Sign in', :class => 'button right btn btn-primary btn-lg btn-block login-button' %>
+      <%= f.submit 'Sign in', :class => 'button right btn btn-secondary btn-lg btn-block login-button' %>
       <br>
 
       <% if devise_mapping.rememberable? -%>
@@ -45,7 +45,7 @@
         </div>
       <% end -%>
       <%- if devise_mapping.registerable? %>
-        <%= link_to 'Sign up', new_registration_path(resource_name), class: 'text-right form-link'  %>
+        <%= link_to 'Sign up', new_registration_path(resource_name), class: ' btn text-right form-link'  %>
       <% end -%>
     
 
