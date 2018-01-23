@@ -27,7 +27,7 @@
           <% end %>
         </td>
         <td><strong><%= link_to challenge.name, challenge %></strong></td>
-        <td><%= challenge.description.first(80) %></td>
+        <td><%= sanitize challenge.description.first(80) %></td>
         <td><%= challenge.duration %></td>
         <td><%= challenge.points %></td>
         <td style="width: 60px;">

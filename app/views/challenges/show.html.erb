@@ -18,7 +18,7 @@
     <div class="container">
       <h3>Description:</h3>
       <div>
-        <%= @challenge.description %>
+        <%= sanitize @challenge.description %>
       </div>
     </div>
     <div class="resources-box">

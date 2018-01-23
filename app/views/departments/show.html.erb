@@ -8,7 +8,7 @@
     <h5>Name:</h5>
     <p class="card-text"><%= @department.name %></p>
     <h5>Description:</h5>
-    <p class="card-text"><%= @department.description %></p>
+    <p class="card-text"><%= sanitize @department.description %></p>
 
   </div>
 </div>

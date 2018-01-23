@@ -16,7 +16,7 @@
     <% @departments.each do |department| %>
       <tr>
         <td><strong><%= link_to department.name, department %></strong></td>
-        <td><%= department.description %></td>
+        <td><%= sanitize department.description %></td>
         <td><%= link_to image_tag("next.png", class: 'next-icon'), department_projects_path(department) %></td>
         <% if current_user.admin? %>
           <td>
