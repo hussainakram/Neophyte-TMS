@@ -21,6 +21,7 @@ gem "figaro"
 gem "chartkick"
 gem 'groupdate'
 gem 'trix'
+gem 'faker'
 
 
 group :development, :test do
