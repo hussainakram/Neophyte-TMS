@@ -9,7 +9,7 @@
   </div>
   <div class="card-block">
     <h5>Description:</h5>
-    <p class="card-text"><%= @company.description %></p>
+    <p class="card-text"><%= sanitize @company.description %></p>
     <h5>Category:</h5>
     <p class="card-text"><%= @company.category %></p>
     <h5>Location:</h5>

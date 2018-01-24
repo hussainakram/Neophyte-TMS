@@ -5,10 +5,8 @@
     <%= link_to '', edit_department_path(@department), class: 'fa fa-edit fa-lg btn pull-right'if current_user.admin? %>
   </div>
   <div class="card-block">
-    <h5>Name:</h5>
-    <p class="card-text"><%= @department.name %></p>
     <h5>Description:</h5>
-    <p class="card-text"><%= @department.description %></p>
+    <p class="card-text"><%= sanitize @department.description %></p>
 
   </div>
 </div>

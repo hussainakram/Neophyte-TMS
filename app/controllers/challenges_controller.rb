@@ -72,7 +72,7 @@ class ChallengesController < ApplicationController
     completed_challenge.update_column(:status, "completed")
     current_user.update_column(:points, @challenge.points)
     respond_to do |format|
-      format.html { redirect_to project_challenges_path(@challenge.project_id), notice: 'Challenge has been completed.' }
+      format.html { redirect_to challenge_quizzes_path(@challenge.id), notice: 'Challenge has been completed.' }
       format.json { head :no_content }
     end
   end

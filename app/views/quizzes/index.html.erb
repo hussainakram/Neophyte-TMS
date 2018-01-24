@@ -1,6 +1,9 @@
 <%= link_to "", project_challenges_path(@challenge.project_id), class: 'btn fa fa-lg fa-arrow-left' %>
 <h1 class="model-header">Quizzes</h1>
 <% if @quizzes.count > 0 %>
+  <% if !current_user.admin? %>
+    <p>Now you are supposed to attempt these quizzes to proceed.</p>
+  <% end %>
   <table class="table table-responsive">
     <thead class="table-info">
       <tr>
@@ -19,7 +22,7 @@
       <% @quizzes.each do |quiz| %>
         <tr>
           <td>
-            <% if quiz.quiz_status(current_user) == "completed" %>
+            <% if quiz.quiz_status(current_user).present? %>
               <%= image_tag("completed.png", style: 'width: 35px;') %>
               <% else %>
                 <%= image_tag("cross.png", style: 'width: 35px;') %>
@@ -29,9 +32,7 @@
           <td><%= quiz.no_of_questions %></td>
           <td><%= quiz.time_allowed %></td>
           <td>
-            <% if quiz.quiz_status(current_user) == "completed" %>
-
-            <% else %>
+            <% if !quiz.quiz_status(current_user).present? %>
               <%= link_to image_tag("start.png", class: 'play-icon'), new_quiz_quiz_attempt_path(quiz.id) %>
             <% end %>
           </td>

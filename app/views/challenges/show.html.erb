@@ -16,9 +16,9 @@
       <hr class="dotted">
     </div>
     <div class="container">
-      <h3>Description:</h3>
+      <h3 style="font-family: serif;">Description:</h3>
       <div>
-        <%= @challenge.description %>
+        <%= sanitize @challenge.description %>
       </div>
     </div>
     <div class="resources-box">
