@@ -262,11 +262,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   devise_invitable (~> 1.7.0)
-<<<<<<< HEAD
-  faker (~> 1.6, >= 1.6.6)
-=======
   faker
->>>>>>> c5271d1e50a54884b74126630d1cc61c86e5e2b8
   figaro
   font-awesome-rails
   foreman
