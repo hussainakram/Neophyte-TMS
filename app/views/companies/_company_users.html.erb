@@ -22,7 +22,11 @@
           <tr>
             <td><strong><%= user.name %></strong></td>
             <td><%= user.email %></td>
-            <td><%= user.role %></td>
+            <% if user.role == 'admin' %>
+              <td style="color:green;"> <b><%= user.role %></b> </td>
+            <% else %>
+              <td><%= user.role %></td>
+            <% end %>
             <td><%= user.points %></td>
             <td><%= link_to image_tag("graph.png", style: 'width: 30px;'), company_user_graphs_path(@company.id, user_id: user.id), method: :get %></td>
           </tr>

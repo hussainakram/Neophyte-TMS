@@ -26,6 +26,7 @@ class QuizAttemptsController < ApplicationController
   def edit
     @quiz_attempt = QuizAttempt.find(params[:id])
     @quiz = Quiz.find(@quiz_attempt.quiz_id)
+    @quiz_attempt.update_column(:status, "Started")
   end
 
   # POST /quiz_attempts

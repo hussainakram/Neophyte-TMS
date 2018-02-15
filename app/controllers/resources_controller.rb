@@ -35,7 +35,7 @@ class ResourcesController < ApplicationController
     @resource = @challenge.resources.build(resource_params)
     respond_to do |format|
       if @resource.save
-        format.html { redirect_to @resource, notice: 'Resource was successfully created.' }
+        format.html { redirect_to challenge_resources_path(@challenge.id), notice: 'Resource was successfully created.' }
         format.json { render :show, status: :created, location: @resource }
       else
         format.html { render :new }
@@ -76,10 +76,10 @@ class ResourcesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def resource_params
-      
+
       params.require(:resource).permit(:challenge_id ,:name , images_attributes: [:id, :image, :_destroy], documents_attributes: [:id, :document, :_destroy], links_attributes: [:id, :link, :_destroy])
     end
 
 
-    
+
 end
