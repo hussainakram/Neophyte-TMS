@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :chatrooms do
+    resource :chatroom_users
+    resources :messages
+  end
   shallow do
     resources :companies do
       get 'user_graphs'
