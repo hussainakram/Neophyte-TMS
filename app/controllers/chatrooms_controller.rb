@@ -1,4 +1,5 @@
 class ChatroomsController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_chatroom, only: [:show, :edit, :update, :destroy]
 
   # GET /chatrooms
@@ -10,7 +11,7 @@ class ChatroomsController < ApplicationController
   # GET /chatrooms/1
   # GET /chatrooms/1.json
   def show
-    @messages = @chatroom.messages.order(created_at: :desc).limit(100).reverse
+    @messages = @chatroom.messages.order(created_at: :desc).limit(10).reverse
   end
 
   # GET /chatrooms/new
