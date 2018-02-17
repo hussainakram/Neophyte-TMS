@@ -8,6 +8,9 @@ class User < ApplicationRecord
   has_many :companies, through: :company_users
   has_many :user_challenges
   has_many :challenges, through: :user_challenges
+  has_many :chatroom_users
+  has_many :chatrooms, through: :chatroom_users
+  has_many :messages
 
   def set_default_role
     self.role ||= :admin

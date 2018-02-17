@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180119185010) do
+ActiveRecord::Schema.define(version: 20180215125022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,21 @@ ActiveRecord::Schema.define(version: 20180119185010) do
     t.bigint "resource_id"
     t.index ["project_id"], name: "index_challenges_on_project_id"
     t.index ["resource_id"], name: "index_challenges_on_resource_id"
+  end
+
+  create_table "chatroom_users", force: :cascade do |t|
+    t.bigint "chatroom_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chatroom_id"], name: "index_chatroom_users_on_chatroom_id"
+    t.index ["user_id"], name: "index_chatroom_users_on_user_id"
+  end
+
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "companies", force: :cascade do |t|
@@ -109,6 +124,16 @@ ActiveRecord::Schema.define(version: 20180119185010) do
     t.index ["resource_id"], name: "index_links_on_resource_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.bigint "chatroom_id"
+    t.bigint "user_id"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.text "description", default: ""
@@ -119,6 +144,16 @@ ActiveRecord::Schema.define(version: 20180119185010) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["department_id"], name: "index_projects_on_department_id"
+  end
+
+  create_table "question_attemps", force: :cascade do |t|
+    t.integer "selected_answer"
+    t.bigint "question_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_question_attemps_on_question_id"
+    t.index ["user_id"], name: "index_question_attemps_on_user_id"
   end
 
   create_table "question_attempts", force: :cascade do |t|
@@ -168,11 +203,62 @@ ActiveRecord::Schema.define(version: 20180119185010) do
     t.index ["quiz_attempt_id"], name: "index_quizzes_on_quiz_attempt_id"
   end
 
+  create_table "rapidfire_answers", force: :cascade do |t|
+    t.bigint "attempt_id"
+    t.bigint "question_id"
+    t.text "answer_text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["attempt_id"], name: "index_rapidfire_answers_on_attempt_id"
+    t.index ["question_id"], name: "index_rapidfire_answers_on_question_id"
+  end
+
+  create_table "rapidfire_attempts", force: :cascade do |t|
+    t.bigint "survey_id"
+    t.string "user_type"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["survey_id"], name: "index_rapidfire_attempts_on_survey_id"
+    t.index ["user_id", "user_type"], name: "index_rapidfire_attempts_on_user_id_and_user_type"
+    t.index ["user_type", "user_id"], name: "index_rapidfire_attempts_on_user_type_and_user_id"
+  end
+
+  create_table "rapidfire_questions", force: :cascade do |t|
+    t.bigint "survey_id"
+    t.string "type"
+    t.string "question_text"
+    t.string "default_text"
+    t.string "placeholder"
+    t.integer "position"
+    t.text "answer_options"
+    t.text "validation_rules"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["survey_id"], name: "index_rapidfire_questions_on_survey_id"
+  end
+
+  create_table "rapidfire_surveys", force: :cascade do |t|
+    t.string "name"
+    t.text "introduction"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "resources", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.bigint "challenge_id"
+    t.string "document_file_name"
+    t.string "document_content_type"
+    t.integer "document_file_size"
+    t.datetime "document_updated_at"
+    t.string "link"
     t.index ["challenge_id"], name: "index_resources_on_challenge_id"
   end
 
@@ -228,6 +314,12 @@ ActiveRecord::Schema.define(version: 20180119185010) do
   end
 
   add_foreign_key "answers", "questions"
+  add_foreign_key "chatroom_users", "chatrooms"
+  add_foreign_key "chatroom_users", "users"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
+  add_foreign_key "question_attemps", "questions"
+  add_foreign_key "question_attemps", "users"
   add_foreign_key "question_attempts", "questions"
   add_foreign_key "question_attempts", "quiz_attempts"
   add_foreign_key "user_challenges", "challenges"
