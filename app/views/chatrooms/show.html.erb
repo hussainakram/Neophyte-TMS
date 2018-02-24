@@ -1,28 +1,14 @@
-<div class="row">
-  <div class="col-md-2">
-    <% if user_signed_in? %>
-      <h5>Chatrooms</h5>
-      <ul>
-        <% current_user.chatrooms.each do |chatroom| %>
-          <li><%= link_to chatroom.name, chatroom, data: {behavior: "chatroom-link", chatroom_id: chatroom.id} %></li>
-        <% end %>
-      </ul>
+<p>
+  <strong>Name:</strong>
+  <%= @chatroom.name %>
+</p>
+<div data-behavior='messages' data-chatroom-id = '<%= @chatroom.id %>'>
+    <% @messages.each do |message|  %>
+      <%= render message %>
     <% end %>
-  </div>
-  <div class="col-md-8">
-    <p>
-      <strong>Name:</strong>
-      <%= @chatroom.name %>
-    </p>
-    <div data-behavior='messages' data-chatroom-id = '<%= @chatroom.id %>'>
-      <% @messages.each do |message|  %>
-        <%= render message %>
-      <% end %>
-    </div>
-    <%= form_for [@chatroom, Message.new], html: { remote: true } do |f| %>
-      <%= f.text_area :body, rows: 1, class: 'form-control', autofocus: true %>
-    <% end %>
-    <%= link_to 'Edit', edit_chatroom_path(@chatroom) %> |
-    <%= link_to 'Back', chatrooms_path %>
-  </div>
 </div>
+<%= form_for [@chatroom, Message.new], html: { remote: true } do |f| %>
+  <%= f.text_area :body, rows: 1, class: 'form-control', autofocus: true %>
+<% end %>
+<%= link_to 'Edit', edit_chatroom_path(@chatroom) %> |
+<%= link_to 'Back', chatrooms_path %>
