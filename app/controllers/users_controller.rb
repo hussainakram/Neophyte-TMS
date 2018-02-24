@@ -28,4 +28,12 @@ class UsersController < ApplicationController
     @user_challenges = @user.user_challenges
   end
 
+  def usr_projects
+    
+  end
+
+  def usr_challenges
+    
+  end
+
 end

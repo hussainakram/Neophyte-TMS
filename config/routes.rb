@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get 'dashboard/index'
   resources :users do
     get 'graphs'
+    get 'usr_projects'
+    get 'usr_challenges'
   end
 
   resources :chatrooms do
