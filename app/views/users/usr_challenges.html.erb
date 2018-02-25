@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="container">
+    <div class="row">
+      <h2 class="col-md-7"><span class="user-name"><%= @user.name %></span>'s Completed Challenges </h2>
+      <div class="level col-md-4" style="text-align: right;">
+        <h3> <%= @challenges.count  %> </h3>
+      </div>
+    </div>
+<hr class="dotted">
+<table class="table table-responsive table-hover ">
+  <thead class= "table-info">
+    <tr>
+      <th>Name</th>
+      <th>Duration</th>
+      <th>Points</th>
+      <th>Quizzes</th>
+      <th>Resources</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @challenges.each do |challenge| %>
+      <tr>
+        <td><strong><%= link_to challenge.name, challenge %></strong></td>
+        <td><%= challenge.duration %></td>
+        <td><%= challenge.points %></td>
+        <td style="width: 60px;">
+          <%= link_to image_tag('quiz.png'), challenge_quizzes_path(challenge) %>
+        </td>
+          <td style="width: 100px; height:60px;">
+            <%= link_to image_tag('res.png'), challenge_resources_path(challenge) %>
+          </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>

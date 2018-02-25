@@ -33,7 +33,8 @@ class UsersController < ApplicationController
   end
 
   def usr_challenges
-    
+    @user = User.find(params[:user_id])
+    @challenges= @user.challenges.all
   end
 
 end
