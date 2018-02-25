@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   get 'dashboard/index'
-  resources :users do
-    get 'graphs'
-    get 'usr_projects'
-    get 'usr_challenges'
-  end
+  get 'users/all_users'
+  get 'users/graphs'
+  get 'users/usr_projects'
+  get 'users/usr_challenges'
+  
 
   resources :chatrooms do
     resource :chatroom_users

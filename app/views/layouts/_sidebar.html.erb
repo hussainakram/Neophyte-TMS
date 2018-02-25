@@ -4,16 +4,17 @@
         
             <%= link_to "  Dashboard", dashboard_index_path, class: " fa fa-dashboard list-group-item d-inline-block collapsed", 'data-parent' => '#sidebar' %>
             <%= link_to "  My Companies", companies_path, class: "fa fa-building list-group-item d-inline-block collapsed", 'data-parent' => '#sidebar' %>
-            <%= link_to "  My Projects", user_usr_projects_path(user_id: current_user.id), class: "fa fa-product-hunt list-group-item d-inline-block collapsed", 'data-parent' => '#sidebar' %>
+            <%= link_to "  My Projects", users_usr_projects_path(user_id: current_user.id), class: "fa fa-product-hunt list-group-item d-inline-block collapsed", 'data-parent' => '#sidebar' %>
             <% if current_user.role == 'admin' %>
-                <%= link_to "  Employees Performance", users_path, class: "fa fa-bar-chart list-group-item d-inline-block collapsed", 'data-parent' => '#sidebar' %>
+                <%= link_to "  Employees Performance", users_all_users_path, class: "fa fa-bar-chart list-group-item d-inline-block collapsed", 'data-parent' => '#sidebar' %>
 
             <% elsif current_user.role == 'trainer' %>
-                <%= link_to "  Employees Performance", users_path, class: "fa fa-bar-chart list-group-item d-inline-block collapsed", 'data-parent' => '#sidebar' %>
-                 <%= link_to "  My Performance", user_graphs_path(user_id: current_user.id), class: "list-group-item d-inline-block collapsed", 'data-parent' => '#sidebar' %>
+                <%= link_to "  Employees Performance", users_all_users_path, class: "fa fa-bar-chart list-group-item d-inline-block collapsed", 'data-parent' => '#sidebar' %>
+                 <%= link_to "  My Performance", users_graphs_path(user_id: current_user.id), class: "list-group-item d-inline-block collapsed", 'data-parent' => '#sidebar' %>
             <% else %>
-                <%= link_to "  My Performance", user_graphs_path(user_id: current_user.id), class: "fa fa-bar-chart list-group-item d-inline-block collapsed", 'data-parent' => '#sidebar' %>
-                <%= link_to "  My Completed Challenges",user_usr_challenges_path(user_id: current_user.id) , class: "fa fa-hourglass-start list-group-item d-inline-block collapsed", 'data-parent' => '#sidebar' %>
+                <%= link_to "  My Performance", users_graphs_path(user_id: current_user.id), class: "fa fa-bar-chart list-group-item d-inline-block collapsed", 'data-parent' => '#sidebar' %>
+                
+                <%= link_to "  My Completed Challenges",users_usr_challenges_path(user_id: current_user.id) , class: "fa fa-hourglass-start list-group-item d-inline-block collapsed", 'data-parent' => '#sidebar' %>
             <% end %>
             
                 <a href="#menu3" class="list-group-item d-inline-block collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i class="fa fa-comment"></i> <span class="d-none d-md-inline"> My Chatrooms </span></a>
