@@ -33,6 +33,7 @@ class ProjectsController < ApplicationController
       if @project.save
         format.html { redirect_to project_challenges_path(@project.id), notice: 'Project was successfully created.' }
         format.json { render :show, status: :created, location: @project }
+        @project.user_projects.create(user_id: current_user.id);
       else
         format.html { render :new }
         format.json { render json: @project.errors, status: :unprocessable_entity }
