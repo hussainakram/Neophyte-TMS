@@ -1,20 +1,6 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-2">
-      <% if user_signed_in? %>
-        <h5>Chatrooms</h5>
-        <ul>
-          <% current_user.chatrooms.each do |chatroom| %>
-            <li><%= link_to chatroom.name, chatroom %></li>
-          <% end %>
-        </ul>
-      <% end %>
-    </div>
-    <div class="col-md-8">
-      <p id="notice"><%= notice %></p>
-
-      <h1>Chatrooms</h1>
-
+  <p id="notice"><%= notice %></p>
+    <h1>Chatrooms</h1>
       <table>
         <thead>
           <tr>
@@ -39,6 +25,4 @@
       <br>
 
       <%= link_to 'New Chatroom', new_chatroom_path %>
-    </div>
-  </div>
 </div>

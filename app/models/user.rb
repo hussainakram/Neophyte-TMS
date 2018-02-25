@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   enum role: [:trainee, :trainer, :admin]
   after_initialize :set_default_role, if: :new_record?
-  has_many :projects
+  has_many :user_projects
+  has_many :projects, through: :user_projects
   has_many :quizzes, through: :quiz_attempts
   has_many :quiz_attempts
   has_many :company_users

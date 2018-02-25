@@ -22,6 +22,7 @@ gem "chartkick"
 gem 'groupdate'
 gem 'trix'
 gem 'faker'
+gem 'slim-rails'
 
 
 group :development, :test do
