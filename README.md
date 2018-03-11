@@ -3,7 +3,7 @@ Neophyte TMS
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://neophyte-tms.herokuapp.com/)
 <a href="https://aimeos.org/">
-    <img src="https://ne...../icons/logo.png" alt="Neophyte-TMS logo" title="Neophyte TMS" align="right" height="60" />
+    <img src="https://Neophyte-TMS/app/assets/images/logo.png" alt="Neophyte-TMS logo" title="Neophyte TMS" align="right" height="60" />
 </a>
 
 Description
