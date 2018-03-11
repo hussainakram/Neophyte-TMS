@@ -53,7 +53,6 @@ All set and now to start server run ```rails server```.
 
 
 ## Problems? Issues?
-----------------
 
 Need help? Ask on Stack Overflow with the tag 'railsapps.'
 
@@ -64,17 +63,15 @@ and include the diagnostics.
 
 
 ## Documentation and Support
--------------------------
 
 ## Similar Projects
-----------------
 
 ## Contributing
-------------
+
 Please read [CONTRIBUTING.md](https://github.com/hussainakram/Neophyte-TMS/blob/master/Contributing.md) for details on our code of conduct, and the process for submitting pull requests to us.
 ## Credits
--------
+
 
 ## License
--------
+
 # Neophyte-TMS
