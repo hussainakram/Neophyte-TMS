@@ -18,6 +18,7 @@ In Neophyte-TMS, company is divided into different departments that will contain
     - [Prerequisites](#Prerequisites)
     - [Installion](#Installion)
 - [Problems? Issues?](#Problems? Issues?)
+-[Similar Projects](#Similar Projects)
 - [License](#license)
 - [Links](#links)
 
@@ -25,10 +26,10 @@ In Neophyte-TMS, company is divided into different departments that will contain
 ## Getting Started
 To run this application on your system, you need to follow these instructions.
 
-## Prerequisites
+### Prerequisites
 First make sure you have [RVM](https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-on-ubuntu-14-04-using-rvm) and [PostgreSQL](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-14-04) intstalled on your machine and the specified version of Ruby.
 
-## Installion
+### Installion
 
 This application requires:
 
@@ -51,7 +52,7 @@ bundle install
 All set and now to start server run ```rails server```.
 
 
-Problems? Issues?
+## Problems? Issues?
 ----------------
 
 Need help? Ask on Stack Overflow with the tag 'railsapps.'
@@ -62,21 +63,18 @@ If the application doesn't work as expected, please [report an issue](https://gi
 and include the diagnostics.
 
 
-Documentation and Support
+## Documentation and Support
 -------------------------
 
-Issues
--------------
-
-Similar Projects
+## Similar Projects
 ----------------
 
-Contributing
+## Contributing
 ------------
-
-Credits
+Please read [CONTRIBUTING.md](https://github.com/hussainakram/Neophyte-TMS/blob/master/Contributing.md) for details on our code of conduct, and the process for submitting pull requests to us.
+## Credits
 -------
 
-License
+## License
 -------
 # Neophyte-TMS
