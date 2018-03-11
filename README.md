@@ -23,14 +23,12 @@ In Neophyte-TMS, company is divided into different departments that will contain
 
 
 ## Getting Started
--------------------
 To run this application on your system, you need to follow these instructions.
 
 ## Prerequisites
 First make sure you have [RVM](https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-on-ubuntu-14-04-using-rvm) and [PostgreSQL](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-14-04) intstalled on your machine and the specified version of Ruby.
 
 ## Installion
--------------
 
 This application requires:
 
@@ -54,7 +52,7 @@ All set and now to start server run ```rails server```.
 
 
 Problems? Issues?
------------
+----------------
 
 Need help? Ask on Stack Overflow with the tag 'railsapps.'
 
@@ -81,4 +79,4 @@ Credits
 
 License
 -------
-# neophyte-lms
+# Neophyte-TMS
