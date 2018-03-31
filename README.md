@@ -18,7 +18,7 @@ In Neophyte-TMS, company is divided into different departments that will contain
     - [Prerequisites](#prerequisites)
     - [Installion](#installion)
  - [Problems? Issues?](#problems?issues?)
- -[Gems and APIs](#gemsandapis)
+ - [Gems and APIs](#gemsandapis)
  - [Documentation and Support](#documentationandsupport)
  - [Similar Projects](#similarprojects)
  - [Contributing](#contributing)
@@ -65,8 +65,8 @@ Your application contains diagnostics in the README file. Please provide a copy 
 If the application doesn't work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
 and include the diagnostics.
 
-## Gems And APIs
- # Gems
+# Gems And APIs
+ ## Gems
 We are using libraries of Ruby on Rails such as
 - **Shoulda** is a gem that allows you to create more understandable tests
 for your Ruby application. Shoulda allows you to provide context to
