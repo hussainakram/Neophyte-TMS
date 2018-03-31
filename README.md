@@ -64,7 +64,7 @@ Your application contains diagnostics in the README file. Please provide a copy 
 If the application doesn't work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
 and include the diagnostics.
 
-# Gems And APIs
+## Gems and APIs
  ### Gems
 We are using libraries of Ruby on Rails such as
 - **Shoulda** is a gem that allows you to create more understandable tests
