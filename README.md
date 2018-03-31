@@ -24,7 +24,6 @@ In Neophyte-TMS, company is divided into different departments that will contain
  - [Contributing](#contributing)
  - [Credits](#credits)
 - [License](#license)
-- [Links](#links)
 
 
 ## Getting Started
@@ -66,7 +65,7 @@ If the application doesn't work as expected, please [report an issue](https://gi
 and include the diagnostics.
 
 # Gems And APIs
- ## Gems
+ ### Gems
 We are using libraries of Ruby on Rails such as
 - **Shoulda** is a gem that allows you to create more understandable tests
 for your Ruby application. Shoulda allows you to provide context to
@@ -97,7 +96,7 @@ and install the gems and all child dependencies specified in this manifest.
 It can manage any update to the gem manifest file and update
 the bundle’s gems accordingly. It also lets you run any ruby code in
 context of the bundle’s gem environment
-## APIs
+### APIs
 - **Google APIs** support most modern sites online. From analytics, to
 the advertising exchange, maps, to Google+ shares, chances are, most
 sites are using a Google API. Currently, 57 APIs are available from
