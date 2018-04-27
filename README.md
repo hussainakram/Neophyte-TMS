@@ -18,6 +18,7 @@ In Neophyte-TMS, company is divided into different departments that will contain
     - [Prerequisites](#prerequisites)
     - [Installion](#installion)
  - [Problems? Issues?](#problems?issues?)
+ -[Features](#features)
  - [Gems and APIs](#gemsandapis)
  - [Documentation and Support](#documentationandsupport)
  - [Similar Projects](#similarprojects)
@@ -63,6 +64,38 @@ Your application contains diagnostics in the README file. Please provide a copy 
 
 If the application doesn't work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
 and include the diagnostics.
+## Features
+A system that possesses following features:
+• Capability of guiding new comers about the projects and all the related
+knowledge one should have.
+• Train new employees till they become able to get their hands on the
+projects.
+• Automatically redistribute these guidelines/Steps in the format of written
+text in audio format so Employees/Trainees would be able to multitask.
+• Assign Task to trainee and set due date for each project.
+• Conduct meetings between senior and junior employees and among juniors
+automatically. Automatically synchronize appointments to their
+calendar depending on their availability
+• A periodically evaluation system for all juniors that will rate them on
+the basis of their work progress.
+• Graphical representation of progress of our overall project on the basis
+of deliverable and time.
+• Post any idea or file on the Board that could be helpful for other
+trainees.
+• Chat/Discussion room for Trainees/Employees to discuss ideas or to
+help each other plus they would be able to send direct messages to
+each other.
+• Trainees/Employees would be able to check the deadlines of the upcoming
+tasks.
+• Notifier tells you about new comments, messages, and chats.
+• Set Reminders to get notified of upcoming tasks
+• Trainees/Employees can set work hours so notifications are not sent on
+weekends.
+• Latest activity Feature to keep track of all the activities happening.
+• Search Option to search the tasks completed or document uploaded by
+some Employee
+• Reports to check whats on someone’s plate and what they have been
+up recently
 
 ## Gems and APIs
  ### Gems
