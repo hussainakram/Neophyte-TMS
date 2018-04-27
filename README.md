@@ -18,7 +18,7 @@ In Neophyte-TMS, company is divided into different departments that will contain
     - [Prerequisites](#prerequisites)
     - [Installion](#installion)
  - [Problems? Issues?](#problems?issues?)
- -[Features](#features)
+ - [Features](#features)
  - [Gems and APIs](#gemsandapis)
  - [Documentation and Support](#documentationandsupport)
  - [Similar Projects](#similarprojects)
