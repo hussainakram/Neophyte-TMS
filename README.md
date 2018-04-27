@@ -65,7 +65,7 @@ Your application contains diagnostics in the README file. Please provide a copy 
 If the application doesn't work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
 and include the diagnostics.
 ## Features
-A system that possesses following features:
+The system that possesses following features:
 - Capability of guiding new comers about the projects and all the related
 knowledge one should have.
 - Train new employees till they become able to get their hands on the
