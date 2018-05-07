@@ -9,7 +9,6 @@
   <% else %>
     <div class="container jumbo-image home_page">
     </div>
-    <hr class="dotted">
 <% end %>
 
 <% if !user_signed_in? %>
@@ -37,21 +36,23 @@
 </div>
 <br>
 
-<div class="row">
-    <div class="col-md-4">
-      <%= image_tag "progress.jpg", class: "img-thumbnail feature" %>
-      <br>
-      <h3 class="text-center">Mark Progress</h3>
-    </div>
-    <div class="col-md-4">
-      <%= image_tag "badge.jpg", class: 'img-thumbnail feature' %>
-      <br>
-      <h3 class="text-center">Assign Badges</h3>
-    </div>
-    <div class="col-md-4">
-      <%= image_tag "Report.jpg", class: "img-thumbnail feature" %>
-      <br>
-      <h3 class="text-center">Show Reports</h3>
+  <div class="container three-steps">
+    <div class="row">
+      <div class="col-md-4">
+        <%= image_tag "progress.jpg", class: "img-thumbnail feature" %>
+        <br>
+        <h3 class="text-center">Mark Progress</h3>
+      </div>
+      <div class="col-md-4">
+        <%= image_tag "badge.jpg", class: 'img-thumbnail feature' %>
+        <br>
+        <h3 class="text-center">Assign Badges</h3>
+      </div>
+      <div class="col-md-4">
+        <%= image_tag "Report.jpg", class: "img-thumbnail feature" %>
+        <br>
+        <h3 class="text-center">Show Reports</h3>
+      </div>
     </div>
   </div>
 
@@ -102,8 +103,10 @@
       </div>
     </div>
   </section>
-
 <% end %>
+<footer class="bottom">
+  <%= render 'layouts/footer' %>
+</footer>
 
 
 
