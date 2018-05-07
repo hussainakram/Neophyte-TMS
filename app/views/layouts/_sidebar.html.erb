@@ -15,7 +15,7 @@
           <%= link_to "  My Completed Challenges",users_usr_challenges_path(user_id: current_user.id) , class: "fa fa-hourglass-start list-group-item d-inline-block collapsed", 'data-parent' => '#sidebar' %>
       <% end %>
       <a href="#menu3" class="list-group-item d-inline-block collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false">
-        <i class="fa fa-comment"></i>Chat Rooms
+        <i class="fa fa-comment"></i>My Chat Rooms
         <span class="d-none d-md-inline"></span>
      </a>
       <div class="collapse" id="menu3">
@@ -23,6 +23,9 @@
               <%= link_to chatroom.name, chatroom, class: "list-group-item", 'data-parent' => '#sidebar' %>
           <% end %>
       </div>
+      <% if current_user.chatrooms.count == 0 %>
+        <%= link_to "  All Chat Rooms", chatrooms_path, class: " list-group-item d-inline-block collapsed", 'data-parent' => '#sidebar' %>
+      <% end %>
     </div>
   </div>
 </div>

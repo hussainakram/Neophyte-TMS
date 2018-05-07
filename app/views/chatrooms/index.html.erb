@@ -17,7 +17,7 @@
                 <%= link_to 'Show', chatroom, class: 'btn btn-sm btn-dark' %>
                 <%= link_to 'Edit', edit_chatroom_path(chatroom), class: 'btn btn-sm btn-secondary' %>
                 <%= link_to 'Destroy', chatroom, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
-                <%= link_to 'Join', chatroom_chatroom_users_path(chatroom), method: :post, class: 'btn btn-sm btn-info' %>
+                <%= link_to 'Join', chatroom_chatroom_users_path(chatroom), method: :post, class: 'btn btn-sm btn-info' if !chatroom.joined?(current_user) %>
                 <%= link_to 'Leave', chatroom_chatroom_users_path(chatroom), method: :delete, class: 'btn btn-sm btn-warning' %>
               </td>
             </tr>
