@@ -35,6 +35,9 @@
   width: 100%;
 }
 
+div a:visited {
+  color: white !important;
+}
 
 .home_brain {
   width: 330px;
@@ -91,13 +94,20 @@ main {
 
 .navbar {
   background-color: #33383c;
-  border-radius: 7px;
   .sign-in-up-button {
     color: white !important;
   }
   a {
     color: #c6c9ce;
   }
+}
+
+.form-inline{
+  margin-right: 150px;
+}
+
+.navbar-brand{
+  margin-left: 150px;
 }
 
 .footer {
