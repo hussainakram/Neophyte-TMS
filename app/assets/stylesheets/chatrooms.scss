@@ -1,3 +1,14 @@
 // Place all the styles related to the Chatrooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.chatroom-name{
+  margin-top: 10px;
+  font-family: initial;
+  text-align: center;
+  background-color: #f8ff91e0;
+  margin-bottom: 15px;
+  border-left: 15px solid #285f80e3;
+  border-right: 15px solid #285f80e3;
+  border-radius: 5px;
+}

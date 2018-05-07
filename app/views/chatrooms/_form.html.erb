@@ -1,9 +1,11 @@
 <%= semantic_form_for @chatroom do |f| %>
-  <%= f.inputs do %>
-    <%= f.input :name %>
-  <% end %>
-
-  <%= f.actions do %>
-    <%= f.action :submit, :as => :input %>
-  <% end %>
+  <form>
+    <div class="form-group col-md-3">
+      <%= f.label :name %>
+      <%= f.text_field :name , class: "form-control"%>
+    </div>
+    <div class="form-group">
+      <%= f.submit "Create", class: "btn btn-sm btn-success offset-md-2" %>
+    </div>
+  </form>
 <% end %>

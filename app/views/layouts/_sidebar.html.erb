@@ -1,31 +1,28 @@
 <div class="row d-flex d-md-block flex-nowrap wrapper">
-    <div class="col-md-3 float-left col-1 pl-0 pr-0 collapse width show" id="sidebar">
-        <div class="list-group border-0 card text-center text-md-left">
-        
-            <%= link_to "  Dashboard", dashboard_index_path, class: " fa fa-dashboard list-group-item d-inline-block collapsed", 'data-parent' => '#sidebar' %>
-            <%= link_to "  My Companies", companies_path, class: "fa fa-building list-group-item d-inline-block collapsed", 'data-parent' => '#sidebar' %>
-            <%= link_to "  My Projects", users_usr_projects_path(user_id: current_user.id), class: "fa fa-product-hunt list-group-item d-inline-block collapsed", 'data-parent' => '#sidebar' %>
-            <% if current_user.role == 'admin' %>
-                <%= link_to "  Employees Performance", users_all_users_path, class: "fa fa-bar-chart list-group-item d-inline-block collapsed", 'data-parent' => '#sidebar' %>
+  <div class="col-md-3 float-left col-1 pl-0 pr-0 collapse width show" id="sidebar">
+    <div class="list-group border-0 card text-center text-md-left">
+      <%= link_to "  Dashboard", dashboard_index_path, class: " fa fa-dashboard list-group-item d-inline-block collapsed", 'data-parent' => '#sidebar' %>
+      <%= link_to "  My Companies", companies_path, class: "fa fa-building list-group-item d-inline-block collapsed", 'data-parent' => '#sidebar' %>
+      <%= link_to "  My Projects", users_usr_projects_path(user_id: current_user.id), class: "fa fa-product-hunt list-group-item d-inline-block collapsed", 'data-parent' => '#sidebar' %>
+      <% if current_user.role == 'admin' %>
+          <%= link_to "  Employees Performance", users_all_users_path, class: "fa fa-bar-chart list-group-item d-inline-block collapsed", 'data-parent' => '#sidebar' %>
+      <% elsif current_user.role == 'trainer' %>
+          <%= link_to "  Employees Performance", users_all_users_path, class: "fa fa-bar-chart list-group-item d-inline-block collapsed", 'data-parent' => '#sidebar' %>
+           <%= link_to "  My Performance", users_graphs_path(user_id: current_user.id), class: "list-group-item d-inline-block collapsed", 'data-parent' => '#sidebar' %>
+      <% else %>
+          <%= link_to "  My Performance", users_graphs_path(user_id: current_user.id), class: "fa fa-bar-chart list-group-item d-inline-block collapsed", 'data-parent' => '#sidebar' %>
 
-            <% elsif current_user.role == 'trainer' %>
-                <%= link_to "  Employees Performance", users_all_users_path, class: "fa fa-bar-chart list-group-item d-inline-block collapsed", 'data-parent' => '#sidebar' %>
-                 <%= link_to "  My Performance", users_graphs_path(user_id: current_user.id), class: "list-group-item d-inline-block collapsed", 'data-parent' => '#sidebar' %>
-            <% else %>
-                <%= link_to "  My Performance", users_graphs_path(user_id: current_user.id), class: "fa fa-bar-chart list-group-item d-inline-block collapsed", 'data-parent' => '#sidebar' %>
-                
-                <%= link_to "  My Completed Challenges",users_usr_challenges_path(user_id: current_user.id) , class: "fa fa-hourglass-start list-group-item d-inline-block collapsed", 'data-parent' => '#sidebar' %>
-            <% end %>
-            
-                <a href="#menu3" class="list-group-item d-inline-block collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false"><i class="fa fa-comment"></i> <span class="d-none d-md-inline"> My Chatrooms </span></a>
-
-                <div class="collapse" id="menu3">
-                    <% current_user.chatrooms.each do |chatroom| %>
-                        <%= link_to chatroom.name, chatroom, class: "list-group-item", 'data-parent' => '#sidebar' %>
-                    <% end %>
-            
-                </div>
-
-        </div>
+          <%= link_to "  My Completed Challenges",users_usr_challenges_path(user_id: current_user.id) , class: "fa fa-hourglass-start list-group-item d-inline-block collapsed", 'data-parent' => '#sidebar' %>
+      <% end %>
+      <a href="#menu3" class="list-group-item d-inline-block collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false">
+        <i class="fa fa-comment"></i>Chat Rooms
+        <span class="d-none d-md-inline"></span>
+     </a>
+      <div class="collapse" id="menu3">
+          <% current_user.chatrooms.each do |chatroom| %>
+              <%= link_to chatroom.name, chatroom, class: "list-group-item", 'data-parent' => '#sidebar' %>
+          <% end %>
+      </div>
     </div>
+  </div>
 </div>
