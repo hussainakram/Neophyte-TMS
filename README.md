@@ -18,12 +18,13 @@ In Neophyte-TMS, company is divided into different departments that will contain
     - [Prerequisites](#prerequisites)
     - [Installion](#installion)
  - [Problems? Issues?](#problems?issues?)
+ - [Features](#features)
+ - [Gems and APIs](#gemsandapis)
  - [Documentation and Support](#documentationandsupport)
  - [Similar Projects](#similarprojects)
  - [Contributing](#contributing)
  - [Credits](#credits)
 - [License](#license)
-- [Links](#links)
 
 
 ## Getting Started
@@ -63,8 +64,94 @@ Your application contains diagnostics in the README file. Please provide a copy 
 
 If the application doesn't work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
 and include the diagnostics.
+## Features
+The system that possesses following features:
+- Capability of guiding new comers about the projects and all the related
+knowledge one should have.
+- Train new employees till they become able to get their hands on the
+projects.
+- Automatically redistribute these guidelines/Steps in the format of written
+text in audio format so Employees/Trainees would be able to multitask.
+- Assign Task to trainee and set due date for each project.
+- Conduct meetings between senior and junior employees and among juniors
+automatically. Automatically synchronize appointments to their
+calendar depending on their availability
+- A periodically evaluation system for all juniors that will rate them on
+the basis of their work progress.
+- Graphical representation of progress of our overall project on the basis
+of deliverable and time.
+- Post any idea or file on the Board that could be helpful for other
+trainees.
+- Chat/Discussion room for Trainees/Employees to discuss ideas or to
+help each other plus they would be able to send direct messages to
+each other.
+- Trainees/Employees would be able to check the deadlines of the upcoming
+tasks.
+- Notifier tells you about new comments, messages, and chats.
+- Set Reminders to get notified of upcoming tasks
+- Trainees/Employees can set work hours so notifications are not sent on
+weekends.
+- Latest activity Feature to keep track of all the activities happening.
+- Search Option to search the tasks completed or document uploaded by
+some Employee
+- Reports to check whats on someone’s plate and what they have been
+up recently
 
-
+## Gems and APIs
+ ### Gems
+We are using libraries of Ruby on Rails such as
+- **Shoulda** is a gem that allows you to create more understandable tests
+for your Ruby application. Shoulda allows you to provide context to
+your tests enabling you to categorize tests according to a specific feature
+or scenario you’re testing
+- **Factory_Girl** provides a framework and DSL for defining and using
+factories - less error-prone, more explicit, and all-around easier to work
+with than fixtures. It has straightforward definition syntax, support for
+multiple build strategies (saved instances, unsaved instances, attribute
+hashes, and stubbed objects), and support for multiple factories for the
+same class (user, admin user, and so on), including factory inheritance.
+- **CanCan** is an authorization library for Ruby on Rails which restricts
+what resources a given user is allowed to access and is decoupled from
+user roles. All permissions are stored in a single location and not duplicated
+across controllers, views, and database queries.
+- **Nokogiri** is an HTML, XML, SAX, and Reader parser. Among Nokogiris
+many features is the ability to search documents via XPath or
+CSS3 selectors. Nokogiri parses and searches XML/HTML very quickly,
+and also has correctly implemented CSS3 selector support as well as
+XPath support.
+- **Sass** makes CSS fun again. Sass is an extension of CSS3, adding nested
+rules, variables, mixins, selector inheritance, and more. Its translated
+to well-formatted, standard CSS using the command line tool or a webframework
+plugin
+- **Bundler** is a tool that manages gem dependencies for your ruby application.
+It takes a gem manifest file and is able to fetch, download,
+and install the gems and all child dependencies specified in this manifest.
+It can manage any update to the gem manifest file and update
+the bundle’s gems accordingly. It also lets you run any ruby code in
+context of the bundle’s gem environment
+### APIs
+- **Google APIs** support most modern sites online. From analytics, to
+the advertising exchange, maps, to Google+ shares, chances are, most
+sites are using a Google API. Currently, 57 APIs are available from
+Google, as well as a number of other developer tools
+- **Facebook** offers APIs for working with Credits, Ads, Chat, and more,
+including a couple of legacy APIs that are no longer actively supported.
+Also found here is the Graph API, which is the backbone of the Facebook
+Platform, and enables your app to read and write data to Facebook.
+- **FullContact** provides information about the person behind an email
+address. From that one piece of data you can determine full name, age,
+location, gender and social network accounts. The service also accepts
+as input Twitter username, Facebook ID, or phone number in place of
+email address. You won’t find a trove of data for every single email
+address, but in many cases you’ll find enough to determine the user’s
+company and their social influence.
+- **SendGrid** was the first to bring transactional email to developers.
+Its offering has since expanded beyond email delivery to include realtime
+email data (via webhook), triggered responses, and even some
+marketing features. At the very least, any app with user accounts
+or ecommerce will need to send transactional email. SendGrid has
+plenty of competitors, but the most well-known is likely MailChimp’s
+Mandrill.
 ## Documentation and Support
 
 ## Similar Projects
