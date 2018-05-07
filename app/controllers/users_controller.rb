@@ -17,14 +17,14 @@ class UsersController < ApplicationController
   end
 
   def index
-    
+
   end
 
   def show
   end
 
   def all_users
-    @users = User.all
+    @users = User.all.sort{|a,b| b.points <=> a.points}
   end
 
   def graphs
