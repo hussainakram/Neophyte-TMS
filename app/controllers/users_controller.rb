@@ -24,7 +24,8 @@ class UsersController < ApplicationController
   end
 
   def all_users
-    @users = User.all.sort{|a,b| b.points <=> a.points}
+    @users = current_user.companies.first.users
+    @users = @users.sort{|a,b| b.points <=> a.points}
   end
 
   def graphs
